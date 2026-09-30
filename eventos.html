@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventos Privados - Le Château Gourmet</title>
+
+    <!-- =====================================================
+         FUENTES
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         CSS PRINCIPAL
+    ====================================================== -->
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Le Château
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="carta.html">
+                    Carta
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#experiencia">
+                    Experiencia
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#chef">
+                    Chef
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#reservas">
+                    Reservas
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+
+            <li>
+                <a href="eventos.html" class="activo">
+                    Eventos
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="eventos-seccion">
+
+
+        <!-- =================================================
+             ENCABEZADO
+        ================================================== -->
+
+        <header class="eventos-header">
+
+            <span class="decoracion">
+                ✦
+            </span>
+
+            <h1>
+                Eventos & Celebraciones
+            </h1>
+
+            <p>
+                Espacios exclusivos y alta gastronomía para hacer
+                inolvidable cualquier ocasión.
+            </p>
+
+            <div class="linea-titulo"></div>
+
+        </header>
+
+
+        <!-- =================================================
+             INTRODUCCIÓN
+        ================================================== -->
+
+        <section class="eventos-introduccion">
+
+            <div class="eventos-introduccion-contenido">
+
+                <span>
+                    EXPERIENCIAS A SU MEDIDA
+                </span>
+
+                <h2>
+                    Cada celebración merece<br>
+                    un escenario extraordinario
+                </h2>
+
+                <p>
+                    En Le Château Gourmet transformamos cada evento
+                    en una experiencia gastronómica única. Nuestro
+                    equipo se encarga de cada detalle para crear
+                    celebraciones elegantes, personalizadas y
+                    memorables.
+                </p>
+
+                <p>
+                    Desde reuniones corporativas hasta celebraciones
+                    familiares y cenas privadas, adaptamos nuestros
+                    espacios, gastronomía y servicio a las necesidades
+                    de cada ocasión.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TIPOS DE EVENTOS
+        ================================================== -->
+
+        <section class="eventos-tipos">
+
+
+            <!-- =============================================
+                 CORPORATIVOS
+            ============================================== -->
+
+            <article class="evento-panel">
+
+                <button
+                    class="evento-card"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="contenido-corporativo"
+                    onclick="abrirEvento(this, 'contenido-corporativo')"
+                >
+
+                    <span class="evento-numero">
+                        01
+                    </span>
+
+                    <div class="evento-card-contenido">
+
+                        <h3>
+                            Corporativos
+                        </h3>
+
+                        <h4>
+                            Reuniones & Galas
+                        </h4>
+
+                        <p>
+                            Espacios reservados para reuniones,
+                            cenas empresariales y encuentros
+                            ejecutivos.
+                        </p>
+
+                    </div>
+
+                    <span class="evento-flecha">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div
+                    class="evento-desplegable"
+                    id="contenido-corporativo"
+                >
+
+                    <div class="evento-imagen">
+
+                        <img
+                            src="img/evento-corporativo.jpg"
+                            alt="Evento corporativo en Le Château Gourmet"
+                        >
+
+                        <div class="evento-imagen-overlay">
+
+                            <span>
+                                EXPERIENCIA CORPORATIVA
+                            </span>
+
+                            <h3>
+                                Elegancia para sus grandes momentos
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="evento-informacion">
+
+                        <div class="evento-descripcion">
+
+                            <span class="evento-etiqueta">
+                                CORPORATIVO
+                            </span>
+
+                            <h3>
+                                Reuniones que dejan una impresión
+                            </h3>
+
+                            <p>
+                                Un ambiente sofisticado para reuniones
+                                ejecutivas, cenas de negocios,
+                                presentaciones, celebraciones
+                                empresariales y lanzamientos.
+                            </p>
+
+                            <p>
+                                Nuestro equipo adapta el espacio y
+                                la propuesta gastronómica para que
+                                cada encuentro tenga una identidad
+                                propia.
+                            </p>
+
+                        </div>
+
+
+                        <div class="evento-beneficios">
+
+                            <h4>
+                                Beneficios
+                            </h4>
+
+                            <ul>
+
+                                <li>
+                                    Salones privados y reservados
+                                </li>
+
+                                <li>
+                                    Menús personalizados
+                                </li>
+
+                                <li>
+                                    Atención especializada
+                                </li>
+
+                                <li>
+                                    Montaje para reuniones
+                                </li>
+
+                                <li>
+                                    Servicio gastronómico premium
+                                </li>
+
+                                <li>
+                                    Organización personalizada
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="evento-detalles">
+
+                            <div>
+                                <span>
+                                    CAPACIDAD
+                                </span>
+
+                                <strong>
+                                    Hasta 90 personas
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>
+                                    IDEAL PARA
+                                </span>
+
+                                <strong>
+                                    Empresas y equipos
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 SOCIALES
+            ============================================== -->
+
+            <article class="evento-panel">
+
+                <button
+                    class="evento-card"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="contenido-social"
+                    onclick="abrirEvento(this, 'contenido-social')"
+                >
+
+                    <span class="evento-numero">
+                        02
+                    </span>
+
+                    <div class="evento-card-contenido">
+
+                        <h3>
+                            Sociales
+                        </h3>
+
+                        <h4>
+                            Bodas & Celebraciones
+                        </h4>
+
+                        <p>
+                            Celebre los momentos más importantes
+                            de su vida rodeado de elegancia.
+                        </p>
+
+                    </div>
+
+                    <span class="evento-flecha">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div
+                    class="evento-desplegable"
+                    id="contenido-social"
+                >
+
+                    <div class="evento-imagen">
+
+                        <img
+                            src="img/evento-social.jpg"
+                            alt="Celebración social en Le Château Gourmet"
+                        >
+
+                        <div class="evento-imagen-overlay">
+
+                            <span>
+                                CELEBRACIONES SOCIALES
+                            </span>
+
+                            <h3>
+                                Momentos que merecen ser recordados
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="evento-informacion">
+
+                        <div class="evento-descripcion">
+
+                            <span class="evento-etiqueta">
+                                SOCIAL
+                            </span>
+
+                            <h3>
+                                Celebre cada instante
+                            </h3>
+
+                            <p>
+                                Diseñamos celebraciones especiales
+                                para bodas, aniversarios, cumpleaños
+                                y reuniones familiares que merecen
+                                convertirse en recuerdos inolvidables.
+                            </p>
+
+                            <p>
+                                Cada detalle puede adaptarse a sus
+                                gustos, desde el menú hasta la
+                                decoración y distribución del espacio.
+                            </p>
+
+                        </div>
+
+
+                        <div class="evento-beneficios">
+
+                            <h4>
+                                Beneficios
+                            </h4>
+
+                            <ul>
+
+                                <li>
+                                    Decoración personalizada
+                                </li>
+
+                                <li>
+                                    Menús diseñados para la ocasión
+                                </li>
+
+                                <li>
+                                    Ambientación elegante
+                                </li>
+
+                                <li>
+                                    Atención durante todo el evento
+                                </li>
+
+                                <li>
+                                    Diferentes opciones de montaje
+                                </li>
+
+                                <li>
+                                    Espacios para fotografía
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="evento-detalles">
+
+                            <div>
+                                <span>
+                                    CAPACIDAD
+                                </span>
+
+                                <strong>
+                                    Hasta 90 personas
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>
+                                    IDEAL PARA
+                                </span>
+
+                                <strong>
+                                    Bodas y celebraciones
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 EXCLUSIVOS
+            ============================================== -->
+
+            <article class="evento-panel">
+
+                <button
+                    class="evento-card"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="contenido-exclusivo"
+                    onclick="abrirEvento(this, 'contenido-exclusivo')"
+                >
+
+                    <span class="evento-numero">
+                        03
+                    </span>
+
+                    <div class="evento-card-contenido">
+
+                        <h3>
+                            Exclusivos
+                        </h3>
+
+                        <h4>
+                            Cenas Privadas
+                        </h4>
+
+                        <p>
+                            Una experiencia gastronómica diseñada
+                            para grupos selectos.
+                        </p>
+
+                    </div>
+
+                    <span class="evento-flecha">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div
+                    class="evento-desplegable"
+                    id="contenido-exclusivo"
+                >
+
+                    <div class="evento-imagen">
+
+                        <img
+                            src="img/evento-exclusivo.jpg"
+                            alt="Cena privada gourmet en Le Château"
+                        >
+
+                        <div class="evento-imagen-overlay">
+
+                            <span>
+                                EXPERIENCIA EXCLUSIVA
+                            </span>
+
+                            <h3>
+                                Alta gastronomía en un ambiente privado
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="evento-informacion">
+
+                        <div class="evento-descripcion">
+
+                            <span class="evento-etiqueta">
+                                EXCLUSIVO
+                            </span>
+
+                            <h3>
+                                Una experiencia creada para usted
+                            </h3>
+
+                            <p>
+                                Para quienes buscan privacidad y una
+                                experiencia gastronómica diferente,
+                                ofrecemos cenas privadas acompañadas
+                                de propuestas creadas especialmente
+                                por nuestro chef.
+                            </p>
+
+                            <p>
+                                Cada experiencia puede incorporar
+                                degustaciones, maridajes y un servicio
+                                personalizado para grupos selectos.
+                            </p>
+
+                        </div>
+
+
+                        <div class="evento-beneficios">
+
+                            <h4>
+                                Beneficios
+                            </h4>
+
+                            <ul>
+
+                                <li>
+                                    Salón privado
+                                </li>
+
+                                <li>
+                                    Menú degustación personalizado
+                                </li>
+
+                                <li>
+                                    Atención especial del chef
+                                </li>
+
+                                <li>
+                                    Opciones de maridaje
+                                </li>
+
+                                <li>
+                                    Servicio personalizado
+                                </li>
+
+                                <li>
+                                    Experiencia gastronómica privada
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <div class="evento-detalles">
+
+                            <div>
+                                <span>
+                                    CAPACIDAD
+                                </span>
+
+                                <strong>
+                                    Hasta 25 personas
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>
+                                    IDEAL PARA
+                                </span>
+
+                                <strong>
+                                    Cenas privadas
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             EXPERIENCIA COMPLETA
+        ================================================== -->
+
+        <section class="eventos-experiencia">
+
+            <div class="eventos-experiencia-contenido">
+
+                <span>
+                    LE CHÂTEAU GOURMET
+                </span>
+
+                <h2>
+                    Nos encargamos de cada detalle
+                </h2>
+
+                <p>
+                    Nuestro equipo trabaja junto a usted para
+                    crear una experiencia coherente desde la
+                    llegada de sus invitados hasta el último
+                    detalle de la celebración.
+                </p>
+
+            </div>
+
+
+            <div class="eventos-servicios">
+
+                <div class="servicio-evento">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Gastronomía
+                    </h3>
+
+                    <p>
+                        Propuestas gastronómicas adaptadas al
+                        estilo y necesidades de cada evento.
+                    </p>
+
+                </div>
+
+
+                <div class="servicio-evento">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Montaje
+                    </h3>
+
+                    <p>
+                        Distribución y ambientación pensadas
+                        para crear el ambiente adecuado.
+                    </p>
+
+                </div>
+
+
+                <div class="servicio-evento">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Atención
+                    </h3>
+
+                    <p>
+                        Personal especializado para acompañar
+                        cada momento de su celebración.
+                    </p>
+
+                </div>
+
+
+                <div class="servicio-evento">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Personalización
+                    </h3>
+
+                    <p>
+                        Adaptamos cada experiencia a sus gustos,
+                        necesidades y expectativas.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FORMULARIO DE COTIZACIÓN
+        ================================================== -->
+
+        <section class="eventos-cotizacion">
+
+            <header class="eventos-cotizacion-header">
+
+                <span>
+                    PLANIFIQUEMOS SU EVENTO
+                </span>
+
+                <h2>
+                    Solicite una cotización
+                </h2>
+
+                <p>
+                    Cuéntenos qué tiene en mente y nuestro equipo
+                    se pondrá en contacto con usted para comenzar
+                    a diseñar su experiencia.
+                </p>
+
+            </header>
+
+
+            <div class="contacto-box eventos-box">
+
+
+                <!-- =========================================
+                     INFORMACIÓN
+                ========================================== -->
+
+                <div class="contacto-info">
+
+                    <div class="info-grupo">
+
+                        <h3>
+                            Atención de Eventos
+                        </h3>
+
+                        <p>
+                            Contamos con un equipo especializado
+                            en la planificación y logística de
+                            eventos de alta gama.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-grupo">
+
+                        <h3>
+                            Capacidad
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Salón Privado:
+                            </strong>
+                            Hasta 25 personas
+                        </p>
+
+                        <p>
+                            <strong>
+                                Salón Principal:
+                            </strong>
+                            Hasta 90 personas
+                        </p>
+
+                        <p>
+                            <strong>
+                                Reserva Exclusiva:
+                            </strong>
+                            Hasta 150 personas
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-grupo">
+
+                        <h3>
+                            Contacto Directo
+                        </h3>
+
+                        <p>
+                            Teléfono: +57 300 000 0000
+                        </p>
+
+                        <p>
+                            Email: eventos@lechateau.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     FORMULARIO
+                ========================================== -->
+
+                <form
+                    class="contacto-formulario"
+                    action="#"
+                    method="POST"
+                >
+
+                    <div class="form-grupo">
+
+                        <label for="nombre">
+                            Nombre o Empresa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ej. Ana María Gómez / Empresa S.A."
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="correo">
+                            Correo Electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder="ejemplo@correo.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-grupo">
+
+                            <label for="telefono">
+                                Teléfono
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="+57 300 000 0000"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-grupo">
+
+                            <label for="tipo-evento">
+                                Tipo de Evento
+                            </label>
+
+                            <select
+                                id="tipo-evento"
+                                name="tipo-evento"
+                            >
+
+                                <option value="corporativo">
+                                    Corporativo / Empresa
+                                </option>
+
+                                <option value="boda">
+                                    Boda / Aniversario
+                                </option>
+
+                                <option value="cumpleanos">
+                                    Cumpleaños / Celebración
+                                </option>
+
+                                <option value="privado">
+                                    Cena Privada Gourmet
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-grupo">
+
+                            <label for="fecha">
+                                Fecha Tentativa
+                            </label>
+
+                            <input
+                                type="date"
+                                id="fecha"
+                                name="fecha"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-grupo">
+
+                            <label for="invitados">
+                                Nº de Invitados
+                            </label>
+
+                            <input
+                                type="number"
+                                id="invitados"
+                                name="invitados"
+                                min="10"
+                                placeholder="Ej. 30"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="detalles">
+                            Detalles o Requerimientos Especiales
+                        </label>
+
+                        <textarea
+                            id="detalles"
+                            name="detalles"
+                            rows="4"
+                            placeholder="Indíquenos el horario estimado, requerimientos de menú, montaje o dudas específicas..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn2 btn-enviar"
+                    >
+                        Solicitar Cotización
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             VOLVER
+        ================================================== -->
+
+        <div class="volver-inicio">
+
+            <a href="index.html">
+                ← Volver al Inicio
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-contenido">
+
+
+            <div class="footer-columna">
+
+                <h3>
+                    Le Château Gourmet
+                </h3>
+
+                <p>
+                    Alta cocina y experiencias inolvidables
+                    en un ambiente de elegancia y sofisticación.
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Información
+                </h4>
+
+                <p>
+                    Carrera 10 # 25-40
+                </p>
+
+                <p>
+                    Bogotá, Colombia
+                </p>
+
+                <p>
+                    +57 300 000 0000
+                </p>
+
+                <p>
+                    contacto@lechateau.com
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Horarios
+                </h4>
+
+                <p>
+                    Lunes a Jueves
+                </p>
+
+                <p>
+                    12:00 PM - 10:00 PM
+                </p>
+
+                <p>
+                    Viernes y Sábado
+                </p>
+
+                <p>
+                    12:00 PM - 11:30 PM
+                </p>
+
+                <p>
+                    Domingo
+                </p>
+
+                <p>
+                    12:00 PM - 8:00 PM
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Nuestra Filosofía
+                </h4>
+
+                <p>
+                    Calidad, creatividad y pasión se unen
+                    para convertir cada visita en un recuerdo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-linea"></div>
+
+
+        <div class="creditos">
+
+            <p>
+                © 2026 Le Château Gourmet.
+                Todos los derechos reservados.
+            </p>
+
+            <p>
+                Proyecto desarrollado por
+                <strong>Juan Melo</strong>
+                y
+                <strong>Johan Velandia</strong>.
+            </p>
+
+            <p>
+                Diseño y desarrollo web académico.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT - EVENTOS DESPLEGABLES
+    ====================================================== -->
+
+    <script>
+
+        function abrirEvento(boton, idContenido){
+
+            const paneles =
+                document.querySelectorAll(".evento-desplegable");
+
+            const botones =
+                document.querySelectorAll(".evento-card");
+
+
+            const contenido =
+                document.getElementById(idContenido);
+
+
+            const yaAbierto =
+                contenido.classList.contains("abierto");
+
+
+            /* Cerrar todos los paneles */
+
+            paneles.forEach(function(panel){
+
+                panel.classList.remove("abierto");
+
+            });
+
+
+            /* Reiniciar botones */
+
+            botones.forEach(function(btn){
+
+                btn.classList.remove("activo");
+
+                btn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+
+            /* Si no estaba abierto, abrirlo */
+
+            if(!yaAbierto){
+
+                contenido.classList.add("abierto");
+
+                boton.classList.add("activo");
+
+                boton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+
+                /* Desplazamiento suave */
+
+                setTimeout(function(){
+
+                    contenido.scrollIntoView({
+                        behavior:"smooth",
+                        block:"nearest"
+                    });
+
+                },100);
+
+            }
+
+        }
+
+
+        /* =================================================
+           FORMULARIO
+        ================================================== */
+
+        const formulario =
+            document.querySelector(".eventos-box form");
+
+
+        if(formulario){
+
+            formulario.addEventListener(
+                "submit",
+                function(event){
+
+                    event.preventDefault();
+
+                    alert(
+                        "Solicitud recibida. Nuestro equipo de eventos se pondrá en contacto contigo."
+                    );
+
+                    formulario.reset();
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,5644 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111;
+    color:#f5f5f5;
+    font-family:'Poppins',sans-serif;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 80px;
+    z-index:1000;
+    background:rgba(0,0,0,.90);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(200,169,106,.5);
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:36px;
+    color:#C8A96A;
+    letter-spacing:2px;
+    white-space:nowrap;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    list-style:none;
+    gap:35px;
+    margin:0;
+    padding:0;
+}
+
+.menu li{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-size:16px;
+    white-space:nowrap;
+}
+
+.menu a:hover{
+    color:#C8A96A;
+}
+
+.menu a.activo{
+    color:#C8A96A;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    height:100vh;
+    background:url("img/fondo.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+    position:relative;
+    text-align:center;
+    max-width:900px;
+    animation:entrada 1.5s ease;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:75px;
+    letter-spacing:3px;
+}
+
+.hero p{
+    margin-top:25px;
+    color:#ddd;
+    font-size:20px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.botones{
+    margin-top:45px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 40px;
+    border:1px solid #C8A96A;
+    color:#C8A96A;
+    text-decoration:none;
+    margin:10px;
+    transition:.4s;
+}
+
+.btn:hover{
+    background:#C8A96A;
+    color:#111;
+}
+
+.btn2{
+    background:#C8A96A;
+    color:#111;
+}
+
+
+/* =========================================================
+   EXPERIENCIA
+========================================================= */
+
+.experiencia{
+    padding:100px 10%;
+    background:#161616;
+}
+
+.experiencia h2,
+.especialidades h2,
+.carta h2,
+.galeria h2,
+.reservas h2,
+.opiniones h2{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:45px;
+    margin-bottom:60px;
+}
+
+.experiencia-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+
+.experiencia-card{
+    text-align:center;
+    padding:35px;
+    border:1px solid rgba(200,169,106,.5);
+    background:#111;
+    width:300px;
+}
+
+.experiencia-card h3{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:27px;
+}
+
+.experiencia-card h4{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:25px;
+    margin:15px;
+}
+
+.experiencia-card p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   SLIDER DE PLATOS
+========================================================= */
+
+.especialidades{
+    padding:120px 0;
+}
+
+.slider{
+    width:90%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+}
+
+.slider-container{
+    display:flex;
+    gap:30px;
+    overflow:hidden;
+    padding:20px;
+    scroll-behavior:smooth;
+    flex:1;
+}
+
+.card{
+    min-width:310px;
+    background:#191919;
+    border:1px solid rgba(200,169,106,.5);
+    border-radius:10px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    height:220px;
+    width:100%;
+    object-fit:cover;
+}
+
+.contenido{
+    padding:25px;
+}
+
+.contenido h3{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:28px;
+}
+
+.contenido p{
+    color:#ccc;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   BOTONES SLIDER
+========================================================= */
+
+.prev,
+.next,
+.gallery-btn{
+    width:55px;
+    height:55px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:1px solid #C8A96A;
+    background:#111;
+    color:#C8A96A;
+    font-size:25px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.prev:hover,
+.next:hover,
+.gallery-btn:hover{
+    background:#C8A96A;
+    color:#111;
+}
+
+
+/* =========================================================
+   CARTA ORIGINAL
+========================================================= */
+
+.carta{
+    background:#161616;
+    padding:120px 0;
+}
+
+.carta-box{
+    width:75%;
+    margin:auto;
+    background:#111;
+    padding:60px;
+    border:1px solid rgba(200,169,106,.7);
+    box-shadow:0 0 40px rgba(0,0,0,.7);
+}
+
+.categoria h3{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.plato{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:30px;
+}
+
+.plato h4{
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+}
+
+.plato p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+.plato span{
+    color:#C8A96A;
+    font-family:'Playfair Display',serif;
+    font-size:25px;
+}
+
+.linea{
+    height:1px;
+    background:linear-gradient(
+        to right,
+        transparent,
+        #C8A96A,
+        transparent
+    );
+    margin:50px 0;
+}
+
+
+/* =========================================================
+   CHEF
+========================================================= */
+
+.historia{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    padding:120px 10%;
+}
+
+.imagen img{
+    width:290px;
+    height:335px;
+    object-fit:cover;
+    border:1px solid #C8A96A;
+    padding:6px;
+}
+
+.texto{
+    max-width:500px;
+}
+
+.texto h2{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:45px;
+    margin-bottom:25px;
+}
+
+.texto p{
+    color:#bbb;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.galeria{
+    padding:120px 0;
+    background:#161616;
+}
+
+.gallery-slider{
+    width:92%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.gallery-container{
+    display:flex;
+    gap:30px;
+    overflow:hidden;
+    padding:20px;
+    scroll-behavior:smooth;
+    flex:1;
+    scroll-snap-type:x mandatory;
+}
+
+.gallery-card{
+    min-width:350px;
+    height:320px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid #C8A96A;
+    scroll-snap-align:start;
+    flex-shrink:0;
+    background:#111;
+}
+
+.gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.gallery-card:hover img{
+    transform:scale(1.1);
+}
+
+.gallery-text{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    padding-top:60px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    );
+}
+
+.gallery-text h3{
+    font-family:'Playfair Display',serif;
+    color:#fff;
+    margin-bottom:8px;
+}
+
+.gallery-text p{
+    color:#ccc;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   RESERVAS
+========================================================= */
+
+.reservas{
+    text-align:center;
+    padding:100px;
+}
+
+.reservas p{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+
+/* =========================================================
+   OPINIONES
+========================================================= */
+
+.opiniones{
+    padding:100px;
+    background:#161616;
+    text-align:center;
+}
+
+.opinion{
+    max-width:600px;
+    margin:auto;
+    border:1px solid #C8A96A;
+    padding:40px;
+}
+
+.opinion h3{
+    color:#C8A96A;
+    font-size:30px;
+}
+
+.opinion p{
+    margin-top:20px;
+    color:#ccc;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:60px 10% 30px;
+    background:#080808;
+    border-top:1px solid rgba(200,169,106,.4);
+}
+
+.footer-contenido{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:45px;
+}
+
+.footer-columna h3{
+    color:#C8A96A;
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+    margin-bottom:15px;
+}
+
+.footer-columna h4{
+    color:#C8A96A;
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.footer-columna p{
+    color:#999;
+    font-size:12px;
+    line-height:1.8;
+    margin-bottom:4px;
+}
+
+.footer-columna:first-child p{
+    max-width:280px;
+}
+
+.footer-linea{
+    width:100%;
+    height:1px;
+    background:rgba(200,169,106,.25);
+    margin:40px 0 22px;
+}
+
+.creditos{
+    text-align:center;
+}
+
+.creditos p{
+    color:#666;
+    font-size:11px;
+    line-height:1.8;
+    margin:2px 0;
+}
+
+.creditos strong{
+    color:#C8A96A;
+    font-weight:400;
+}
+
+
+/* =========================================================
+   BOTÓN VOLVER AL INICIO - CARTA / CONTACTO
+========================================================= */
+
+.volver-inicio{
+    text-align:center;
+    margin-top:35px;
+}
+
+.volver-inicio a{
+    display:inline-block;
+    padding:8px 20px;
+    border:1px solid rgba(200,169,106,.45);
+    color:#888;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:.5px;
+    transition:.3s;
+}
+
+.volver-inicio a:hover{
+    color:#C8A96A;
+    border-color:#C8A96A;
+    background:rgba(200,169,106,.05);
+}
+
+
+/* =========================================================
+   ANIMACIÓN
+========================================================= */
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   ESTILOS EXCLUSIVOS DE CARTA.HTML
+========================================================= */
+
+.carta-header{
+    text-align:center;
+    margin-bottom:55px;
+    padding:0 20px;
+}
+
+.decoracion{
+    display:block;
+    color:#C8A96A;
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.carta-header h1{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:58px;
+    font-weight:600;
+    letter-spacing:2px;
+    margin-bottom:0;
+}
+
+.carta-header p{
+    margin-top:15px;
+    color:#aaa;
+    font-size:16px;
+    font-weight:300;
+    letter-spacing:1px;
+}
+
+.linea-titulo{
+    width:90px;
+    height:1px;
+    margin:25px auto 0;
+    background:#C8A96A;
+}
+
+.carta-box{
+    width:78%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:65px;
+    background:#0f0f0f;
+    border:1px solid rgba(200,169,106,.55);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.7),
+        inset 0 0 50px rgba(200,169,106,.025);
+}
+
+.categoria-menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:65px;
+    min-height:320px;
+}
+
+.categoria-invertida{
+    flex-direction:row;
+}
+
+.categoria-imagen{
+    width:320px;
+    height:260px;
+    flex-shrink:0;
+    overflow:hidden;
+    border:1px solid rgba(200,169,106,.7);
+    padding:7px;
+    background:#111;
+}
+
+.categoria-imagen img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .6s ease;
+}
+
+.categoria-imagen:hover img{
+    transform:scale(1.06);
+}
+
+.categoria-contenido{
+    flex:1;
+    max-width:530px;
+}
+
+.categoria-titulo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:38px;
+}
+
+.categoria-titulo span{
+    color:#C8A96A;
+    font-size:12px;
+}
+
+.categoria-titulo h2{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:32px;
+    font-weight:500;
+    text-align:center;
+    margin:0;
+}
+
+.categoria-contenido .plato{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:35px;
+    padding:0 0 25px;
+    margin-bottom:25px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.categoria-contenido .plato:last-child{
+    margin-bottom:0;
+}
+
+.categoria-contenido .plato:hover{
+    border-bottom-color:rgba(200,169,106,.5);
+}
+
+.plato-info{
+    flex:1;
+}
+
+.plato-info h3{
+    font-family:'Playfair Display',serif;
+    color:#f5f5f5;
+    font-size:22px;
+    font-weight:500;
+    transition:.3s;
+    margin:0;
+}
+
+.plato:hover .plato-info h3{
+    color:#C8A96A;
+}
+
+.plato-info p{
+    color:#999;
+    font-size:14px;
+    line-height:1.6;
+    margin-top:7px;
+}
+
+.precio{
+    color:#C8A96A;
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+    white-space:nowrap;
+    padding-top:2px;
+}
+
+.separador{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin:60px 0;
+}
+
+.separador span{
+    width:35%;
+    height:1px;
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(200,169,106,.6)
+    );
+}
+
+.separador span:last-child{
+    background:linear-gradient(
+        to left,
+        transparent,
+        rgba(200,169,106,.6)
+    );
+}
+
+.separador i{
+    color:#C8A96A;
+    font-style:normal;
+    font-size:12px;
+}
+
+.carta-footer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:60px;
+}
+
+.carta-footer span{
+    color:#C8A96A;
+    font-size:12px;
+}
+
+.carta-footer p{
+    color:#888;
+    font-family:'Playfair Display',serif;
+    font-size:16px;
+    letter-spacing:2px;
+    margin:0;
+}
+
+body:has(.carta-header) .carta{
+    min-height:100vh;
+    padding:155px 0 100px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(200,169,106,.05),
+            transparent 60%
+        ),
+        #161616;
+}
+
+body:has(.carta-header) .carta h2{
+    margin-bottom:0;
+}
+
+
+/* =========================================================
+   ESTILOS EXCLUSIVOS DE CONTACTO.HTML
+========================================================= */
+
+.contacto-seccion{
+    min-height:100vh;
+    padding:155px 0 100px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(200,169,106,.05),
+            transparent 60%
+        ),
+        #161616;
+}
+
+.contacto-header{
+    text-align:center;
+    margin-bottom:55px;
+    padding:0 20px;
+}
+
+.contacto-header h1{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:58px;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+.contacto-header p{
+    margin-top:15px;
+    color:#aaa;
+    font-size:16px;
+    font-weight:300;
+    letter-spacing:1px;
+}
+
+.contacto-box{
+    width:78%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:65px;
+    background:#0f0f0f;
+    border:1px solid rgba(200,169,106,.55);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.7),
+        inset 0 0 50px rgba(200,169,106,.025);
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:50px;
+}
+
+.contacto-info{
+    border-right:1px solid rgba(200,169,106,.25);
+    padding-right:40px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.info-grupo h3{
+    font-family:'Playfair Display',serif;
+    color:#C8A96A;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.info-grupo p{
+    color:#bbb;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.info-grupo strong{
+    color:#fff;
+    font-weight:400;
+}
+
+.contacto-formulario{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.form-grupo{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.contacto-formulario label{
+    color:#C8A96A;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.contacto-formulario input,
+.contacto-formulario select,
+.contacto-formulario textarea{
+    width:100%;
+    padding:12px 15px;
+    background:#161616;
+    border:1px solid rgba(200,169,106,.4);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    outline:none;
+    transition:.3s;
+}
+
+.contacto-formulario textarea{
+    resize:vertical;
+}
+
+.contacto-formulario input:focus,
+.contacto-formulario select:focus,
+.contacto-formulario textarea:focus{
+    border-color:#C8A96A;
+    box-shadow:0 0 10px rgba(200,169,106,.2);
+}
+
+.btn-enviar{
+    cursor:pointer;
+    width:100%;
+    margin:10px 0 0 0;
+    font-weight:500;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        padding:0 25px;
+    }
+
+    .menu{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .experiencia-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .historia{
+        flex-direction:column;
+    }
+
+    .carta-box{
+        width:90%;
+        padding:30px;
+    }
+
+    .plato{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .gallery-container,
+    .slider-container{
+        overflow-x:auto;
+    }
+
+    .gallery-card{
+        min-width:300px;
+    }
+
+    .gallery-slider{
+        width:95%;
+    }
+
+    .carta{
+        padding-top:130px;
+    }
+
+    .carta-header h1{
+        font-size:43px;
+    }
+
+    .categoria-menu{
+        flex-direction:column;
+        gap:35px;
+        min-height:auto;
+    }
+
+    .categoria-invertida{
+        flex-direction:column;
+    }
+
+    .categoria-imagen{
+        width:100%;
+        max-width:450px;
+        height:250px;
+    }
+
+    .categoria-contenido{
+        width:100%;
+        max-width:none;
+    }
+
+    .categoria-titulo h2{
+        font-size:28px;
+    }
+
+    .categoria-contenido .plato{
+        flex-direction:row;
+        gap:20px;
+    }
+
+    .plato-info h3{
+        font-size:19px;
+    }
+
+    .precio{
+        font-size:20px;
+    }
+
+    .separador{
+        margin:45px 0;
+    }
+
+    .footer-contenido{
+        grid-template-columns:1fr 1fr;
+        gap:30px;
+    }
+
+    /* Adaptación Responsive Contacto */
+    .contacto-box{
+        width:90%;
+        grid-template-columns:1fr;
+        padding:35px;
+        gap:40px;
+    }
+
+    .contacto-info{
+        border-right:none;
+        border-bottom:1px solid rgba(200,169,106,.25);
+        padding-right:0;
+        padding-bottom:30px;
+    }
+
+    .contacto-header h1{
+        font-size:43px;
+    }
+
+}
+
+/* =========================================================
+   ESTILOS EXCLUSIVOS DE EVENTOS.HTML
+========================================================= */
+
+/* =========================================================
+   ESTILOS EXCLUSIVOS DE EVENTOS.HTML
+========================================================= */
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.eventos-seccion{
+
+    min-height:100vh;
+
+    padding:155px 0 100px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(200,169,106,.05),
+            transparent 60%
+        ),
+        #161616;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.eventos-header{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+    padding:0 20px;
+
+}
+
+
+.eventos-header h1{
+
+    font-family:'Playfair Display',serif;
+
+    color:#C8A96A;
+
+    font-size:58px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+}
+
+
+.eventos-header p{
+
+    margin-top:15px;
+
+    color:#aaa;
+
+    font-size:16px;
+
+    font-weight:300;
+
+    letter-spacing:1px;
+
+}
+
+
+.eventos-header .linea-titulo{
+
+    width:90px;
+
+    height:1px;
+
+    margin:25px auto 0;
+
+    background:#C8A96A;
+
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.eventos-introduccion{
+
+    width:78%;
+
+    max-width:1100px;
+
+    margin:0 auto 75px;
+
+    padding:65px 70px;
+
+    border-top:1px solid rgba(200,169,106,.25);
+
+    border-bottom:1px solid rgba(200,169,106,.25);
+
+    text-align:center;
+
+}
+
+
+.eventos-introduccion-contenido{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+
+.eventos-introduccion-contenido > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.eventos-introduccion-contenido h2{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:42px;
+
+    line-height:1.25;
+
+    font-weight:500;
+
+    margin:18px 0 25px;
+
+}
+
+
+.eventos-introduccion-contenido p{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    max-width:750px;
+
+    margin:0 auto 15px;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR DE EVENTOS
+========================================================= */
+
+.eventos-tipos{
+
+    width:78%;
+
+    max-width:1100px;
+
+    margin:0 auto 100px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+/* =========================================================
+   PANEL INDIVIDUAL
+========================================================= */
+
+.evento-panel{
+
+    width:100%;
+
+    border:1px solid rgba(200,169,106,.30);
+
+    background:#0f0f0f;
+
+    overflow:hidden;
+
+    transition:
+        border-color .4s ease,
+        box-shadow .4s ease;
+
+}
+
+
+.evento-panel:hover{
+
+    border-color:rgba(200,169,106,.65);
+
+}
+
+
+.evento-panel:has(.evento-desplegable.abierto){
+
+    border-color:#C8A96A;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+/* =========================================================
+   TARJETA SUPERIOR
+========================================================= */
+
+.evento-card{
+
+    width:100%;
+
+    min-height:145px;
+
+    display:grid;
+
+    grid-template-columns:80px 1fr 60px;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:30px 35px;
+
+    border:none;
+
+    background:#0f0f0f;
+
+    color:#fff;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-family:'Poppins',sans-serif;
+
+    transition:
+        background .4s ease,
+        padding .4s ease;
+
+}
+
+
+.evento-card:hover{
+
+    background:#131313;
+
+}
+
+
+.evento-card.activo{
+
+    background:#141414;
+
+}
+
+
+.evento-numero{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:58px;
+
+    height:58px;
+
+    border:1px solid rgba(200,169,106,.55);
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+
+.evento-card:hover .evento-numero,
+.evento-card.activo .evento-numero{
+
+    background:#C8A96A;
+
+    color:#111;
+
+}
+
+
+.evento-card-contenido h3{
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:29px;
+
+    font-weight:500;
+
+    margin:0;
+
+}
+
+
+.evento-card-contenido h4{
+
+    color:#fff;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:17px;
+
+    font-weight:400;
+
+    margin:5px 0 8px;
+
+}
+
+
+.evento-card-contenido p{
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin:0;
+
+}
+
+
+.evento-flecha{
+
+    width:42px;
+
+    height:42px;
+
+    border:1px solid rgba(200,169,106,.45);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#C8A96A;
+
+    font-size:25px;
+
+    font-weight:300;
+
+    transition:
+        transform .4s ease,
+        background .3s ease,
+        color .3s ease;
+
+}
+
+
+.evento-card.activo .evento-flecha{
+
+    transform:rotate(45deg);
+
+    background:#C8A96A;
+
+    color:#111;
+
+}
+
+
+/* =========================================================
+   CONTENIDO DESPLEGABLE
+========================================================= */
+
+.evento-desplegable{
+
+    display:grid;
+
+    grid-template-rows:0fr;
+
+    opacity:0;
+
+    transition:
+        grid-template-rows .55s ease,
+        opacity .4s ease;
+
+}
+
+
+.evento-desplegable.abierto{
+
+    grid-template-rows:1fr;
+
+    opacity:1;
+
+}
+
+
+.evento-desplegable::before{
+
+    content:"";
+
+    grid-row:1;
+
+    min-height:0;
+
+}
+
+
+/* =========================================================
+   CONTENEDOR REAL DEL DESPLEGABLE
+========================================================= */
+
+.evento-desplegable > .evento-imagen,
+.evento-desplegable > .evento-informacion{
+
+    min-height:0;
+
+}
+
+
+.evento-desplegable.abierto .evento-imagen{
+
+    min-height:480px;
+
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.evento-imagen{
+
+    position:relative;
+
+    width:100%;
+
+    height:480px;
+
+    overflow:hidden;
+
+}
+
+
+.evento-imagen img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    display:block;
+
+    filter:saturate(.85);
+
+    transition:
+        transform .8s ease,
+        filter .8s ease;
+
+}
+
+
+.evento-panel:hover .evento-imagen img{
+
+    transform:scale(1.03);
+
+    filter:saturate(1);
+
+}
+
+
+.evento-imagen::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.10) 60%,
+            rgba(0,0,0,.15)
+        );
+
+}
+
+
+.evento-imagen-overlay{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:55px;
+
+    right:55px;
+
+    bottom:45px;
+
+}
+
+
+.evento-imagen-overlay span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+}
+
+
+.evento-imagen-overlay h3{
+
+    color:#fff;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:38px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    margin-top:10px;
+
+    max-width:650px;
+
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL EVENTO
+========================================================= */
+
+.evento-informacion{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:50px;
+
+    padding:55px;
+
+    background:#111;
+
+}
+
+
+.evento-descripcion{
+
+    grid-column:1;
+
+}
+
+
+.evento-etiqueta{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+}
+
+
+.evento-descripcion h3{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:32px;
+
+    font-weight:500;
+
+    line-height:1.3;
+
+    margin:15px 0 22px;
+
+}
+
+
+.evento-descripcion p{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+
+    max-width:600px;
+
+}
+
+
+/* =========================================================
+   BENEFICIOS
+========================================================= */
+
+.evento-beneficios{
+
+    grid-column:2;
+
+    grid-row:1;
+
+    border-left:1px solid rgba(200,169,106,.2);
+
+    padding-left:40px;
+
+}
+
+
+.evento-beneficios h4{
+
+    font-family:'Playfair Display',serif;
+
+    color:#C8A96A;
+
+    font-size:23px;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+
+}
+
+
+.evento-beneficios ul{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+.evento-beneficios li{
+
+    position:relative;
+
+    color:#aaa;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    padding:8px 0 8px 22px;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+
+.evento-beneficios li::before{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:0;
+
+    top:8px;
+
+    color:#C8A96A;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   DETALLES
+========================================================= */
+
+.evento-detalles{
+
+    grid-column:1 / -1;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    border-top:1px solid rgba(200,169,106,.18);
+
+    padding-top:30px;
+
+    margin-top:10px;
+
+}
+
+
+.evento-detalles div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+}
+
+
+.evento-detalles span{
+
+    color:#666;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+}
+
+
+.evento-detalles strong{
+
+    color:#ddd;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:18px;
+
+    font-weight:400;
+
+}
+
+
+/* =========================================================
+   SECCIÓN EXPERIENCIA
+========================================================= */
+
+.eventos-experiencia{
+
+    width:78%;
+
+    max-width:1100px;
+
+    margin:0 auto 110px;
+
+    padding:80px 0;
+
+    border-top:1px solid rgba(200,169,106,.25);
+
+    border-bottom:1px solid rgba(200,169,106,.25);
+
+}
+
+
+.eventos-experiencia-contenido{
+
+    max-width:750px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+
+}
+
+
+.eventos-experiencia-contenido > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.eventos-experiencia-contenido h2{
+
+    color:#f5f5f5;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:43px;
+
+    font-weight:500;
+
+    margin:18px 0;
+
+}
+
+
+.eventos-experiencia-contenido p{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+}
+
+
+/* =========================================================
+   SERVICIOS
+========================================================= */
+
+.eventos-servicios{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+.servicio-evento{
+
+    padding:35px 25px;
+
+    background:#0f0f0f;
+
+    border:1px solid rgba(200,169,106,.2);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.servicio-evento:hover{
+
+    transform:translateY(-7px);
+
+    border-color:#C8A96A;
+
+}
+
+
+.servicio-evento > span{
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:16px;
+
+}
+
+
+.servicio-evento h3{
+
+    color:#f5f5f5;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:24px;
+
+    font-weight:500;
+
+    margin:20px 0 12px;
+
+}
+
+
+.servicio-evento p{
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   CABECERA DE COTIZACIÓN
+========================================================= */
+
+.eventos-cotizacion{
+
+    width:100%;
+
+}
+
+
+.eventos-cotizacion-header{
+
+    max-width:750px;
+
+    margin:0 auto 55px;
+
+    padding:0 20px;
+
+    text-align:center;
+
+}
+
+
+.eventos-cotizacion-header > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.eventos-cotizacion-header h2{
+
+    color:#f5f5f5;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:45px;
+
+    font-weight:500;
+
+    margin:15px 0;
+
+}
+
+
+.eventos-cotizacion-header p{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   CAJA DEL FORMULARIO
+========================================================= */
+
+.eventos-box{
+
+    margin-top:0;
+
+}
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+.contacto-formulario input[type="date"]{
+
+    color-scheme:dark;
+
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.btn-enviar{
+
+    cursor:pointer;
+
+    width:100%;
+
+    margin:10px 0 0 0;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================================
+   VOLVER AL INICIO
+========================================================= */
+
+.volver-inicio{
+
+    text-align:center;
+
+    margin-top:50px;
+
+}
+
+
+.volver-inicio a{
+
+    display:inline-block;
+
+    padding:9px 22px;
+
+    border:1px solid rgba(200,169,106,.45);
+
+    color:#888;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+
+    transition:.3s;
+
+}
+
+
+.volver-inicio a:hover{
+
+    color:#C8A96A;
+
+    border-color:#C8A96A;
+
+    background:rgba(200,169,106,.05);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - EVENTOS
+========================================================= */
+
+@media(max-width:1000px){
+
+    .eventos-introduccion,
+    .eventos-tipos,
+    .eventos-experiencia{
+
+        width:90%;
+
+    }
+
+
+    .eventos-servicios{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .evento-informacion{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .evento-descripcion{
+
+        grid-column:1;
+
+    }
+
+
+    .evento-beneficios{
+
+        grid-column:1;
+
+        grid-row:auto;
+
+        border-left:none;
+
+        border-top:1px solid rgba(200,169,106,.2);
+
+        padding-left:0;
+
+        padding-top:35px;
+
+    }
+
+
+    .evento-detalles{
+
+        grid-column:1;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .eventos-header h1{
+
+        font-size:43px;
+
+    }
+
+
+    .eventos-introduccion{
+
+        padding:50px 35px;
+
+    }
+
+
+    .eventos-introduccion-contenido h2{
+
+        font-size:36px;
+
+    }
+
+
+    .evento-card{
+
+        grid-template-columns:60px 1fr 50px;
+
+        gap:18px;
+
+        padding:25px;
+
+    }
+
+
+    .evento-card-contenido h3{
+
+        font-size:25px;
+
+    }
+
+
+    .evento-imagen{
+
+        height:400px;
+
+    }
+
+
+    .evento-imagen-overlay{
+
+        left:35px;
+
+        right:35px;
+
+        bottom:35px;
+
+    }
+
+
+    .evento-imagen-overlay h3{
+
+        font-size:31px;
+
+    }
+
+
+    .evento-informacion{
+
+        padding:40px 30px;
+
+    }
+
+
+    .eventos-experiencia-contenido h2{
+
+        font-size:36px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .eventos-seccion{
+
+        padding:125px 0 70px;
+
+    }
+
+
+    .eventos-header{
+
+        margin-bottom:50px;
+
+    }
+
+
+    .eventos-header h1{
+
+        font-size:36px;
+
+        line-height:1.2;
+
+    }
+
+
+    .eventos-header p{
+
+        font-size:14px;
+
+    }
+
+
+    .eventos-introduccion{
+
+        padding:40px 25px;
+
+        margin-bottom:55px;
+
+    }
+
+
+    .eventos-introduccion-contenido h2{
+
+        font-size:30px;
+
+    }
+
+
+    .eventos-introduccion-contenido p{
+
+        font-size:13px;
+
+    }
+
+
+    .evento-card{
+
+        grid-template-columns:45px 1fr 40px;
+
+        min-height:120px;
+
+        gap:14px;
+
+        padding:20px;
+
+    }
+
+
+    .evento-numero{
+
+        width:43px;
+
+        height:43px;
+
+        font-size:13px;
+
+    }
+
+
+    .evento-card-contenido h3{
+
+        font-size:22px;
+
+    }
+
+
+    .evento-card-contenido h4{
+
+        font-size:15px;
+
+    }
+
+
+    .evento-card-contenido p{
+
+        font-size:11px;
+
+    }
+
+
+    .evento-flecha{
+
+        width:34px;
+
+        height:34px;
+
+        font-size:21px;
+
+    }
+
+
+    .evento-imagen{
+
+        height:320px;
+
+    }
+
+
+    .evento-imagen-overlay{
+
+        left:25px;
+
+        right:25px;
+
+        bottom:25px;
+
+    }
+
+
+    .evento-imagen-overlay span{
+
+        font-size:9px;
+
+        letter-spacing:3px;
+
+    }
+
+
+    .evento-imagen-overlay h3{
+
+        font-size:26px;
+
+    }
+
+
+    .evento-informacion{
+
+        padding:35px 25px;
+
+    }
+
+
+    .evento-descripcion h3{
+
+        font-size:27px;
+
+    }
+
+
+    .evento-descripcion p{
+
+        font-size:13px;
+
+    }
+
+
+    .evento-detalles{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+    .eventos-experiencia{
+
+        padding:70px 0;
+
+        margin-bottom:80px;
+
+    }
+
+
+    .eventos-experiencia-contenido h2{
+
+        font-size:31px;
+
+    }
+
+
+    .eventos-servicios{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .eventos-cotizacion-header h2{
+
+        font-size:35px;
+
+    }
+
+}
+/* =========================================================
+   SISTEMA DE CALIFICACIÓN
+========================================================= */
+
+.opinion-instruccion{
+    margin-top:12px !important;
+    color:#999 !important;
+    font-size:14px;
+}
+
+
+.estrellas-calificacion{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-top:25px;
+}
+
+
+.estrella{
+    border:none;
+    background:transparent;
+    color:#555;
+    font-size:42px;
+    line-height:1;
+    padding:5px;
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        transform .25s ease,
+        text-shadow .25s ease;
+}
+
+
+.estrella:hover{
+    color:#C8A96A;
+    transform:scale(1.12);
+}
+
+
+.estrella.seleccionada{
+    color:#C8A96A;
+    text-shadow:
+        0 0 12px rgba(200,169,106,.35);
+}
+
+
+.calificacion-texto{
+    min-height:25px;
+    margin-top:15px !important;
+    color:#C8A96A !important;
+    font-size:14px;
+}
+
+
+.btn-enviar-opinion{
+    cursor:pointer;
+    margin-top:20px;
+    background:transparent;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+}
+
+
+.mensaje-opinion{
+    min-height:25px;
+    margin-top:15px !important;
+    color:#C8A96A !important;
+    font-size:13px;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:600px){
+
+    .opiniones{
+        padding:80px 25px;
+    }
+
+
+    .opinion{
+        padding:30px 20px;
+    }
+
+
+    .estrella{
+        font-size:34px;
+    }
+
+}
+/* =========================================================
+   PÁGINA DEL CHEF
+========================================================= */
+
+
+/* =========================================================
+   HERO DEL CHEF
+========================================================= */
+
+.chef-hero{
+
+    min-height:650px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.82)
+        ),
+        url("img/chef.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+.chef-hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.80),
+            rgba(0,0,0,.40),
+            rgba(0,0,0,.80)
+        );
+
+}
+
+
+.chef-hero-contenido{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+
+    padding:40px;
+
+}
+
+
+.chef-etiqueta{
+
+    display:block;
+
+    color:#C8A96A;
+
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+
+}
+
+
+.chef-hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:72px;
+
+    font-weight:600;
+
+    margin:0;
+
+    color:#f5f5f5;
+
+}
+
+
+.chef-hero h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:42px;
+
+    font-weight:400;
+
+    color:#C8A96A;
+
+    margin:5px 0 25px;
+
+}
+
+
+.chef-hero p{
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+
+
+/* =========================================================
+   PRESENTACIÓN DEL CHEF
+========================================================= */
+
+.chef-presentacion{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:90px;
+
+    align-items:center;
+
+    padding:120px 10%;
+
+    background:#111;
+
+}
+
+
+.chef-foto{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.chef-foto-marco{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:500px;
+
+}
+
+
+.chef-foto-marco::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border:1px solid #C8A96A;
+
+    top:18px;
+
+    left:18px;
+
+    z-index:0;
+
+}
+
+
+.chef-foto img{
+
+    width:100%;
+
+    height:600px;
+
+    object-fit:cover;
+
+    display:block;
+
+    position:relative;
+
+    z-index:1;
+
+    filter:saturate(.9);
+
+}
+
+
+.chef-biografia{
+
+    max-width:600px;
+
+}
+
+
+.subtitulo-dorado{
+
+    color:#C8A96A;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+}
+
+
+.chef-biografia h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:52px;
+
+    font-weight:600;
+
+    margin:15px 0;
+
+    color:#f5f5f5;
+
+}
+
+
+.linea-dorada{
+
+    width:70px;
+
+    height:2px;
+
+    background:#C8A96A;
+
+    margin:25px 0 30px;
+
+}
+
+
+.chef-biografia p{
+
+    color:#bbb;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* =========================================================
+   TÍTULOS INTERNOS
+========================================================= */
+
+.chef-seccion-titulo{
+
+    text-align:center;
+
+    max-width:750px;
+
+    margin:0 auto 70px;
+
+}
+
+
+.chef-seccion-titulo span{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+}
+
+
+.chef-seccion-titulo h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:46px;
+
+    color:#f5f5f5;
+
+    margin:15px 0;
+
+}
+
+
+.chef-seccion-titulo p{
+
+    color:#999;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =========================================================
+   TRAYECTORIA
+========================================================= */
+
+.chef-trayectoria{
+
+    padding:120px 10%;
+
+    background:#161616;
+
+}
+
+
+.chef-linea-tiempo{
+
+    max-width:950px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+
+.chef-linea-tiempo::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:32px;
+
+    width:1px;
+
+    background:rgba(200,169,106,.45);
+
+}
+
+
+.chef-evento{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:65px 1fr;
+
+    gap:30px;
+
+    margin-bottom:55px;
+
+}
+
+
+.chef-numero{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid #C8A96A;
+
+    background:#161616;
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:18px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.chef-evento-contenido{
+
+    padding-top:5px;
+
+}
+
+
+.chef-evento-contenido h3{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:27px;
+
+    margin:0 0 10px;
+
+}
+
+
+.chef-evento-contenido p{
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    margin:0;
+
+    max-width:700px;
+
+}
+
+
+
+/* =========================================================
+   FILOSOFÍA
+========================================================= */
+
+.chef-filosofia{
+
+    min-height:550px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 10%;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.78)
+        ),
+        url("img/chef.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+.chef-filosofia-contenido{
+
+    max-width:850px;
+
+}
+
+
+.chef-filosofia-contenido > span{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+}
+
+
+.chef-filosofia h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:52px;
+
+    color:#f5f5f5;
+
+    margin:20px 0 30px;
+
+}
+
+
+.chef-filosofia p{
+
+    color:#ccc;
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* =========================================================
+   PILARES
+========================================================= */
+
+.chef-pilares{
+
+    padding:120px 10%;
+
+    background:#111;
+
+}
+
+
+.pilares-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+.pilar-chef{
+
+    padding:40px 30px;
+
+    border:1px solid rgba(200,169,106,.25);
+
+    background:#151515;
+
+    transition:
+
+        transform .3s ease,
+
+        border-color .3s ease;
+
+}
+
+
+.pilar-chef:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#C8A96A;
+
+}
+
+
+.pilar-icono{
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:20px;
+
+    margin-bottom:25px;
+
+}
+
+
+.pilar-chef h3{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:26px;
+
+    color:#f5f5f5;
+
+    margin-bottom:15px;
+
+}
+
+
+.pilar-chef p{
+
+    color:#999;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+
+
+/* =========================================================
+   FRASE DEL CHEF
+========================================================= */
+
+.chef-frase{
+
+    padding:130px 10%;
+
+    background:#161616;
+
+    text-align:center;
+
+}
+
+
+.chef-frase-contenido{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+.chef-frase-contenido > span{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+}
+
+
+.chef-frase blockquote{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:40px;
+
+    font-style:italic;
+
+    font-weight:400;
+
+    color:#f5f5f5;
+
+    line-height:1.5;
+
+    margin:35px 0;
+
+}
+
+
+.frase-linea{
+
+    width:70px;
+
+    height:1px;
+
+    background:#C8A96A;
+
+    margin:0 auto 20px;
+
+}
+
+
+.chef-frase p{
+
+    color:#C8A96A;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* =========================================================
+   PARTE FINAL
+========================================================= */
+
+.chef-final{
+
+    padding:120px 10%;
+
+    text-align:center;
+
+    background:#111;
+
+}
+
+
+.chef-final > span{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+}
+
+
+.chef-final h2{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:50px;
+
+    color:#f5f5f5;
+
+    margin:20px 0;
+
+}
+
+
+.chef-final p{
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    color:#999;
+
+    line-height:1.8;
+
+}
+
+
+.chef-final-botones{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE - CHEF
+========================================================= */
+
+@media(max-width:1000px){
+
+    .chef-presentacion{
+
+        grid-template-columns:1fr;
+
+        gap:60px;
+
+    }
+
+
+    .chef-biografia{
+
+        max-width:none;
+
+    }
+
+
+    .pilares-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .chef-hero{
+
+        min-height:580px;
+
+    }
+
+
+    .chef-hero h1{
+
+        font-size:48px;
+
+    }
+
+
+    .chef-hero h2{
+
+        font-size:32px;
+
+    }
+
+
+    .chef-presentacion{
+
+        padding:80px 7%;
+
+    }
+
+
+    .chef-foto img{
+
+        height:480px;
+
+    }
+
+
+    .chef-biografia h2{
+
+        font-size:40px;
+
+    }
+
+
+    .chef-trayectoria{
+
+        padding:80px 7%;
+
+    }
+
+
+    .chef-seccion-titulo h2{
+
+        font-size:37px;
+
+    }
+
+
+    .chef-filosofia{
+
+        padding:80px 7%;
+
+        background-attachment:scroll;
+
+    }
+
+
+    .chef-filosofia h2{
+
+        font-size:38px;
+
+    }
+
+
+    .chef-pilares{
+
+        padding:80px 7%;
+
+    }
+
+
+    .pilares-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .chef-frase{
+
+        padding:90px 7%;
+
+    }
+
+
+    .chef-frase blockquote{
+
+        font-size:30px;
+
+    }
+
+
+    .chef-final{
+
+        padding:90px 7%;
+
+    }
+
+
+    .chef-final h2{
+
+        font-size:40px;
+
+    }
+
+
+}
+
+
+@media(max-width:500px){
+
+    .chef-hero-contenido{
+
+        padding:25px;
+
+    }
+
+
+    .chef-hero h1{
+
+        font-size:40px;
+
+    }
+
+
+    .chef-hero h2{
+
+        font-size:28px;
+
+    }
+
+
+    .chef-hero p{
+
+        font-size:14px;
+
+    }
+
+
+    .chef-foto-marco::before{
+
+        top:10px;
+
+        left:10px;
+
+    }
+
+
+    .chef-foto img{
+
+        height:400px;
+
+    }
+
+
+    .chef-evento{
+
+        grid-template-columns:50px 1fr;
+
+        gap:20px;
+
+    }
+
+
+    .chef-numero{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:14px;
+
+    }
+
+
+    .chef-linea-tiempo::before{
+
+        left:24px;
+
+    }
+
+}
+/* =========================================================
+   CORRECCIÓN - FOTOGRAFÍA DEL CHEF
+========================================================= */
+
+.chef-foto{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.chef-foto-marco{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:500px;
+
+    padding:18px;
+
+    box-sizing:border-box;
+
+}
+
+
+/* Marco dorado exterior */
+
+.chef-foto-marco::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    border:1px solid #C8A96A;
+
+    box-sizing:border-box;
+
+    z-index:0;
+
+}
+
+
+/* Contenedor real de la fotografía */
+
+.chef-foto-contenedor{
+
+    position:relative;
+
+    width:100%;
+
+    height:auto;
+
+    min-height:520px;
+
+    overflow:hidden;
+
+    background:#0b0b0b;
+
+    z-index:1;
+
+}
+
+
+/* Fotografía */
+
+.chef-foto-contenedor img{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    min-height:520px;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    transition:transform .5s ease;
+
+}
+
+
+/* Pequeño efecto elegante */
+
+.chef-foto-contenedor:hover img{
+
+    transform:scale(1.025);
+
+}
+
+
+/* =========================================================
+   AJUSTE PARA FOTOGRAFÍAS VERTICALES
+========================================================= */
+
+@media(min-width:1001px){
+
+    .chef-foto-contenedor{
+
+        aspect-ratio:4 / 5;
+
+        min-height:0;
+
+    }
+
+
+    .chef-foto-contenedor img{
+
+        min-height:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .chef-foto-marco{
+
+        max-width:520px;
+
+    }
+
+
+    .chef-foto-contenedor{
+
+        aspect-ratio:4 / 5;
+
+        min-height:0;
+
+    }
+
+
+    .chef-foto-contenedor img{
+
+        min-height:0;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media(max-width:600px){
+
+    .chef-foto{
+
+        padding:0 5px;
+
+    }
+
+
+    .chef-foto-marco{
+
+        width:100%;
+
+        max-width:400px;
+
+        padding:12px;
+
+    }
+
+
+    .chef-foto-contenedor{
+
+        aspect-ratio:4 / 5;
+
+        min-height:0;
+
+    }
+
+
+    .chef-foto-contenedor img{
+
+        min-height:0;
+
+        object-position:center center;
+
+    }
+
+}
+/* =========================================================
+   PÁGINA EXPERIENCIA.HTML
+========================================================= */
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.experiencia-hero{
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        url("img/fondo.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+.experiencia-hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.58),
+            rgba(0,0,0,.88)
+        );
+
+}
+
+
+.experiencia-hero-contenido{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+    padding:40px;
+
+    animation:entrada 1.5s ease;
+
+}
+
+
+.experiencia-etiqueta{
+
+    display:block;
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:6px;
+
+    margin-bottom:25px;
+
+}
+
+
+.experiencia-hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:76px;
+
+    font-weight:500;
+
+    line-height:1.05;
+
+    margin:0;
+
+}
+
+
+.experiencia-hero h2{
+
+    font-family:'Playfair Display',serif;
+
+    color:#C8A96A;
+
+    font-size:42px;
+
+    font-weight:400;
+
+    margin:12px 0 25px;
+
+}
+
+
+.experiencia-hero p{
+
+    max-width:680px;
+
+    margin:0 auto 35px;
+
+    color:#ddd;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+.experiencia-btn{
+
+    margin:0;
+
+}
+
+
+.experiencia-scroll{
+
+    position:absolute;
+
+    z-index:3;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.experiencia-scroll span{
+
+    color:#888;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+}
+
+
+.experiencia-scroll div{
+
+    width:1px;
+
+    height:55px;
+
+    background:linear-gradient(
+        #C8A96A,
+        transparent
+    );
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.experiencia-intro{
+
+    min-height:620px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    padding:120px 10%;
+
+    background:#111;
+
+    text-align:center;
+
+}
+
+
+.experiencia-intro-contenido{
+
+    max-width:760px;
+
+}
+
+
+.seccion-etiqueta{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.experiencia-intro h2{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:56px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    margin:20px 0 30px;
+
+}
+
+
+.experiencia-intro p{
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    max-width:700px;
+
+    margin:0 auto 15px;
+
+}
+
+
+.experiencia-intro-decoracion{
+
+    position:absolute;
+
+    width:90%;
+
+    max-width:1200px;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    pointer-events:none;
+
+}
+
+
+.experiencia-intro-decoracion span{
+
+    color:rgba(200,169,106,.25);
+
+    font-family:'Playfair Display',serif;
+
+    font-size:22px;
+
+}
+
+
+.experiencia-intro-decoracion div{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:1px;
+
+    height:140px;
+
+    background:rgba(200,169,106,.15);
+
+}
+
+
+/* =========================================================
+   TÍTULOS
+========================================================= */
+
+.experiencia-titulo{
+
+    max-width:800px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+}
+
+
+.experiencia-titulo > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.experiencia-titulo h2{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:52px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    margin:18px 0;
+
+}
+
+
+.experiencia-titulo p{
+
+    color:#999;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   RECORRIDO
+========================================================= */
+
+.experiencia-recorrido{
+
+    padding:130px 5%;
+
+    background:#161616;
+
+}
+
+
+.momentos-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:12px;
+
+    min-height:590px;
+
+}
+
+
+.momento-card{
+
+    position:relative;
+
+    flex:1;
+
+    min-height:590px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    border:1px solid rgba(200,169,106,.25);
+
+    transition:
+        flex .7s cubic-bezier(.22,.61,.36,1),
+        border-color .4s ease;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+}
+
+
+.momento-card.mostrar{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        flex .7s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+.momento-card.activo{
+
+    flex:2.5;
+
+    border-color:#C8A96A;
+
+}
+
+
+.momento-imagen{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    transition:
+        transform .8s ease,
+        filter .8s ease;
+
+}
+
+
+.momento-card:hover .momento-imagen{
+
+    transform:scale(1.05);
+
+}
+
+
+.momento-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.15) 70%
+        );
+
+}
+
+
+.momento-numero{
+
+    position:absolute;
+
+    top:30px;
+
+    left:30px;
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:18px;
+
+    border:1px solid rgba(200,169,106,.6);
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.momento-contenido{
+
+    position:absolute;
+
+    left:35px;
+
+    right:35px;
+
+    bottom:40px;
+
+}
+
+
+.momento-contenido span{
+
+    color:#C8A96A;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    opacity:.9;
+
+}
+
+
+.momento-contenido h3{
+
+    font-family:'Playfair Display',serif;
+
+    color:#fff;
+
+    font-size:32px;
+
+    font-weight:500;
+
+    margin:10px 0;
+
+}
+
+
+.momento-contenido p{
+
+    max-width:520px;
+
+    color:#ccc;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    opacity:0;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+        opacity .5s ease .2s,
+        max-height .6s ease;
+
+}
+
+
+.momento-card.activo .momento-contenido p{
+
+    opacity:1;
+
+    max-height:150px;
+
+}
+
+
+.momento-flecha{
+
+    position:absolute;
+
+    right:30px;
+
+    top:35px;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(200,169,106,.6);
+
+    color:#C8A96A;
+
+    border-radius:50%;
+
+    font-size:18px;
+
+    transition:.4s;
+
+}
+
+
+.momento-card.activo .momento-flecha{
+
+    background:#C8A96A;
+
+    color:#111;
+
+    transform:rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   GASTRONOMÍA
+========================================================= */
+
+.experiencia-gastronomica{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:100px;
+
+    align-items:center;
+
+    padding:140px 10%;
+
+    background:#111;
+
+}
+
+
+.gastronomica-imagen{
+
+    position:relative;
+
+    max-width:520px;
+
+}
+
+
+.gastronomica-imagen img{
+
+    width:100%;
+
+    height:620px;
+
+    object-fit:cover;
+
+    position:relative;
+
+    z-index:2;
+
+    filter:saturate(.85);
+
+}
+
+
+.gastronomica-marco{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    width:100%;
+
+    height:100%;
+
+    border:1px solid #C8A96A;
+
+    z-index:1;
+
+}
+
+
+.gastronomica-contenido{
+
+    max-width:600px;
+
+}
+
+
+.gastronomica-contenido h2{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:51px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    margin:18px 0;
+
+}
+
+
+.gastronomica-contenido p{
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+
+}
+
+
+.gastronomica-firma{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.gastronomica-firma span{
+
+    font-family:'Playfair Display',serif;
+
+    color:#C8A96A;
+
+    font-size:22px;
+
+    letter-spacing:4px;
+
+}
+
+
+.gastronomica-firma small{
+
+    color:#777;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    margin-top:3px;
+
+}
+
+
+/* =========================================================
+   PILARES
+========================================================= */
+
+.experiencia-pilares{
+
+    padding:130px 10%;
+
+    background:#161616;
+
+}
+
+
+.pilares-experiencia{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+.pilar-experiencia{
+
+    padding:45px 30px;
+
+    border:1px solid rgba(200,169,106,.2);
+
+    background:#111;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        border-color .3s ease;
+
+}
+
+
+.pilar-experiencia.mostrar{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+.pilar-experiencia:hover{
+
+    border-color:#C8A96A;
+
+    transform:translateY(-8px);
+
+}
+
+
+.pilar-experiencia > span{
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:17px;
+
+}
+
+
+.pilar-experiencia h3{
+
+    color:#f5f5f5;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:27px;
+
+    font-weight:500;
+
+    margin:22px 0 15px;
+
+}
+
+
+.pilar-experiencia p{
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.experiencia-frase{
+
+    min-height:620px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:100px 10%;
+
+    background:
+        url("img/fondo.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+.experiencia-frase-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.78);
+
+}
+
+
+.experiencia-frase-contenido{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:950px;
+
+}
+
+
+.experiencia-frase-contenido > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.experiencia-frase blockquote{
+
+    font-family:'Playfair Display',serif;
+
+    color:#f5f5f5;
+
+    font-size:43px;
+
+    font-style:italic;
+
+    font-weight:400;
+
+    line-height:1.5;
+
+    margin:35px 0;
+
+}
+
+
+.experiencia-frase-contenido p{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+}
+
+
+/* =========================================================
+   DESTACADAS
+========================================================= */
+
+.experiencias-destacadas{
+
+    padding:130px 8%;
+
+    background:#111;
+
+}
+
+
+.destacadas-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.destacada-card{
+
+    height:480px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid rgba(200,169,106,.25);
+
+    text-decoration:none;
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        border-color .3s ease;
+
+}
+
+
+.destacada-card.mostrar{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+.destacada-card:hover{
+
+    border-color:#C8A96A;
+
+}
+
+
+.destacada-imagen{
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    transition:transform .8s ease;
+
+}
+
+
+.destacada-card:hover .destacada-imagen{
+
+    transform:scale(1.07);
+
+}
+
+
+.destacada-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.15)
+        );
+
+}
+
+
+.destacada-contenido{
+
+    position:absolute;
+
+    left:30px;
+
+    right:30px;
+
+    bottom:30px;
+
+}
+
+
+.destacada-contenido > span{
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+}
+
+
+.destacada-contenido h3{
+
+    color:#fff;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:31px;
+
+    font-weight:500;
+
+    margin:10px 0;
+
+}
+
+
+.destacada-contenido p{
+
+    color:#bbb;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+
+}
+
+
+.destacada-contenido strong{
+
+    color:#C8A96A;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    font-weight:400;
+
+}
+
+
+/* =========================================================
+   NÚMEROS
+========================================================= */
+
+.experiencia-numeros{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    background:#0b0b0b;
+
+    border-top:1px solid rgba(200,169,106,.2);
+
+    border-bottom:1px solid rgba(200,169,106,.2);
+
+}
+
+
+.numero-experiencia{
+
+    padding:65px 25px;
+
+    text-align:center;
+
+    border-right:1px solid rgba(200,169,106,.12);
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+.numero-experiencia:last-child{
+
+    border-right:none;
+
+}
+
+
+.numero-experiencia.mostrar{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+.numero-experiencia strong{
+
+    display:block;
+
+    color:#C8A96A;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:50px;
+
+    font-weight:400;
+
+}
+
+
+.numero-experiencia span{
+
+    display:block;
+
+    max-width:150px;
+
+    margin:12px auto 0;
+
+    color:#777;
+
+    font-size:9px;
+
+    line-height:1.7;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.experiencia-final{
+
+    padding:130px 10%;
+
+    text-align:center;
+
+    background:#161616;
+
+}
+
+
+.experiencia-final > span{
+
+    color:#C8A96A;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+}
+
+
+.experiencia-final h2{
+
+    color:#f5f5f5;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:51px;
+
+    font-weight:500;
+
+    line-height:1.2;
+
+    margin:20px 0;
+
+}
+
+
+.experiencia-final p{
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    color:#999;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+}
+
+
+.experiencia-final-botones{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* =========================================================
+   VOLVER
+========================================================= */
+
+.experiencia-seccion + .volver-inicio{
+
+    margin-bottom:50px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .experiencia-hero h1{
+
+        font-size:65px;
+
+    }
+
+
+    .momentos-container{
+
+        min-height:550px;
+
+    }
+
+
+    .momento-card{
+
+        min-height:550px;
+
+    }
+
+
+    .experiencia-gastronomica{
+
+        gap:60px;
+
+    }
+
+
+    .gastronomica-contenido h2{
+
+        font-size:43px;
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .experiencia-hero{
+
+        background-attachment:scroll;
+
+    }
+
+
+    .experiencia-hero h1{
+
+        font-size:52px;
+
+    }
+
+
+    .experiencia-hero h2{
+
+        font-size:34px;
+
+    }
+
+
+    .experiencia-intro{
+
+        padding:100px 8%;
+
+    }
+
+
+    .experiencia-intro h2{
+
+        font-size:45px;
+
+    }
+
+
+    .momentos-container{
+
+        flex-direction:column;
+
+        min-height:auto;
+
+    }
+
+
+    .momento-card,
+    .momento-card.activo{
+
+        flex:none;
+
+        min-height:300px;
+
+        height:300px;
+
+    }
+
+
+    .momento-card.activo{
+
+        height:430px;
+
+    }
+
+
+    .momento-contenido p{
+
+        opacity:0;
+
+        max-height:0;
+
+    }
+
+
+    .momento-card.activo .momento-contenido p{
+
+        opacity:1;
+
+        max-height:150px;
+
+    }
+
+
+    .experiencia-gastronomica{
+
+        grid-template-columns:1fr;
+
+        gap:70px;
+
+    }
+
+
+    .gastronomica-imagen{
+
+        margin:auto;
+
+        width:90%;
+
+    }
+
+
+    .gastronomica-contenido{
+
+        max-width:none;
+
+    }
+
+
+    .pilares-experiencia{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .destacadas-grid{
+
+        grid-template-columns:1fr;
+
+        max-width:600px;
+
+    }
+
+
+    .destacada-card{
+
+        height:400px;
+
+    }
+
+
+    .experiencia-numeros{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .numero-experiencia:nth-child(2){
+
+        border-right:none;
+
+    }
+
+
+    .numero-experiencia{
+
+        border-bottom:1px solid rgba(200,169,106,.12);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .experiencia-hero{
+
+        min-height:90vh;
+
+    }
+
+
+    .experiencia-hero-contenido{
+
+        padding:25px;
+
+    }
+
+
+    .experiencia-hero h1{
+
+        font-size:40px;
+
+    }
+
+
+    .experiencia-hero h2{
+
+        font-size:28px;
+
+    }
+
+
+    .experiencia-hero p{
+
+        font-size:13px;
+
+    }
+
+
+    .experiencia-etiqueta{
+
+        font-size:9px;
+
+        letter-spacing:4px;
+
+    }
+
+
+    .experiencia-intro{
+
+        min-height:520px;
+
+        padding:80px 7%;
+
+    }
+
+
+    .experiencia-intro h2{
+
+        font-size:36px;
+
+    }
+
+
+    .experiencia-recorrido{
+
+        padding:90px 6%;
+
+    }
+
+
+    .experiencia-titulo h2{
+
+        font-size:38px;
+
+    }
+
+
+    .momento-card,
+    .momento-card.activo{
+
+        min-height:290px;
+
+        height:290px;
+
+    }
+
+
+    .momento-card.activo{
+
+        height:420px;
+
+    }
+
+
+    .momento-contenido{
+
+        left:25px;
+
+        right:25px;
+
+        bottom:25px;
+
+    }
+
+
+    .momento-contenido h3{
+
+        font-size:27px;
+
+    }
+
+
+    .momento-contenido p{
+
+        font-size:12px;
+
+    }
+
+
+    .experiencia-gastronomica{
+
+        padding:90px 7%;
+
+    }
+
+
+    .gastronomica-imagen{
+
+        width:90%;
+
+    }
+
+
+    .gastronomica-imagen img{
+
+        height:470px;
+
+    }
+
+
+    .gastronomica-contenido h2{
+
+        font-size:37px;
+
+    }
+
+
+    .experiencia-pilares{
+
+        padding:90px 7%;
+
+    }
+
+
+    .pilares-experiencia{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .experiencia-frase{
+
+        min-height:520px;
+
+        padding:80px 7%;
+
+        background-attachment:scroll;
+
+    }
+
+
+    .experiencia-frase blockquote{
+
+        font-size:29px;
+
+    }
+
+
+    .experiencias-destacadas{
+
+        padding:90px 7%;
+
+    }
+
+
+    .destacada-card{
+
+        height:390px;
+
+    }
+
+
+    .experiencia-numeros{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .numero-experiencia{
+
+        padding:45px 15px;
+
+    }
+
+
+    .numero-experiencia strong{
+
+        font-size:38px;
+
+    }
+
+
+    .experiencia-final{
+
+        padding:90px 7%;
+
+    }
+
+
+    .experiencia-final h2{
+
+        font-size:36px;
+
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .experiencia-numeros{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .numero-experiencia{
+
+        border-right:none;
+
+    }
+
+
+    .numero-experiencia:nth-child(2){
+
+        border-right:none;
+
+    }
+
+
+    .experiencia-hero h1{
+
+        font-size:35px;
+
+    }
+
+
+    .experiencia-hero h2{
+
+        font-size:25px;
+
+    }
+
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body.experiencia-page {
+    margin: 0;
+    background: #111;
+    color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+/* Evita que el navbar fijo tape las secciones */
+.experiencia-page section {
+    scroll-margin-top: 90px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.experiencia-hero {
+    min-height: 100vh;
+    height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, .58),
+            rgba(0, 0, 0, .78)
+        ),
+        url("img/fondo.jpg");
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: background-position .15s ease-out;
+
+    text-align: center;
+}
+
+/* Capa independiente para evitar problemas con el movimiento */
+.experiencia-hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 15%,
+            rgba(0, 0, 0, .35) 100%
+        );
+
+    pointer-events: none;
+}
+
+.hero-experiencia-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 90%);
+
+    padding-top: 90px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+}

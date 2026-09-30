@@ -1,0 +1,2951 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservas | Le Château Gourmet</title>
+
+
+    <!-- =====================================================
+         FUENTES
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS PRINCIPAL
+    ====================================================== -->
+
+    <link rel="stylesheet" href="estilos.css">
+
+
+    <!-- =====================================================
+         ESTILOS ESPECÍFICOS DE RESERVAS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           PÁGINA PRINCIPAL
+        ===================================================== */
+
+        .reservas-pagina {
+
+            min-height: 100vh;
+
+            padding: 140px 20px 90px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(200,169,106,.10),
+                    transparent 50%
+                ),
+                #151515;
+
+        }
+
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+
+        .reservas-header {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .reservas-header .decoracion {
+
+            color: #c8a96a;
+
+            font-size: 20px;
+
+            display: block;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .reservas-header h1 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            font-size: 56px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            margin: 0;
+
+        }
+
+
+        .reservas-header p {
+
+            color: #999;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 15px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .linea-reserva {
+
+            width: 90px;
+
+            height: 1px;
+
+            background: #c8a96a;
+
+            margin: 25px auto 0;
+
+        }
+
+
+        /* =====================================================
+           CONTENEDOR
+        ===================================================== */
+
+        .reservas-contenedor {
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 60px;
+
+            background: #0f0f0f;
+
+            border: 1px solid rgba(200,169,106,.45);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.65);
+
+        }
+
+
+        /* =====================================================
+           INTRODUCCIÓN
+        ===================================================== */
+
+        .reserva-introduccion {
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+
+        }
+
+
+        .reserva-introduccion h2 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            font-size: 31px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .reserva-introduccion p {
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        .formulario-seccion {
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .formulario-seccion h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            text-align: center;
+
+            font-size: 27px;
+
+            font-weight: 500;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .campos-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+        }
+
+
+        .campo {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .campo-completo {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        .campo label {
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .campo label span {
+
+            color: #c8a96a;
+
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .campo input,
+        .campo select {
+
+            width: 100%;
+
+            height: 52px;
+
+            box-sizing: border-box;
+
+            padding: 0 16px;
+
+            background: #151515;
+
+            border: 1px solid rgba(200,169,106,.35);
+
+            color: #eee;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: .3s;
+
+        }
+
+
+        .campo input::placeholder {
+
+            color: #666;
+
+        }
+
+
+        .campo input:focus,
+        .campo select:focus {
+
+            border-color: #c8a96a;
+
+            box-shadow:
+                0 0 15px
+                rgba(200,169,106,.08);
+
+        }
+
+
+        .campo select {
+
+            cursor: pointer;
+
+        }
+
+
+        .campo select option {
+
+            background: #111;
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           SEPARADOR
+        ===================================================== */
+
+        .separador-reserva {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 18px;
+
+            margin: 50px 0;
+
+        }
+
+
+        .separador-reserva span {
+
+            width: 35%;
+
+            height: 1px;
+
+            background:
+                rgba(200,169,106,.4);
+
+        }
+
+
+        .separador-reserva i {
+
+            color: #c8a96a;
+
+            font-style: normal;
+
+        }
+
+
+        /* =====================================================
+           MÉTODOS DE PAGO
+        ===================================================== */
+
+        .metodos-pago {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .metodo-pago {
+
+            position: relative;
+
+        }
+
+
+        .metodo-pago input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .metodo-pago label {
+
+            min-height: 105px;
+
+            padding: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            background: #151515;
+
+            border:
+                1px solid
+                rgba(200,169,106,.3);
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .metodo-pago label:hover {
+
+            border-color: #c8a96a;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        .metodo-pago input:checked + label {
+
+            background:
+                rgba(200,169,106,.08);
+
+            border-color: #c8a96a;
+
+            box-shadow:
+                0 0 20px
+                rgba(200,169,106,.08);
+
+        }
+
+
+        .metodo-icono {
+
+            color: #c8a96a;
+
+            font-size: 27px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .metodo-nombre {
+
+            color: #eee;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           OPCIONES PSE
+        ===================================================== */
+
+        .opciones-pse {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            background: #121212;
+
+            border:
+                1px solid
+                rgba(200,169,106,.35);
+
+            animation:
+                aparecer .4s ease;
+
+        }
+
+
+        .opciones-pse.activo {
+
+            display: block;
+
+        }
+
+
+        .opciones-pse h4 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            text-align: center;
+
+            font-size: 22px;
+
+            font-weight: 500;
+
+            margin:
+                0 0 25px;
+
+        }
+
+
+        .opciones-pse-contenedor {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .opcion-pse {
+
+            position: relative;
+
+        }
+
+
+        .opcion-pse input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .opcion-pse label {
+
+            min-height: 95px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            background: #151515;
+
+            border:
+                1px solid
+                rgba(200,169,106,.3);
+
+            color: #eee;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .opcion-pse label:hover {
+
+            border-color: #c8a96a;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        .opcion-pse input:checked + label {
+
+            border-color: #c8a96a;
+
+            background:
+                rgba(200,169,106,.08);
+
+            box-shadow:
+                0 0 18px
+                rgba(200,169,106,.08);
+
+        }
+
+
+        .logo-pago {
+
+            width: 34px;
+
+            height: 34px;
+
+            object-fit: contain;
+
+        }
+
+
+        /* =====================================================
+           INFORMACIÓN DE NEQUI / DAVIPLATA
+        ===================================================== */
+
+        .datos-pse {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            background: #101010;
+
+            border:
+                1px solid
+                rgba(200,169,106,.35);
+
+            animation:
+                aparecer .4s ease;
+
+        }
+
+
+        .datos-pse.activo {
+
+            display: block;
+
+        }
+
+
+        .datos-pse h4 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            text-align: center;
+
+            font-size: 21px;
+
+            font-weight: 500;
+
+            margin:
+                0 0 25px;
+
+        }
+
+
+        .pse-mensaje {
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-top: 20px;
+
+        }
+
+
+        /* =====================================================
+           DATOS TARJETA
+        ===================================================== */
+
+        .datos-tarjeta {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            background: #121212;
+
+            border:
+                1px solid
+                rgba(200,169,106,.25);
+
+            animation:
+                aparecer .4s ease;
+
+        }
+
+
+        .datos-tarjeta h4 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            font-size: 21px;
+
+            font-weight: 500;
+
+            margin:
+                0 0 25px;
+
+        }
+
+
+        .seguridad-pago {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border-left:
+                2px solid
+                #c8a96a;
+
+            background:
+                rgba(200,169,106,.04);
+
+        }
+
+
+        .seguridad-pago p {
+
+            color: #888;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           CONFIRMACIÓN
+        ===================================================== */
+
+        .confirmacion {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .confirmacion input {
+
+            margin-top: 4px;
+
+            accent-color: #c8a96a;
+
+            cursor: pointer;
+
+        }
+
+
+        .confirmacion label {
+
+            color: #999;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+
+        .acciones-reserva {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-top: 45px;
+
+        }
+
+
+        .btn-reserva {
+
+            padding:
+                14px 35px;
+
+            border:
+                1px solid
+                #c8a96a;
+
+            background: transparent;
+
+            color: #c8a96a;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition: .4s;
+
+        }
+
+
+        .btn-reserva:hover {
+
+            background: #c8a96a;
+
+            color: #111;
+
+        }
+
+
+        .btn-confirmar {
+
+            background: #c8a96a;
+
+            color: #111;
+
+        }
+
+
+        .btn-confirmar:hover {
+
+            background: #d9bd83;
+
+        }
+
+
+        /* =====================================================
+           MENSAJE DE ÉXITO
+        ===================================================== */
+
+        .mensaje-exito {
+
+            display: none;
+
+            margin-top: 40px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            background:
+                rgba(200,169,106,.05);
+
+            border:
+                1px solid
+                rgba(200,169,106,.6);
+
+            animation:
+                aparecer .6s ease;
+
+        }
+
+
+        .mensaje-exito.activo {
+
+            display: block;
+
+        }
+
+
+        .mensaje-exito h3 {
+
+            font-family: 'Playfair Display', serif;
+
+            color: #c8a96a;
+
+            font-size: 30px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .mensaje-exito p {
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .numero-mesa {
+
+            display: block;
+
+            color: #c8a96a;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 48px;
+
+            margin: 10px 0;
+
+        }
+
+
+        /* =====================================================
+           FOOTER RESERVA
+        ===================================================== */
+
+        .reserva-footer {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-top: 55px;
+
+        }
+
+
+        .reserva-footer span {
+
+            color: #c8a96a;
+
+        }
+
+
+        .reserva-footer p {
+
+            color: #888;
+
+            font-family: 'Playfair Display', serif;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =====================================================
+           ANIMACIÓN
+        ===================================================== */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .reservas-contenedor {
+
+                padding: 35px 25px;
+
+            }
+
+
+            .campos-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .campo-completo {
+
+                grid-column: auto;
+
+            }
+
+
+            .metodos-pago {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .opciones-pse-contenedor {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .reservas-header h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .acciones-reserva {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Le Château
+            </div>
+
+
+            <ul class="menu">
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="carta.html">
+                        Carta
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#experiencia">
+                        Experiencia
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#chef">
+                        Chef
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="reservas.html"
+                        class="activo"
+                    >
+                        Reservas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index.html#contacto">
+                        Contacto
+                    </a>
+                </li>
+
+		<li>
+                    <a href="eventos.html">
+                        Eventos
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+        <section class="reservas-pagina">
+
+
+            <!-- =================================================
+                 ENCABEZADO
+            ================================================== -->
+
+            <div class="reservas-header">
+
+                <span class="decoracion">
+                    ✦
+                </span>
+
+                <h1>
+                    Reserva tu Mesa
+                </h1>
+
+                <p>
+                    Una experiencia gastronómica
+                    comienza con una buena mesa.
+                </p>
+
+                <div class="linea-reserva"></div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CONTENEDOR
+            ================================================== -->
+
+            <div class="reservas-contenedor">
+
+
+                <!-- INTRODUCCIÓN -->
+
+                <div class="reserva-introduccion">
+
+                    <h2>
+                        Una mesa para momentos especiales
+                    </h2>
+
+                    <p>
+                        Completa el formulario para reservar
+                        tu espacio en Le Château Gourmet.
+                        Selecciona la mesa que mejor se adapte
+                        a tu experiencia.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FORMULARIO
+                ================================================== -->
+
+                <form id="formularioReserva">
+
+
+                    <!-- =================================================
+                         INFORMACIÓN PERSONAL
+                    ================================================== -->
+
+                    <section class="formulario-seccion">
+
+                        <h3>
+                            Información Personal
+                        </h3>
+
+
+                        <div class="campos-grid">
+
+
+                            <div class="campo">
+
+                                <label for="nombres">
+
+                                    Nombres
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nombres"
+                                    name="nombres"
+                                    placeholder="Ingrese sus nombres"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="apellidos">
+
+                                    Apellidos
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="apellidos"
+                                    name="apellidos"
+                                    placeholder="Ingrese sus apellidos"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="tipoDocumento">
+
+                                    Tipo de documento
+                                    <span>*</span>
+
+                                </label>
+
+                                <select
+                                    id="tipoDocumento"
+                                    name="tipoDocumento"
+                                    required
+                                >
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled
+                                    >
+                                        Seleccione una opción
+                                    </option>
+
+                                    <option value="cc">
+                                        Cédula de Ciudadanía
+                                    </option>
+
+                                    <option value="ce">
+                                        Cédula de Extranjería
+                                    </option>
+
+                                    <option value="ti">
+                                        Tarjeta de Identidad
+                                    </option>
+
+                                    <option value="pasaporte">
+                                        Pasaporte
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="numeroDocumento">
+
+                                    Número de documento
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="numeroDocumento"
+                                    name="numeroDocumento"
+                                    placeholder="Ingrese su documento"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="campo campo-completo">
+
+                                <label for="correo">
+
+                                    Correo electrónico
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="correo"
+                                    name="correo"
+                                    placeholder="ejemplo@correo.com"
+                                    required
+                                >
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         DETALLES RESERVA
+                    ================================================== -->
+
+                    <section class="formulario-seccion">
+
+                        <h3>
+                            Detalles de la Reserva
+                        </h3>
+
+
+                        <div class="campos-grid">
+
+
+                            <div class="campo">
+
+                                <label for="fecha">
+
+                                    Fecha
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="fecha"
+                                    name="fecha"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="hora">
+
+                                    Hora
+                                    <span>*</span>
+
+                                </label>
+
+                                <input
+                                    type="time"
+                                    id="hora"
+                                    name="hora"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="personas">
+
+                                    Número de personas
+                                    <span>*</span>
+
+                                </label>
+
+                                <select
+                                    id="personas"
+                                    name="personas"
+                                    required
+                                >
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled
+                                    >
+                                        Seleccione cantidad
+                                    </option>
+
+                                    <option value="1">
+                                        1 persona
+                                    </option>
+
+                                    <option value="2">
+                                        2 personas
+                                    </option>
+
+                                    <option value="3">
+                                        3 personas
+                                    </option>
+
+                                    <option value="4">
+                                        4 personas
+                                    </option>
+
+                                    <option value="5">
+                                        5 personas
+                                    </option>
+
+                                    <option value="6">
+                                        6 personas
+                                    </option>
+
+                                    <option value="7">
+                                        7 personas
+                                    </option>
+
+                                    <option value="8">
+                                        8 personas
+                                    </option>
+
+                                    <option value="9">
+                                        9 personas
+                                    </option>
+
+                                    <option value="10">
+                                        10 personas
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 TIPO DE MESA
+                            ================================================== -->
+
+                            <div class="campo">
+
+                                <label for="tipoMesa">
+
+                                    Tipo de mesa
+                                    <span>*</span>
+
+                                </label>
+
+                                <select
+                                    id="tipoMesa"
+                                    name="tipoMesa"
+                                    required
+                                >
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled
+                                    >
+                                        Seleccione su mesa
+                                    </option>
+
+                                    <option value="corriente">
+                                        Clase corriente — $80.000
+                                    </option>
+
+                                    <option value="grande">
+                                        Mesas más grandes — $180.000
+                                    </option>
+
+                                    <option value="premium">
+                                        Clase premium — $350.000
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="campo campo-completo">
+
+                                <label for="ocasion">
+
+                                    Motivo de la reserva
+
+                                </label>
+
+                                <select
+                                    id="ocasion"
+                                    name="ocasion"
+                                >
+
+                                    <option value="">
+                                        Seleccione una opción
+                                    </option>
+
+                                    <option value="cena">
+                                        Cena especial
+                                    </option>
+
+                                    <option value="cumpleanos">
+                                        Cumpleaños
+                                    </option>
+
+                                    <option value="aniversario">
+                                        Aniversario
+                                    </option>
+
+                                    <option value="negocios">
+                                        Reunión de negocios
+                                    </option>
+
+                                    <option value="celebracion">
+                                        Celebración
+                                    </option>
+
+                                    <option value="otro">
+                                        Otra ocasión
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         SEPARADOR
+                    ================================================== -->
+
+                    <div class="separador-reserva">
+
+                        <span></span>
+
+                        <i>✦</i>
+
+                        <span></span>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MÉTODOS DE PAGO
+                    ================================================== -->
+
+                    <section class="formulario-seccion">
+
+                        <h3>
+                            Método de Pago
+                        </h3>
+
+
+                        <div class="metodos-pago">
+
+
+                            <!-- TARJETA -->
+
+                            <div class="metodo-pago">
+
+                                <input
+                                    type="radio"
+                                    id="tarjeta"
+                                    name="metodoPago"
+                                    value="tarjeta"
+                                    required
+                                >
+
+                                <label for="tarjeta">
+
+                                    <span class="metodo-icono">
+                                        ◇
+                                    </span>
+
+                                    <span class="metodo-nombre">
+                                        Tarjeta de crédito / débito
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+
+                            <!-- PSE -->
+
+                            <div class="metodo-pago">
+
+                                <input
+                                    type="radio"
+                                    id="pse"
+                                    name="metodoPago"
+                                    value="pse"
+                                >
+
+                                <label for="pse">
+
+                                    <span class="metodo-icono">
+                                        $
+                                    </span>
+
+                                    <span class="metodo-nombre">
+                                        PSE
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+
+                            <!-- PAGO RESTAURANTE -->
+
+                            <div class="metodo-pago">
+
+                                <input
+                                    type="radio"
+                                    id="restaurante"
+                                    name="metodoPago"
+                                    value="restaurante"
+                                >
+
+                                <label for="restaurante">
+
+                                    <span class="metodo-icono">
+                                        ✦
+                                    </span>
+
+                                    <span class="metodo-nombre">
+                                        Pago en el restaurante
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             NEQUI / DAVIPLATA
+                        ================================================== -->
+
+                        <div
+                            class="opciones-pse"
+                            id="opcionesPse"
+                        >
+
+                            <h4>
+                                Selecciona tu medio de pago
+                            </h4>
+
+
+                            <div class="opciones-pse-contenedor">
+
+
+                                <!-- NEQUI -->
+
+                                <div class="opcion-pse">
+
+                                    <input
+                                        type="radio"
+                                        id="nequi"
+                                        name="medioPse"
+                                        value="nequi"
+                                    >
+
+                                    <label for="nequi">
+
+                                        <img
+                                            src="img/nequi.png"
+                                            alt="Logo Nequi"
+                                            class="logo-pago"
+                                        >
+
+                                        <span>
+                                            Nequi
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+
+
+                                <!-- DAVIPLATA -->
+
+                                <div class="opcion-pse">
+
+                                    <input
+                                        type="radio"
+                                        id="daviplata"
+                                        name="medioPse"
+                                        value="daviplata"
+                                    >
+
+                                    <label for="daviplata">
+
+                                        <img
+                                            src="img/davi.png"
+                                            alt="Logo Daviplata"
+                                            class="logo-pago"
+                                        >
+
+                                        <span>
+                                            Daviplata
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             INFORMACIÓN NEQUI / DAVIPLATA
+                        ================================================== -->
+
+                        <div
+                            class="datos-pse"
+                            id="datosPse"
+                        >
+
+                            <h4 id="tituloDatosPse">
+                                Información de pago
+                            </h4>
+
+
+                            <div class="campos-grid">
+
+
+                                <!-- TIPO DOCUMENTO PAGO -->
+
+                                <div class="campo">
+
+                                    <label for="tipoDocumentoPago">
+
+                                        Tipo de documento
+                                        <span>*</span>
+
+                                    </label>
+
+                                    <select
+                                        id="tipoDocumentoPago"
+                                        name="tipoDocumentoPago"
+                                    >
+
+                                        <option
+                                            value=""
+                                            selected
+                                            disabled
+                                        >
+                                            Seleccione una opción
+                                        </option>
+
+                                        <option value="cc">
+                                            Cédula de Ciudadanía
+                                        </option>
+
+                                        <option value="ce">
+                                            Cédula de Extranjería
+                                        </option>
+
+                                        <option value="ti">
+                                            Tarjeta de Identidad
+                                        </option>
+
+                                        <option value="pasaporte">
+                                            Pasaporte
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+
+                                <!-- NÚMERO DOCUMENTO PAGO -->
+
+                                <div class="campo">
+
+                                    <label for="numeroDocumentoPago">
+
+                                        Número de documento
+                                        <span>*</span>
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="numeroDocumentoPago"
+                                        name="numeroDocumentoPago"
+                                        placeholder="Ingrese su documento"
+                                    >
+
+                                </div>
+
+
+
+                                <!-- TELÉFONO -->
+
+                                <div class="campo campo-completo">
+
+                                    <label for="telefonoPago">
+
+                                        Número de teléfono
+                                        <span>*</span>
+
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="telefonoPago"
+                                        name="telefonoPago"
+                                        placeholder="Ejemplo: 3001234567"
+                                        maxlength="10"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+
+                            <p class="pse-mensaje">
+
+                                Ingrese los datos asociados a su cuenta
+                                de pago para continuar con la reserva.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             DATOS TARJETA
+                        ================================================== -->
+
+                        <div
+                            class="datos-tarjeta"
+                            id="datosTarjeta"
+                        >
+
+                            <h4>
+                                Información de la tarjeta
+                            </h4>
+
+
+                            <div class="campos-grid">
+
+
+                                <div class="campo campo-completo">
+
+                                    <label for="numeroTarjeta">
+
+                                        Número de tarjeta
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="numeroTarjeta"
+                                        name="numeroTarjeta"
+                                        placeholder="0000 0000 0000 0000"
+                                        maxlength="19"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="nombreTarjeta">
+
+                                        Nombre del titular
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nombreTarjeta"
+                                        name="nombreTarjeta"
+                                        placeholder="Nombre del titular"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="vencimiento">
+
+                                        Fecha de vencimiento
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="vencimiento"
+                                        name="vencimiento"
+                                        placeholder="MM/AA"
+                                        maxlength="5"
+                                    >
+
+                                </div>
+
+
+                                <div class="campo">
+
+                                    <label for="cvv">
+
+                                        CVV
+
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="cvv"
+                                        name="cvv"
+                                        placeholder="000"
+                                        maxlength="4"
+                                    >
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="seguridad-pago">
+
+                                <p>
+                                    🔒 Esta página es una demostración
+                                    académica. No se almacenan datos
+                                    bancarios reales.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         TÉRMINOS
+                    ================================================== -->
+
+                    <div class="confirmacion">
+
+                        <input
+                            type="checkbox"
+                            id="terminos"
+                            required
+                        >
+
+                        <label for="terminos">
+
+                            Confirmo que la información proporcionada
+                            es correcta y acepto las condiciones de
+                            reserva de Le Château Gourmet.
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         BOTONES
+                    ================================================== -->
+
+                    <div class="acciones-reserva">
+
+                        <a
+                            href="index.html"
+                            class="btn-reserva"
+                        >
+                            Volver al inicio
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="btn-reserva btn-confirmar"
+                        >
+                            Confirmar Reserva
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MENSAJE ÉXITO
+                    ================================================== -->
+
+                    <div
+                        class="mensaje-exito"
+                        id="mensajeExito"
+                    >
+
+                        <h3>
+                            ✦ Pago realizado ✦
+                        </h3>
+
+
+                        <p>
+                            Tu reserva ha sido registrada
+                            correctamente.
+                        </p>
+
+
+                        <p>
+                            Tu número de mesa es:
+                        </p>
+
+
+                        <span
+                            class="numero-mesa"
+                            id="numeroMesa"
+                        >
+                            --
+                        </span>
+
+
+                        <p>
+                            Presenta este número al llegar
+                            a Le Château Gourmet.
+                        </p>
+
+
+                        <p>
+                            ¡Gracias por elegirnos!
+                        </p>
+
+                    </div>
+
+
+                </form>
+
+
+
+                <!-- =================================================
+                     PIE
+                ================================================== -->
+
+                <div class="reserva-footer">
+
+                    <span>✦</span>
+
+                    <p>
+                        Le Château Gourmet
+                    </p>
+
+                    <span>✦</span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer id="contacto">
+
+        <div class="footer-contenido">
+
+
+            <div class="footer-columna">
+
+                <h3>
+                    Le Château Gourmet
+                </h3>
+
+                <p>
+                    Alta cocina y experiencias inolvidables
+                    en un ambiente de elegancia y sofisticación.
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Información
+                </h4>
+
+                <p>
+                    Carrera 10 # 25-40
+                </p>
+
+                <p>
+                    Bogotá, Colombia
+                </p>
+
+                <p>
+                    +57 300 000 0000
+                </p>
+
+                <p>
+                    contacto@lechateau.com
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Horarios
+                </h4>
+
+                <p>
+                    Lunes a Jueves
+                </p>
+
+                <p>
+                    12:00 PM - 10:00 PM
+                </p>
+
+                <p>
+                    Viernes y Sábado
+                </p>
+
+                <p>
+                    12:00 PM - 11:30 PM
+                </p>
+
+                <p>
+                    Domingo
+                </p>
+
+                <p>
+                    12:00 PM - 8:00 PM
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Nuestra Filosofía
+                </h4>
+
+                <p>
+                    Calidad, creatividad y pasión se unen
+                    para convertir cada visita en un recuerdo.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-linea"></div>
+
+
+        <div class="creditos">
+
+            <p>
+                © 2026 Le Château Gourmet.
+                Todos los derechos reservados.
+            </p>
+
+            <p>
+                Diseño y desarrollo web académico.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           ELEMENTOS
+        ===================================================== */
+
+        const formulario =
+            document.getElementById(
+                "formularioReserva"
+            );
+
+
+        const opcionesPago =
+            document.querySelectorAll(
+                'input[name="metodoPago"]'
+            );
+
+
+        const opcionesPse =
+            document.getElementById(
+                "opcionesPse"
+            );
+
+
+        const datosPse =
+            document.getElementById(
+                "datosPse"
+            );
+
+
+        const datosTarjeta =
+            document.getElementById(
+                "datosTarjeta"
+            );
+
+
+        const tituloDatosPse =
+            document.getElementById(
+                "tituloDatosPse"
+            );
+
+
+        const mensajeExito =
+            document.getElementById(
+                "mensajeExito"
+            );
+
+
+        const numeroMesa =
+            document.getElementById(
+                "numeroMesa"
+            );
+
+
+        /* =====================================================
+           CAMPOS PSE
+        ===================================================== */
+
+        const tipoDocumentoPago =
+            document.getElementById(
+                "tipoDocumentoPago"
+            );
+
+
+        const numeroDocumentoPago =
+            document.getElementById(
+                "numeroDocumentoPago"
+            );
+
+
+        const telefonoPago =
+            document.getElementById(
+                "telefonoPago"
+            );
+
+
+        const camposPse = [
+
+            tipoDocumentoPago,
+
+            numeroDocumentoPago,
+
+            telefonoPago
+
+        ];
+
+
+
+        /* =====================================================
+           CAMPOS TARJETA
+        ===================================================== */
+
+        const camposTarjeta = [
+
+            document.getElementById(
+                "numeroTarjeta"
+            ),
+
+            document.getElementById(
+                "nombreTarjeta"
+            ),
+
+            document.getElementById(
+                "vencimiento"
+            ),
+
+            document.getElementById(
+                "cvv"
+            )
+
+        ];
+
+
+
+        /* =====================================================
+           ACTUALIZAR MÉTODO DE PAGO
+        ===================================================== */
+
+        function actualizarMetodoPago() {
+
+            const tarjetaSeleccionada =
+                document.getElementById(
+                    "tarjeta"
+                ).checked;
+
+
+            const pseSeleccionado =
+                document.getElementById(
+                    "pse"
+                ).checked;
+
+
+            /*
+                Si se selecciona TARJETA
+            */
+
+            if (tarjetaSeleccionada) {
+
+                datosTarjeta.style.display =
+                    "block";
+
+            } else {
+
+                datosTarjeta.style.display =
+                    "none";
+
+            }
+
+
+            /*
+                Campos de tarjeta obligatorios
+                solamente si se selecciona tarjeta.
+            */
+
+            camposTarjeta.forEach(
+                function(campo) {
+
+                    campo.required =
+                        tarjetaSeleccionada;
+
+                }
+            );
+
+
+            /*
+                Si se selecciona PSE
+            */
+
+            if (pseSeleccionado) {
+
+                opcionesPse.classList.add(
+                    "activo"
+                );
+
+            } else {
+
+                opcionesPse.classList.remove(
+                    "activo"
+                );
+
+
+                datosPse.classList.remove(
+                    "activo"
+                );
+
+
+                camposPse.forEach(
+                    function(campo) {
+
+                        campo.required =
+                            false;
+
+                        campo.value =
+                            "";
+
+                    }
+                );
+
+
+                document
+                    .querySelectorAll(
+                        'input[name="medioPse"]'
+                    )
+                    .forEach(
+                        function(opcion) {
+
+                            opcion.checked =
+                                false;
+
+                        }
+                    );
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CAMBIAR MÉTODO DE PAGO
+        ===================================================== */
+
+        opcionesPago.forEach(
+            function(opcion) {
+
+                opcion.addEventListener(
+                    "change",
+                    actualizarMetodoPago
+                );
+
+            }
+        );
+
+
+        actualizarMetodoPago();
+
+
+
+        /* =====================================================
+           SELECCIONAR NEQUI / DAVIPLATA
+        ===================================================== */
+
+        const opcionesMedioPse =
+            document.querySelectorAll(
+                'input[name="medioPse"]'
+            );
+
+
+        opcionesMedioPse.forEach(
+            function(opcion) {
+
+                opcion.addEventListener(
+                    "change",
+                    function() {
+
+
+                        /*
+                            Mostrar campos
+                            de información de pago.
+                        */
+
+                        datosPse.classList.add(
+                            "activo"
+                        );
+
+
+                        /*
+                            Hacer obligatorios
+                            los tres campos.
+                        */
+
+                        camposPse.forEach(
+                            function(campo) {
+
+                                campo.required =
+                                    true;
+
+                            }
+                        );
+
+
+                        /*
+                            Cambiar título dependiendo
+                            del método seleccionado.
+                        */
+
+                        if (
+                            this.value === "nequi"
+                        ) {
+
+                            tituloDatosPse.textContent =
+                                "Información de pago — Nequi";
+
+                        }
+
+
+                        if (
+                            this.value === "daviplata"
+                        ) {
+
+                            tituloDatosPse.textContent =
+                                "Información de pago — Daviplata";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CONFIRMAR RESERVA
+        ===================================================== */
+
+        formulario.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                /*
+                    Saber qué método se escogió.
+                */
+
+                const metodoSeleccionado =
+                    document.querySelector(
+                        'input[name="metodoPago"]:checked'
+                    );
+
+
+                if (!metodoSeleccionado) {
+
+                    alert(
+                        "Seleccione un método de pago."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                    PSE
+                */
+
+                if (
+                    metodoSeleccionado.value === "pse"
+                ) {
+
+
+                    const medioPse =
+                        document.querySelector(
+                            'input[name="medioPse"]:checked'
+                        );
+
+
+                    /*
+                        Debe seleccionar Nequi
+                        o Daviplata.
+                    */
+
+                    if (!medioPse) {
+
+                        alert(
+                            "Seleccione Nequi o Daviplata para continuar."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Los campos son obligatorios.
+                    */
+
+                    if (
+                        tipoDocumentoPago.value === "" ||
+                        numeroDocumentoPago.value.trim() === "" ||
+                        telefonoPago.value.trim() === ""
+                    ) {
+
+                        alert(
+                            "Complete todos los datos de pago para continuar."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Validar teléfono.
+                    */
+
+                    if (
+                        !/^[0-9]{10}$/.test(
+                            telefonoPago.value.trim()
+                        )
+                    ) {
+
+                        alert(
+                            "Ingrese un número de teléfono válido de 10 dígitos."
+                        );
+
+                        telefonoPago.focus();
+
+                        return;
+
+                    }
+
+                }
+
+
+
+                /*
+                    TARJETA
+                */
+
+                if (
+                    metodoSeleccionado.value === "tarjeta"
+                ) {
+
+                    for (
+                        let i = 0;
+                        i < camposTarjeta.length;
+                        i++
+                    ) {
+
+                        if (
+                            camposTarjeta[i]
+                                .value
+                                .trim() === ""
+                        ) {
+
+                            alert(
+                                "Complete todos los datos de la tarjeta."
+                            );
+
+                            camposTarjeta[i].focus();
+
+                            return;
+
+                        }
+
+                    }
+
+                }
+
+
+
+                /*
+                    Generar número de mesa
+                    entre 1 y 50.
+                */
+
+                const mesa =
+                    Math.floor(
+                        Math.random() * 50
+                    ) + 1;
+
+
+                numeroMesa.textContent =
+                    mesa;
+
+
+                /*
+                    Mostrar mensaje final.
+                */
+
+                mensajeExito.classList.add(
+                    "activo"
+                );
+
+
+                /*
+                    Desactivar botón
+                    para evitar múltiples reservas.
+                */
+
+                const botonConfirmar =
+                    document.querySelector(
+                        ".btn-confirmar"
+                    );
+
+
+                botonConfirmar.disabled =
+                    true;
+
+
+                botonConfirmar.style.opacity =
+                    "0.6";
+
+
+                botonConfirmar.style.cursor =
+                    "default";
+
+
+                /*
+                    Desplazarse al resultado.
+                */
+
+                mensajeExito.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+            }
+        );
+
+
+
+        /* =====================================================
+           FORMATO NÚMERO TARJETA
+        ===================================================== */
+
+        const numeroTarjeta =
+            document.getElementById(
+                "numeroTarjeta"
+            );
+
+
+        numeroTarjeta.addEventListener(
+            "input",
+            function() {
+
+                let valor =
+                    this.value
+                        .replace(/\D/g, "")
+                        .substring(
+                            0,
+                            16
+                        );
+
+
+                const grupos =
+                    valor.match(
+                        /.{1,4}/g
+                    );
+
+
+                this.value =
+                    grupos
+                        ? grupos.join(" ")
+                        : "";
+
+            }
+        );
+
+
+
+        /* =====================================================
+           FORMATO VENCIMIENTO
+        ===================================================== */
+
+        const vencimiento =
+            document.getElementById(
+                "vencimiento"
+            );
+
+
+        vencimiento.addEventListener(
+            "input",
+            function() {
+
+                let valor =
+                    this.value
+                        .replace(/\D/g, "")
+                        .substring(
+                            0,
+                            4
+                        );
+
+
+                if (
+                    valor.length > 2
+                ) {
+
+                    valor =
+                        valor.substring(
+                            0,
+                            2
+                        )
+                        + "/"
+                        +
+                        valor.substring(
+                            2
+                        );
+
+                }
+
+
+                this.value =
+                    valor;
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SOLO NÚMEROS EN CVV
+        ===================================================== */
+
+        const cvv =
+            document.getElementById(
+                "cvv"
+            );
+
+
+        cvv.addEventListener(
+            "input",
+            function() {
+
+                this.value =
+                    this.value
+                        .replace(/\D/g, "")
+                        .substring(
+                            0,
+                            4
+                        );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SOLO NÚMEROS EN DOCUMENTO DE PAGO
+        ===================================================== */
+
+        numeroDocumentoPago.addEventListener(
+            "input",
+            function() {
+
+                this.value =
+                    this.value
+                        .replace(/\D/g, "");
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SOLO NÚMEROS EN TELÉFONO
+        ===================================================== */
+
+        telefonoPago.addEventListener(
+            "input",
+            function() {
+
+                this.value =
+                    this.value
+                        .replace(/\D/g, "")
+                        .substring(
+                            0,
+                            10
+                        );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           FECHA MÍNIMA
+        ===================================================== */
+
+        const fecha =
+            document.getElementById(
+                "fecha"
+            );
+
+
+        const hoy =
+            new Date();
+
+
+        const año =
+            hoy.getFullYear();
+
+
+        const mes =
+            String(
+                hoy.getMonth() + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        const dia =
+            String(
+                hoy.getDate()
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        fecha.min =
+            `${año}-${mes}-${dia}`;
+
+    </script>
+
+
+</body>
+
+</html>

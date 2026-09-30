@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Experiencia | Le Château Gourmet</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        /* =========================================================
+           EXPERIENCIA - ESTILOS ESPECÍFICOS
+           ========================================================= */
+
+        .experiencia-page {
+            background: #111;
+            color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .experiencia-hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, .58),
+                    rgba(0, 0, 0, .78)
+                ),
+                url("img/fondo.jpg") center/cover no-repeat;
+
+            text-align: center;
+        }
+
+        .experiencia-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    transparent 15%,
+                    rgba(0, 0, 0, .35) 100%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-experiencia-contenido {
+            position: relative;
+            z-index: 2;
+
+            width: min(900px, 90%);
+            padding-top: 80px;
+        }
+
+        .hero-etiqueta {
+            display: inline-block;
+
+            color: #c8a96a;
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-experiencia-contenido h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 100px);
+            font-weight: 500;
+            line-height: 1;
+
+            margin: 0 0 25px;
+
+            color: #f5f5f5;
+        }
+
+        .hero-experiencia-contenido h1 span {
+            color: #c8a96a;
+            font-style: italic;
+        }
+
+        .hero-experiencia-contenido p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+
+            color: #ddd;
+            font-size: 17px;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .hero-botones {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-experiencia {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 190px;
+            padding: 15px 28px;
+
+            text-decoration: none;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            border: 1px solid #c8a96a;
+
+            transition: .3s ease;
+        }
+
+        .btn-experiencia.principal {
+            background: #c8a96a;
+            color: #111;
+        }
+
+        .btn-experiencia.principal:hover {
+            background: #dfc58d;
+            transform: translateY(-3px);
+        }
+
+        .btn-experiencia.secundario {
+            color: #c8a96a;
+            background: transparent;
+        }
+
+        .btn-experiencia.secundario:hover {
+            background: rgba(200, 169, 106, .1);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #c8a96a;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            z-index: 3;
+        }
+
+        .scroll-indicator::after {
+            content: "";
+
+            display: block;
+
+            width: 1px;
+            height: 45px;
+
+            background: #c8a96a;
+
+            margin: 12px auto 0;
+
+            animation: scrollLinea 1.8s infinite;
+        }
+
+        @keyframes scrollLinea {
+            0% {
+                transform: scaleY(.3);
+                transform-origin: top;
+                opacity: .3;
+            }
+
+            50% {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scaleY(.3);
+                transform-origin: bottom;
+                opacity: .3;
+            }
+        }
+
+        /* =========================================================
+           INTRODUCCIÓN
+           ========================================================= */
+
+        .experiencia-intro {
+            padding: 130px 8%;
+            background: #111;
+            text-align: center;
+        }
+
+        .etiqueta-dorada {
+            color: #c8a96a;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .experiencia-intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 500;
+
+            margin: 18px auto 25px;
+
+            max-width: 850px;
+        }
+
+        .experiencia-intro p {
+            max-width: 760px;
+            margin: auto;
+
+            color: #aaa;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        /* =========================================================
+           SELECTOR INTERACTIVO
+           ========================================================= */
+
+        .experiencia-selector {
+            padding: 80px 7% 130px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #111 0%,
+                    #161616 100%
+                );
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .titulo-seccion h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 60px);
+            font-weight: 500;
+
+            margin: 15px 0;
+        }
+
+        .titulo-seccion p {
+            color: #999;
+        }
+
+        .selector-botones {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            margin-bottom: 45px;
+
+            flex-wrap: wrap;
+        }
+
+        .selector-btn {
+            padding: 14px 27px;
+
+            background: transparent;
+            color: #aaa;
+
+            border: 1px solid #333;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .selector-btn:hover {
+            border-color: #c8a96a;
+            color: #c8a96a;
+        }
+
+        .selector-btn.activo {
+            background: #c8a96a;
+            border-color: #c8a96a;
+            color: #111;
+        }
+
+        .experiencia-panel {
+            display: none;
+
+            max-width: 1200px;
+            margin: auto;
+
+            grid-template-columns: 1fr 1fr;
+
+            background: #0d0d0d;
+            border: 1px solid rgba(200, 169, 106, .3);
+        }
+
+        .experiencia-panel.activo {
+            display: grid;
+            animation: aparecerPanel .5s ease;
+        }
+
+        @keyframes aparecerPanel {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-imagen {
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .panel-imagen img {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+
+            object-fit: cover;
+
+            transition: transform .8s ease;
+        }
+
+        .experiencia-panel:hover .panel-imagen img {
+            transform: scale(1.04);
+        }
+
+        .panel-contenido {
+            padding: 65px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .numero-panel {
+            color: #c8a96a;
+            font-family: "Playfair Display", serif;
+            font-size: 50px;
+            opacity: .5;
+        }
+
+        .panel-contenido h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            font-weight: 500;
+
+            margin: 10px 0 20px;
+        }
+
+        .panel-contenido p {
+            color: #aaa;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .panel-lista {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .panel-lista li {
+            padding: 12px 0;
+
+            border-bottom: 1px solid #2b2b2b;
+
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .panel-lista li::before {
+            content: "—";
+            color: #c8a96a;
+            margin-right: 12px;
+        }
+
+        /* =========================================================
+           RECORRIDO
+           ========================================================= */
+
+        .recorrido {
+            padding: 130px 7%;
+
+            background: #0c0c0c;
+        }
+
+        .recorrido-grid {
+            max-width: 1150px;
+            margin: 70px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .paso {
+            position: relative;
+
+            padding: 35px 30px;
+
+            border-top: 1px solid #333;
+
+            transition: .3s ease;
+        }
+
+        .paso:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+
+            top: -1px;
+            right: 0;
+
+            width: 1px;
+            height: 100px;
+
+            background: #333;
+        }
+
+        .paso:hover {
+            background: rgba(200, 169, 106, .04);
+        }
+
+        .paso-numero {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            color: #c8a96a;
+        }
+
+        .paso h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 500;
+            margin: 15px 0;
+        }
+
+        .paso p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           GALERÍA
+           ========================================================= */
+
+        .galeria-experiencia {
+            padding: 130px 6%;
+            background: #111;
+        }
+
+        .galeria-experiencia-grid {
+            max-width: 1250px;
+            margin: 70px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 240px;
+
+            gap: 18px;
+        }
+
+        .foto-experiencia {
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid rgba(200, 169, 106, .15);
+
+            cursor: pointer;
+        }
+
+        .foto-experiencia:nth-child(1) {
+            grid-column: span 7;
+            grid-row: span 2;
+        }
+
+        .foto-experiencia:nth-child(2) {
+            grid-column: span 5;
+        }
+
+        .foto-experiencia:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .foto-experiencia:nth-child(4) {
+            grid-column: span 12;
+            grid-row: span 1;
+        }
+
+        .foto-experiencia img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .7s ease;
+        }
+
+        .foto-experiencia::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(
+                transparent 45%,
+                rgba(0,0,0,.8)
+            );
+
+            opacity: .7;
+        }
+
+        .foto-experiencia:hover img {
+            transform: scale(1.08);
+        }
+
+        .foto-texto {
+            position: absolute;
+
+            left: 25px;
+            bottom: 22px;
+
+            z-index: 2;
+
+            color: white;
+        }
+
+        .foto-texto span {
+            display: block;
+
+            color: #c8a96a;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 5px;
+        }
+
+        .foto-texto h3 {
+            margin: 0;
+
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        /* =========================================================
+           CHEF
+           ========================================================= */
+
+        .experiencia-chef {
+            padding: 130px 7%;
+
+            background: #151515;
+        }
+
+        .chef-experiencia-contenedor {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+
+            min-height: 550px;
+        }
+
+        .chef-experiencia-imagen {
+            overflow: hidden;
+        }
+
+        .chef-experiencia-imagen img {
+            width: 100%;
+            height: 100%;
+            min-height: 550px;
+
+            object-fit: cover;
+        }
+
+        .chef-experiencia-texto {
+            padding: 70px;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            background: #101010;
+
+            border: 1px solid rgba(200, 169, 106, .25);
+            border-left: none;
+        }
+
+        .chef-experiencia-texto h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            font-weight: 500;
+
+            margin: 15px 0 25px;
+        }
+
+        .chef-experiencia-texto p {
+            color: #aaa;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .firma-chef {
+            color: #c8a96a;
+
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-style: italic;
+
+            margin-top: 25px;
+        }
+
+        /* =========================================================
+           CTA
+           ========================================================= */
+
+        .experiencia-final {
+            position: relative;
+
+            min-height: 520px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.72),
+                    rgba(0,0,0,.82)
+                ),
+                url("img/experiencia-cena.jpg") center/cover no-repeat;
+        }
+
+        .experiencia-final-contenido {
+            width: min(750px, 90%);
+        }
+
+        .experiencia-final h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 6vw, 72px);
+            font-weight: 500;
+
+            margin: 15px 0 25px;
+        }
+
+        .experiencia-final p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .experiencia-panel.activo {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-imagen,
+            .panel-imagen img {
+                min-height: 400px;
+            }
+
+            .panel-contenido {
+                padding: 45px 35px;
+            }
+
+            .recorrido-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .paso:not(:last-child)::after {
+                display: none;
+            }
+
+            .galeria-experiencia-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 230px;
+            }
+
+            .foto-experiencia:nth-child(1),
+            .foto-experiencia:nth-child(2),
+            .foto-experiencia:nth-child(3),
+            .foto-experiencia:nth-child(4) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .foto-experiencia:nth-child(1) {
+                grid-column: span 2;
+            }
+
+            .chef-experiencia-contenedor {
+                grid-template-columns: 1fr;
+            }
+
+            .chef-experiencia-texto {
+                border-left: 1px solid rgba(200,169,106,.25);
+                border-top: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-experiencia-contenido {
+                padding-top: 60px;
+            }
+
+            .hero-experiencia-contenido h1 {
+                font-size: 50px;
+            }
+
+            .experiencia-intro,
+            .experiencia-selector,
+            .recorrido,
+            .galeria-experiencia,
+            .experiencia-chef {
+                padding-top: 85px;
+                padding-bottom: 85px;
+            }
+
+            .selector-botones {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .selector-btn {
+                width: 100%;
+            }
+
+            .recorrido-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-experiencia-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 260px;
+            }
+
+            .foto-experiencia:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .chef-experiencia-texto {
+                padding: 45px 30px;
+            }
+
+            .chef-experiencia-texto h2 {
+                font-size: 38px;
+            }
+
+            .hero-botones {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-experiencia {
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body class="experiencia-page">
+
+    <!-- =========================================================
+         NAVBAR
+         ========================================================= -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Le Château
+        </a>
+
+        <nav class="menu">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="carta.html">Carta</a>
+
+            <a href="experiencia.html" class="activo">
+                Experiencia
+            </a>
+
+            <a href="index.html#chef">
+                Chef
+            </a>
+
+            <a href="reservas.html">
+                Reservas
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section class="experiencia-hero">
+
+        <div class="hero-experiencia-contenido">
+
+            <span class="hero-etiqueta">
+                La experiencia Le Château
+            </span>
+
+            <h1>
+                Más que una <span>cena</span>
+            </h1>
+
+            <p>
+                Descubre una experiencia donde la gastronomía,
+                el ambiente y el servicio se encuentran para
+                convertir cada visita en un recuerdo especial.
+            </p>
+
+            <div class="hero-botones">
+
+                <a href="#descubrir" class="btn-experiencia principal">
+                    Descubrir
+                </a>
+
+                <a href="reservas.html" class="btn-experiencia secundario">
+                    Reservar una mesa
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            Explorar
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         INTRO
+         ========================================================= -->
+
+    <section class="experiencia-intro" id="descubrir">
+
+        <span class="etiqueta-dorada">
+            Una noche diferente
+        </span>
+
+        <h2>
+            Cada detalle está pensado para disfrutarse
+        </h2>
+
+        <p>
+            En Le Château Gourmet no buscamos simplemente servir
+            una mesa. Creamos una experiencia completa: desde el
+            momento en que llegas hasta el último detalle de la
+            noche.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================================
+         SELECTOR INTERACTIVO
+         ========================================================= -->
+
+    <section class="experiencia-selector">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-dorada">
+                Explora
+            </span>
+
+            <h2>
+                Elige cómo quieres vivirla
+            </h2>
+
+            <p>
+                Selecciona cada elemento y descubre lo que forma
+                parte de la experiencia Le Château.
+            </p>
+
+        </div>
+
+
+        <div class="selector-botones">
+
+            <button
+                class="selector-btn activo"
+                data-panel="gastronomia">
+                Gastronomía
+            </button>
+
+            <button
+                class="selector-btn"
+                data-panel="ambiente">
+                Ambiente
+            </button>
+
+            <button
+                class="selector-btn"
+                data-panel="servicio">
+                Servicio
+            </button>
+
+        </div>
+
+
+        <!-- GASTRONOMÍA -->
+
+        <div class="experiencia-panel activo" id="gastronomia">
+
+            <div class="panel-imagen">
+
+                <img
+                    src="img/experiencia-plato.jpg"
+                    alt="Plato de alta gastronomía de Le Château Gourmet">
+
+            </div>
+
+            <div class="panel-contenido">
+
+                <span class="numero-panel">
+                    01
+                </span>
+
+                <h3>
+                    Gastronomía
+                </h3>
+
+                <p>
+                    Una propuesta culinaria donde cada plato busca
+                    equilibrar sabor, textura y presentación.
+                </p>
+
+                <ul class="panel-lista">
+
+                    <li>
+                        Ingredientes cuidadosamente seleccionados
+                    </li>
+
+                    <li>
+                        Presentaciones elaboradas al detalle
+                    </li>
+
+                    <li>
+                        Sabores pensados para sorprender
+                    </li>
+
+                    <li>
+                        Una carta creada para disfrutar sin prisa
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- AMBIENTE -->
+
+        <div class="experiencia-panel" id="ambiente">
+
+            <div class="panel-imagen">
+
+                <img
+                    src="img/experiencia-salon.jpg"
+                    alt="Salón elegante de Le Château Gourmet">
+
+            </div>
+
+            <div class="panel-contenido">
+
+                <span class="numero-panel">
+                    02
+                </span>
+
+                <h3>
+                    Ambiente
+                </h3>
+
+                <p>
+                    Un espacio diseñado para crear una atmósfera
+                    elegante, íntima y acogedora.
+                </p>
+
+                <ul class="panel-lista">
+
+                    <li>
+                        Iluminación cálida
+                    </li>
+
+                    <li>
+                        Diseño elegante y sofisticado
+                    </li>
+
+                    <li>
+                        Espacios pensados para conversar
+                    </li>
+
+                    <li>
+                        Una atmósfera que acompaña cada plato
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- SERVICIO -->
+
+        <div class="experiencia-panel" id="servicio">
+
+            <div class="panel-imagen">
+
+                <img
+                    src="img/experiencia-detalle.jpg"
+                    alt="Detalles del servicio de mesa">
+
+            </div>
+
+            <div class="panel-contenido">
+
+                <span class="numero-panel">
+                    03
+                </span>
+
+                <h3>
+                    Servicio
+                </h3>
+
+                <p>
+                    La atención completa la experiencia. Cada
+                    detalle está pensado para que puedas disfrutar
+                    de la noche con tranquilidad.
+                </p>
+
+                <ul class="panel-lista">
+
+                    <li>
+                        Atención personalizada
+                    </li>
+
+                    <li>
+                        Presentación cuidada
+                    </li>
+
+                    <li>
+                        Acompañamiento durante la velada
+                    </li>
+
+                    <li>
+                        Atención a los pequeños detalles
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RECORRIDO
+         ========================================================= -->
+
+    <section class="recorrido">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-dorada">
+                El recorrido
+            </span>
+
+            <h2>
+                Así comienza la noche
+            </h2>
+
+            <p>
+                Cuatro momentos que construyen una experiencia completa.
+            </p>
+
+        </div>
+
+
+        <div class="recorrido-grid">
+
+            <article class="paso">
+
+                <span class="paso-numero">
+                    01
+                </span>
+
+                <h3>
+                    Bienvenida
+                </h3>
+
+                <p>
+                    El primer contacto con nuestro espacio y
+                    el comienzo de una noche especial.
+                </p>
+
+            </article>
+
+
+            <article class="paso">
+
+                <span class="paso-numero">
+                    02
+                </span>
+
+                <h3>
+                    Descubrimiento
+                </h3>
+
+                <p>
+                    Déjate llevar por nuestra carta y descubre
+                    nuevos sabores y combinaciones.
+                </p>
+
+            </article>
+
+
+            <article class="paso">
+
+                <span class="paso-numero">
+                    03
+                </span>
+
+                <h3>
+                    Degustación
+                </h3>
+
+                <p>
+                    Cada plato llega a la mesa como parte de
+                    una experiencia gastronómica.
+                </p>
+
+            </article>
+
+
+            <article class="paso">
+
+                <span class="paso-numero">
+                    04
+                </span>
+
+                <h3>
+                    Recuerdo
+                </h3>
+
+                <p>
+                    Una última copa, una conversación y un
+                    recuerdo que permanece después de la cena.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         GALERÍA
+         ========================================================= -->
+
+    <section class="galeria-experiencia">
+
+        <div class="titulo-seccion">
+
+            <span class="etiqueta-dorada">
+                Le Château Gourmet
+            </span>
+
+            <h2>
+                Una experiencia para recordar
+            </h2>
+
+            <p>
+                Descubre algunos de los detalles que hacen especial
+                nuestra propuesta.
+            </p>
+
+        </div>
+
+
+        <div class="galeria-experiencia-grid">
+
+
+            <!-- SALÓN -->
+
+            <article class="foto-experiencia">
+
+                <img
+                    src="img/experiencia-salon.jpg"
+                    alt="Salón de Le Château Gourmet">
+
+                <div class="foto-texto">
+
+                    <span>
+                        Espacio
+                    </span>
+
+                    <h3>
+                        El salón
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- PLATO -->
+
+            <article class="foto-experiencia">
+
+                <img
+                    src="img/experiencia-plato.jpg"
+                    alt="Plato gourmet">
+
+                <div class="foto-texto">
+
+                    <span>
+                        Gastronomía
+                    </span>
+
+                    <h3>
+                        Alta cocina
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- CENA -->
+
+            <article class="foto-experiencia">
+
+                <img
+                    src="img/experiencia-cena.jpg"
+                    alt="Cena elegante">
+
+                <div class="foto-texto">
+
+                    <span>
+                        Momento
+                    </span>
+
+                    <h3>
+                        La velada
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <!-- DETALLE -->
+
+            <article class="foto-experiencia">
+
+                <img
+                    src="img/experiencia-detalle.jpg"
+                    alt="Detalle de mesa y servicio">
+
+                <div class="foto-texto">
+
+                    <span>
+                        Detalles
+                    </span>
+
+                    <h3>
+                        Todo importa
+                    </h3>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CHEF
+         ========================================================= -->
+
+    <section class="experiencia-chef">
+
+        <div class="chef-experiencia-contenedor">
+
+            <div class="chef-experiencia-imagen">
+
+                <img
+                    src="img/chef.jpg"
+                    alt="Chef de Le Château Gourmet">
+
+            </div>
+
+            <div class="chef-experiencia-texto">
+
+                <span class="etiqueta-dorada">
+                    La cocina
+                </span>
+
+                <h2>
+                    El detalle detrás de cada plato
+                </h2>
+
+                <p>
+                    Nuestra cocina nace de la búsqueda constante
+                    por crear platos que combinen técnica,
+                    presentación y sabor.
+                </p>
+
+                <p>
+                    Cada preparación forma parte de una propuesta
+                    pensada para que la gastronomía sea uno de los
+                    grandes protagonistas de la noche.
+                </p>
+
+                <span class="firma-chef">
+                    Le Château Gourmet
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CTA FINAL
+         ========================================================= -->
+
+    <section class="experiencia-final">
+
+        <div class="experiencia-final-contenido">
+
+            <span class="etiqueta-dorada">
+                Tu próxima noche
+            </span>
+
+            <h2>
+                Vive Le Château
+            </h2>
+
+            <p>
+                Reserva tu mesa y descubre una experiencia
+                gastronómica creada para disfrutarse sin prisa.
+            </p>
+
+            <a
+                href="reservas.html"
+                class="btn-experiencia principal">
+                Reservar una mesa
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="footer">
+
+        <div class="footer-contenido">
+
+            <div class="footer-columna">
+
+                <h3>
+                    Le Château
+                </h3>
+
+                <p>
+                    Alta gastronomía, elegancia y experiencias
+                    para recordar.
+                </p>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Navegación
+                </h4>
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="carta.html">
+                    Carta
+                </a>
+
+                <a href="experiencia.html">
+                    Experiencia
+                </a>
+
+                <a href="reservas.html">
+                    Reservas
+                </a>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Información
+                </h4>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+                <a href="eventos.html">
+                    Eventos
+                </a>
+
+                <a href="index.html#chef">
+                    Chef
+                </a>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Le Château Gourmet
+                </h4>
+
+                <p>
+                    Una experiencia que comienza en la mesa
+                    y permanece en la memoria.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                Proyecto académico de desarrollo web
+            </p>
+
+            <p>
+                Juan Melo & Johan Velandia
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT INTERACTIVO
+         ========================================================= -->
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       SELECTOR INTERACTIVO
+       ===================================================== */
+
+    const botones =
+        document.querySelectorAll(".selector-btn");
+
+    const paneles =
+        document.querySelectorAll(".experiencia-panel");
+
+
+    botones.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            const panelId =
+                boton.dataset.panel;
+
+
+            /* Desactivar botones */
+
+            botones.forEach(btn => {
+                btn.classList.remove("activo");
+            });
+
+
+            /* Desactivar paneles */
+
+            paneles.forEach(panel => {
+                panel.classList.remove("activo");
+            });
+
+
+            /* Activar botón */
+
+            boton.classList.add("activo");
+
+
+            /* Activar panel */
+
+            const panel =
+                document.getElementById(panelId);
+
+            if (panel) {
+                panel.classList.add("activo");
+            }
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       ANIMACIONES AL HACER SCROLL
+       ===================================================== */
+
+    const elementos =
+        document.querySelectorAll(
+            ".paso, .foto-experiencia, .chef-experiencia-contenedor"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    entry.target.classList.add("mostrar");
+
+
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            }
+        );
+
+
+    elementos.forEach(elemento => {
+
+        elemento.classList.add("animar");
+
+        observer.observe(elemento);
+
+    });
+
+
+
+    /* =====================================================
+       MOVIMIENTO MUY SUAVE DEL HERO
+       ===================================================== */
+
+    const hero =
+        document.querySelector(".experiencia-hero");
+
+
+    if (hero && window.innerWidth > 900) {
+
+        let movimientoActivo = false;
+
+
+        hero.addEventListener("mousemove", evento => {
+
+            if (movimientoActivo) {
+                return;
+            }
+
+
+            movimientoActivo = true;
+
+
+            requestAnimationFrame(() => {
+
+                const x =
+                    (evento.clientX / window.innerWidth - 0.5) * 2;
+
+                const y =
+                    (evento.clientY / window.innerHeight - 0.5) * 2;
+
+
+                hero.style.backgroundPosition =
+                    `calc(50% + ${x}px) calc(50% + ${y}px)`;
+
+
+                movimientoActivo = false;
+
+            });
+
+        });
+
+
+        hero.addEventListener("mouseleave", () => {
+
+            hero.style.backgroundPosition =
+                "center center";
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       SCROLL SUAVE PARA ENLACES INTERNOS
+       ===================================================== */
+
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(enlace => {
+
+        enlace.addEventListener("click", evento => {
+
+            const destino =
+                enlace.getAttribute("href");
+
+
+            if (
+                !destino ||
+                destino === "#"
+            ) {
+                return;
+            }
+
+
+            const elemento =
+                document.querySelector(destino);
+
+
+            if (!elemento) {
+                return;
+            }
+
+
+            evento.preventDefault();
+
+
+            elemento.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

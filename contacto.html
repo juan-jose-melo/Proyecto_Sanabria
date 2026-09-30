@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Le Château Gourmet</title>
+
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            Le Château
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="index.html#experiencia">Experiencia</a></li>
+            <li><a href="index.html#chef">Chef</a></li>
+            <li><a href="index.html#reservas">Reservas</a></li>
+            <li><a href="contacto.html" class="activo">Contacto</a></li>
+            <li><a href="eventos.html">Eventos</a></li></ul>
+    </nav>
+
+    <!-- SECCIÓN DE CONTACTO -->
+    <main class="contacto-seccion">
+        
+        <header class="contacto-header">
+            <span class="decoracion">✦</span>
+            <h1>Contáctenos</h1>
+            <p>Estamos a su disposición para atender sus dudas, eventos o comentarios</p>
+            <div class="linea-titulo"></div>
+        </header>
+
+        <div class="contacto-box">
+            
+            <!-- INFORMACIÓN DE CONTACTO Y HORARIOS -->
+            <div class="contacto-info">
+                
+                <div class="info-grupo">
+                    <h3>Ubicación</h3>
+                    <p>Carrera 10 # 25-40</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+
+                <div class="info-grupo">
+                    <h3>Atención Directa</h3>
+                    <p>Teléfono: +57 300 000 0000</p>
+                    <p>Email: contacto@lechateau.com</p>
+                </div>
+
+                <div class="info-grupo">
+                    <h3>Horarios de Atención</h3>
+                    <p><strong>Lunes a Jueves:</strong> 12:00 PM - 10:00 PM</p>
+                    <p><strong>Viernes y Sábado:</strong> 12:00 PM - 11:30 PM</p>
+                    <p><strong>Domingo:</strong> 12:00 PM - 8:00 PM</p>
+                </div>
+
+            </div>
+
+            <!-- FORMULARIO DE MENSAJE DIRECTO -->
+            <form class="contacto-formulario" action="#" method="POST">
+                
+                <div class="form-grupo">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="asunto">Asunto</label>
+                    <input type="text" id="asunto" name="asunto" placeholder="Ej. Consulta sobre eventos, sugerencia..." required>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escriba su mensaje o inquietud..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn2 btn-enviar">Enviar Mensaje</button>
+
+            </form>
+
+        </div>
+
+        <div class="volver-inicio">
+            <a href="index.html">← Volver al Inicio</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <h3>Le Château Gourmet</h3>
+                <p>Alta cocina y experiencias inolvidables en un ambiente de elegancia y sofisticación.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Información</h4>
+                <p>Carrera 10 # 25-40</p>
+                <p>Bogotá, Colombia</p>
+                <p>+57 300 000 0000</p>
+                <p>contacto@lechateau.com</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Horarios</h4>
+                <p>Lunes a Jueves</p>
+                <p>12:00 PM - 10:00 PM</p>
+                <p>Viernes y Sábado</p>
+                <p>12:00 PM - 11:30 PM</p>
+                <p>Domingo</p>
+                <p>12:00 PM - 8:00 PM</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Nuestra Filosofía</h4>
+                <p>Calidad, creatividad y pasión se unen para convertir cada visita en un recuerdo.</p>
+            </div>
+        </div>
+
+        <div class="footer-linea"></div>
+
+        <div class="creditos">
+            <p>© 2026 Le Château Gourmet. Todos los derechos reservados.</p>
+            <p>Proyecto desarrollado por <strong>Juan Melo</strong> y <strong>Johan Velandia</strong>.</p>
+            <p>Diseño y desarrollo web académico.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
