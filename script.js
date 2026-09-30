@@ -576,3 +576,67 @@ if(botonEnviarOpinion){
     });
 
 }
+
+// =========================================================
+// INTERACTIVIDAD DE LA GALERÍA (FILTROS Y LIGHTBOX)
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. FILTROS DE CATEGORÍA
+    const botonesFiltro = document.querySelectorAll(".filtro-btn");
+    const itemsGaleria = document.querySelectorAll(".galeria-item");
+
+    if (botonesFiltro.length > 0) {
+        botonesFiltro.forEach(boton => {
+            boton.addEventListener("click", () => {
+                
+                // Cambiar clase activa en los botones
+                botonesFiltro.forEach(b => b.classList.remove("activo"));
+                boton.classList.add("activo");
+
+                const filtro = boton.getAttribute("data-filtro");
+
+                // Filtrar elementos
+                itemsGaleria.forEach(item => {
+                    if (filtro === "todos" || item.getAttribute("data-categoria") === filtro) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        });
+    }
+
+    // 2. LIGHTBOX / MODAL EN PANTALLA COMPLETA
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const botonCerrar = document.querySelector(".lightbox-cerrar");
+
+    if (lightbox && itemsGaleria.length > 0) {
+        itemsGaleria.forEach(item => {
+            item.addEventListener("click", () => {
+                const img = item.querySelector("img");
+                const titulo = item.querySelector("h3").innerText;
+                
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+                lightboxCaption.innerText = titulo;
+            });
+        });
+
+        // Cerrar al hacer clic en la X
+        botonCerrar.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        // Cerrar al hacer clic fuera de la imagen
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+    }
+});

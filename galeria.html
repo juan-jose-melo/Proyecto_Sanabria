@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Le Château Gourmet</title>
+
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            Le Château
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="galeria.html" class="activo">Galería</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="index.html#experiencia">Experiencia</a></li>
+            <li><a href="index.html#chef">Chef</a></li>
+            <li><a href="index.html#reservas">Reservas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECCIÓN DE GALERÍA INTERACTIVA -->
+    <main class="galeria-page-seccion">
+        
+        <header class="galeria-header">
+            <span class="decoracion">✦</span>
+            <h1>Nuestra Galería</h1>
+            <p>Un recorrido visual por la elegancia, el arte culinario y nuestra atmósfera exclusiva</p>
+            <div class="linea-titulo"></div>
+        </header>
+
+        <!-- FILTROS INTERACTIVOS -->
+        <div class="galeria-filtros">
+            <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+            <button class="filtro-btn" data-filtro="platos">Alta Cocina</button>
+            <button class="filtro-btn" data-filtro="salon">Ambiente & Salón</button>
+            <button class="filtro-btn" data-filtro="vinos">Cava & Vinos</button>
+            <button class="filtro-btn" data-filtro="postres">Repostería</button>
+        </div>
+
+        <!-- GRID DE IMÁGENES -->
+        <div class="galeria-grid">
+            
+            <div class="galeria-item" data-categoria="platos">
+                <img src="img/wagyu.jpg" alt="Filete Wagyu">
+                <div class="galeria-overlay">
+                    <h3>Filete Wagyu</h3>
+                    <p>Corte premium con reducción de vino tinto</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="vinos">
+                <img src="img/vino.jpg" alt="Selección de Vinos">
+                <div class="galeria-overlay">
+                    <h3>Cava Exclusiva</h3>
+                    <p>Etiquetas internacionales seleccionadas</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="salon">
+                <img src="img/galeria2.jpg" alt="Ambiente Exclusivo">
+                <div class="galeria-overlay">
+                    <h3>Salón Principal</h3>
+                    <p>Elegancia y privacidad para sus cenas</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="platos">
+                <img src="img/salmon.jpg" alt="Salmón Premium">
+                <div class="galeria-overlay">
+                    <h3>Salmón Noruego</h3>
+                    <p>Acompañado de notas cítricas e hinojo</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="postres">
+                <img src="img/postre.jpg" alt="Soufflé de Chocolate">
+                <div class="galeria-overlay">
+                    <h3>Soufflé Belga</h3>
+                    <p>Chocolate de origen con frutos del bosque</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="salon">
+                <img src="img/galeria5.jpg" alt="Mesa de Honor">
+                <div class="galeria-overlay">
+                    <h3>Mesa & Elegancia</h3>
+                    <p>Montaje para veladas inolvidables</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="platos">
+                <img src="img/langosta.jpg" alt="Langosta Imperial">
+                <div class="galeria-overlay">
+                    <h3>Langosta Imperial</h3>
+                    <p>Sazonada con especias mediterráneas</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+            <div class="galeria-item" data-categoria="postres">
+                <img src="img/galeria4.jpg" alt="Repostería de Autor">
+                <div class="galeria-overlay">
+                    <h3>Postres de Autor</h3>
+                    <p>Técnicas de vanguardia y sabor refinado</p>
+                    <span class="icono-zoom">🔍 Ver detalle</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="volver-inicio">
+            <a href="index.html">← Volver al Inicio</a>
+        </div>
+
+    </main>
+
+    <!-- LIGHTBOX / VISUALIZADOR INTERACTIVO MODAL -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-cerrar">&times;</span>
+        <img class="lightbox-contenido" id="lightbox-img" alt="Imagen ampliada">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <h3>Le Château Gourmet</h3>
+                <p>Alta cocina y experiencias inolvidables en un ambiente de elegancia y sofisticación.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Información</h4>
+                <p>Carrera 10 # 25-40</p>
+                <p>Bogotá, Colombia</p>
+                <p>+57 300 000 0000</p>
+                <p>contacto@lechateau.com</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Horarios</h4>
+                <p>Lunes a Jueves</p>
+                <p>12:00 PM - 10:00 PM</p>
+                <p>Viernes y Sábado</p>
+                <p>12:00 PM - 11:30 PM</p>
+                <p>Domingo</p>
+                <p>12:00 PM - 8:00 PM</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Nuestra Filosofía</h4>
+                <p>Calidad, creatividad y pasión se unen para convertir cada visita en un recuerdo.</p>
+            </div>
+        </div>
+
+        <div class="footer-linea"></div>
+
+        <div class="creditos">
+            <p>© 2026 Le Château Gourmet. Todos los derechos reservados.</p>
+            <p>Proyecto desarrollado por <strong>Juan Melo</strong> y <strong>Johan Velandia</strong>.</p>
+            <p>Diseño y desarrollo web académico.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script src="script.js"></script>
+
+</body>
+</html>
