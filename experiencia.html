@@ -1,1389 +1,3015 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Experiencia | Le Château Gourmet</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Experiencias | Le Château Gourmet</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="estilos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
-        /* =========================================================
-           EXPERIENCIA - ESTILOS ESPECÍFICOS
-           ========================================================= */
 
-        .experiencia-page {
-            background: #111;
-            color: #f5f5f5;
-            overflow: hidden;
+        /* =====================================================
+           VARIABLES
+        ====================================================== */
+
+        :root {
+
+            --negro: #0b0b0b;
+            --negro-suave: #111111;
+            --blanco: #f5f5f5;
+
+            --dorado: #c8a96a;
+            --dorado-claro: #e0c58b;
+
+            --gris: #b7b7b7;
+
+            --vidrio: rgba(10, 10, 10, 0.68);
+
+            --borde: rgba(200, 169, 106, 0.35);
+
+            --transicion: 0.4s ease;
+
         }
 
-        /* =========================================================
-           HERO
-           ========================================================= */
 
-        .experiencia-hero {
-            min-height: 100vh;
-            position: relative;
+        /* =====================================================
+           RESET
+        ====================================================== */
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        * {
 
-            background:
-                linear-gradient(
-                    rgba(0, 0, 0, .58),
-                    rgba(0, 0, 0, .78)
-                ),
-                url("img/fondo.jpg") center/cover no-repeat;
+            margin: 0;
+            padding: 0;
 
-            text-align: center;
+            box-sizing: border-box;
+
         }
 
-        .experiencia-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    transparent 15%,
-                    rgba(0, 0, 0, .35) 100%
-                );
+        html {
 
-            pointer-events: none;
+            scroll-behavior: smooth;
+
+            overflow-x: hidden;
+
         }
 
-        .hero-experiencia-contenido {
-            position: relative;
-            z-index: 2;
 
-            width: min(900px, 90%);
-            padding-top: 80px;
+        body {
+
+            font-family: "Poppins", sans-serif;
+
+            background: var(--negro);
+
+            color: var(--blanco);
+
+            overflow-x: hidden;
+
         }
 
-        .hero-etiqueta {
-            display: inline-block;
 
-            color: #c8a96a;
-            font-size: 13px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-
-            margin-bottom: 25px;
-        }
-
-        .hero-experiencia-contenido h1 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(55px, 8vw, 100px);
-            font-weight: 500;
-            line-height: 1;
-
-            margin: 0 0 25px;
-
-            color: #f5f5f5;
-        }
-
-        .hero-experiencia-contenido h1 span {
-            color: #c8a96a;
-            font-style: italic;
-        }
-
-        .hero-experiencia-contenido p {
-            max-width: 700px;
-            margin: 0 auto 40px;
-
-            color: #ddd;
-            font-size: 17px;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .hero-botones {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .btn-experiencia {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-width: 190px;
-            padding: 15px 28px;
+        a {
 
             text-decoration: none;
 
-            font-family: "Poppins", sans-serif;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            color: inherit;
 
-            border: 1px solid #c8a96a;
-
-            transition: .3s ease;
         }
 
-        .btn-experiencia.principal {
-            background: #c8a96a;
-            color: #111;
+
+        button {
+
+            font-family: inherit;
+
         }
 
-        .btn-experiencia.principal:hover {
-            background: #dfc58d;
-            transform: translateY(-3px);
-        }
 
-        .btn-experiencia.secundario {
-            color: #c8a96a;
-            background: transparent;
-        }
+        img {
 
-        .btn-experiencia.secundario:hover {
-            background: rgba(200, 169, 106, .1);
-            transform: translateY(-3px);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            color: #c8a96a;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-
-            z-index: 3;
-        }
-
-        .scroll-indicator::after {
-            content: "";
+            max-width: 100%;
 
             display: block;
 
-            width: 1px;
-            height: 45px;
-
-            background: #c8a96a;
-
-            margin: 12px auto 0;
-
-            animation: scrollLinea 1.8s infinite;
         }
 
-        @keyframes scrollLinea {
-            0% {
-                transform: scaleY(.3);
-                transform-origin: top;
-                opacity: .3;
-            }
 
-            50% {
-                transform: scaleY(1);
-                opacity: 1;
-            }
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
 
-            100% {
-                transform: scaleY(.3);
-                transform-origin: bottom;
-                opacity: .3;
-            }
-        }
+        .navbar {
 
-        /* =========================================================
-           INTRODUCCIÓN
-           ========================================================= */
+            position: fixed;
 
-        .experiencia-intro {
-            padding: 130px 8%;
-            background: #111;
-            text-align: center;
-        }
+            top: 0;
+            left: 0;
 
-        .etiqueta-dorada {
-            color: #c8a96a;
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
+            width: 100%;
 
-        .experiencia-intro h2 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(38px, 5vw, 64px);
-            font-weight: 500;
+            height: 90px;
 
-            margin: 18px auto 25px;
+            padding: 0 80px;
 
-            max-width: 850px;
-        }
-
-        .experiencia-intro p {
-            max-width: 760px;
-            margin: auto;
-
-            color: #aaa;
-            line-height: 1.9;
-            font-size: 16px;
-        }
-
-        /* =========================================================
-           SELECTOR INTERACTIVO
-           ========================================================= */
-
-        .experiencia-selector {
-            padding: 80px 7% 130px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #111 0%,
-                    #161616 100%
-                );
-        }
-
-        .titulo-seccion {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .titulo-seccion h2 {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(38px, 5vw, 60px);
-            font-weight: 500;
-
-            margin: 15px 0;
-        }
-
-        .titulo-seccion p {
-            color: #999;
-        }
-
-        .selector-botones {
             display: flex;
-            justify-content: center;
-            gap: 10px;
 
-            margin-bottom: 45px;
+            align-items: center;
 
-            flex-wrap: wrap;
+            justify-content: space-between;
+
+            background: rgba(0, 0, 0, 0.90);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            border-bottom:
+                1px solid
+                rgba(200, 169, 106, 0.15);
+
+            z-index: 1000;
+
         }
 
-        .selector-btn {
-            padding: 14px 27px;
 
-            background: transparent;
-            color: #aaa;
+        .logo {
 
-            border: 1px solid #333;
+            font-family: "Playfair Display", serif;
 
-            font-family: "Poppins", sans-serif;
-            font-size: 12px;
+            font-size: 30px;
+
+            color: var(--dorado);
+
             letter-spacing: 1px;
-            text-transform: uppercase;
 
-            cursor: pointer;
+            white-space: nowrap;
 
-            transition: .3s ease;
         }
 
-        .selector-btn:hover {
-            border-color: #c8a96a;
-            color: #c8a96a;
-        }
 
-        .selector-btn.activo {
-            background: #c8a96a;
-            border-color: #c8a96a;
-            color: #111;
-        }
+        .menu {
 
-        .experiencia-panel {
-            display: none;
-
-            max-width: 1200px;
-            margin: auto;
-
-            grid-template-columns: 1fr 1fr;
-
-            background: #0d0d0d;
-            border: 1px solid rgba(200, 169, 106, .3);
-        }
-
-        .experiencia-panel.activo {
-            display: grid;
-            animation: aparecerPanel .5s ease;
-        }
-
-        @keyframes aparecerPanel {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .panel-imagen {
-            min-height: 500px;
-            overflow: hidden;
-        }
-
-        .panel-imagen img {
-            width: 100%;
-            height: 100%;
-            min-height: 500px;
-
-            object-fit: cover;
-
-            transition: transform .8s ease;
-        }
-
-        .experiencia-panel:hover .panel-imagen img {
-            transform: scale(1.04);
-        }
-
-        .panel-contenido {
-            padding: 65px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
 
-        .numero-panel {
-            color: #c8a96a;
-            font-family: "Playfair Display", serif;
-            font-size: 50px;
-            opacity: .5;
-        }
+            align-items: center;
 
-        .panel-contenido h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 42px;
-            font-weight: 500;
+            gap: 28px;
 
-            margin: 10px 0 20px;
-        }
-
-        .panel-contenido p {
-            color: #aaa;
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-        .panel-lista {
             list-style: none;
-            padding: 0;
-            margin: 15px 0 0;
+
         }
 
-        .panel-lista li {
-            padding: 12px 0;
 
-            border-bottom: 1px solid #2b2b2b;
+        .menu a {
 
-            color: #ccc;
-            font-size: 14px;
-        }
-
-        .panel-lista li::before {
-            content: "—";
-            color: #c8a96a;
-            margin-right: 12px;
-        }
-
-        /* =========================================================
-           RECORRIDO
-           ========================================================= */
-
-        .recorrido {
-            padding: 130px 7%;
-
-            background: #0c0c0c;
-        }
-
-        .recorrido-grid {
-            max-width: 1150px;
-            margin: 70px auto 0;
-
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-        }
-
-        .paso {
             position: relative;
 
-            padding: 35px 30px;
+            color: #eeeeee;
 
-            border-top: 1px solid #333;
+            font-size: 13px;
 
-            transition: .3s ease;
+            letter-spacing: 0.5px;
+
+            transition: var(--transicion);
+
+            white-space: nowrap;
+
         }
 
-        .paso:not(:last-child)::after {
+
+        .menu a::after {
+
             content: "";
 
             position: absolute;
 
-            top: -1px;
-            right: 0;
+            left: 0;
 
-            width: 1px;
-            height: 100px;
+            bottom: -8px;
 
-            background: #333;
+            width: 0;
+
+            height: 1px;
+
+            background: var(--dorado);
+
+            transition: var(--transicion);
+
         }
 
-        .paso:hover {
-            background: rgba(200, 169, 106, .04);
+
+        .menu a:hover,
+        .menu a.activo {
+
+            color: var(--dorado);
+
         }
 
-        .paso-numero {
-            font-family: "Playfair Display", serif;
-            font-size: 48px;
-            color: #c8a96a;
+
+        .menu a:hover::after,
+        .menu a.activo::after {
+
+            width: 100%;
+
         }
 
-        .paso h3 {
-            font-family: "Playfair Display", serif;
-            font-size: 26px;
-            font-weight: 500;
-            margin: 15px 0;
-        }
 
-        .paso p {
-            color: #888;
-            font-size: 14px;
-            line-height: 1.8;
-        }
+        /* =====================================================
+           HERO
+        ====================================================== */
 
-        /* =========================================================
-           GALERÍA
-           ========================================================= */
+        .hero {
 
-        .galeria-experiencia {
-            padding: 130px 6%;
-            background: #111;
-        }
+            min-height: 100vh;
 
-        .galeria-experiencia-grid {
-            max-width: 1250px;
-            margin: 70px auto 0;
-
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: 240px;
-
-            gap: 18px;
-        }
-
-        .foto-experiencia {
             position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 130px 30px 80px;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0, 0, 0, 0.42),
+                    rgba(0, 0, 0, 0.78)
+                ),
+
+                url("img/galeria2.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
             overflow: hidden;
 
-            border: 1px solid rgba(200, 169, 106, .15);
-
-            cursor: pointer;
         }
 
-        .foto-experiencia:nth-child(1) {
-            grid-column: span 7;
-            grid-row: span 2;
-        }
 
-        .foto-experiencia:nth-child(2) {
-            grid-column: span 5;
-        }
+        .hero::before {
 
-        .foto-experiencia:nth-child(3) {
-            grid-column: span 5;
-        }
-
-        .foto-experiencia:nth-child(4) {
-            grid-column: span 12;
-            grid-row: span 1;
-        }
-
-        .foto-experiencia img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: transform .7s ease;
-        }
-
-        .foto-experiencia::after {
             content: "";
 
             position: absolute;
+
             inset: 0;
 
-            background: linear-gradient(
-                transparent 45%,
-                rgba(0,0,0,.8)
-            );
+            background:
 
-            opacity: .7;
+                radial-gradient(
+                    circle at center,
+                    transparent 10%,
+                    rgba(0, 0, 0, 0.42) 85%
+                );
+
+            pointer-events: none;
+
         }
 
-        .foto-experiencia:hover img {
-            transform: scale(1.08);
-        }
 
-        .foto-texto {
-            position: absolute;
+        .hero-content {
 
-            left: 25px;
-            bottom: 22px;
+            position: relative;
 
             z-index: 2;
 
-            color: white;
+            max-width: 900px;
+
+            animation: heroEntrada 1.2s ease both;
+
         }
 
-        .foto-texto span {
+
+        @keyframes heroEntrada {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .hero-subtitle {
+
             display: block;
 
-            color: #c8a96a;
-            font-size: 10px;
-            letter-spacing: 3px;
+            margin-bottom: 20px;
+
+            color: var(--dorado-claro);
+
+            font-size: 13px;
+
+            letter-spacing: 5px;
+
             text-transform: uppercase;
 
-            margin-bottom: 5px;
         }
 
-        .foto-texto h3 {
-            margin: 0;
+
+        .hero h1 {
 
             font-family: "Playfair Display", serif;
-            font-size: 25px;
+
+            font-size: clamp(48px, 7vw, 88px);
+
             font-weight: 500;
+
+            line-height: 1.05;
+
+            margin-bottom: 28px;
+
         }
 
-        /* =========================================================
-           CHEF
-           ========================================================= */
 
-        .experiencia-chef {
-            padding: 130px 7%;
+        .hero p {
 
-            background: #151515;
-        }
+            max-width: 680px;
 
-        .chef-experiencia-contenedor {
-            max-width: 1100px;
             margin: auto;
 
-            display: grid;
-            grid-template-columns: .85fr 1.15fr;
+            color: #dddddd;
 
-            min-height: 550px;
-        }
-
-        .chef-experiencia-imagen {
-            overflow: hidden;
-        }
-
-        .chef-experiencia-imagen img {
-            width: 100%;
-            height: 100%;
-            min-height: 550px;
-
-            object-fit: cover;
-        }
-
-        .chef-experiencia-texto {
-            padding: 70px;
-
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-
-            background: #101010;
-
-            border: 1px solid rgba(200, 169, 106, .25);
-            border-left: none;
-        }
-
-        .chef-experiencia-texto h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 48px;
-            font-weight: 500;
-
-            margin: 15px 0 25px;
-        }
-
-        .chef-experiencia-texto p {
-            color: #aaa;
             line-height: 1.9;
-            margin-bottom: 15px;
+
+            font-size: 16px;
+
         }
 
-        .firma-chef {
-            color: #c8a96a;
 
-            font-family: "Playfair Display", serif;
-            font-size: 24px;
-            font-style: italic;
+        .hero-button {
 
-            margin-top: 25px;
+            display: inline-flex;
+
+            margin-top: 40px;
+
+            padding: 15px 34px;
+
+            border: 1px solid var(--dorado);
+
+            color: var(--dorado);
+
+            transition: var(--transicion);
+
         }
 
-        /* =========================================================
-           CTA
-           ========================================================= */
 
-        .experiencia-final {
-            position: relative;
+        .hero-button:hover {
 
-            min-height: 520px;
+            background: var(--dorado);
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #111;
+
+        }
+
+
+        /* =====================================================
+           INTRO
+        ====================================================== */
+
+        .intro {
+
+            padding: 110px 8% 80px;
 
             text-align: center;
 
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.72),
-                    rgba(0,0,0,.82)
-                ),
-                url("img/experiencia-cena.jpg") center/cover no-repeat;
+            background: var(--negro);
+
         }
 
-        .experiencia-final-contenido {
-            width: min(750px, 90%);
+
+        .eyebrow {
+
+            color: var(--dorado);
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            font-size: 12px;
+
+            margin-bottom: 18px;
+
         }
 
-        .experiencia-final h2 {
+
+        .intro h2 {
+
             font-family: "Playfair Display", serif;
-            font-size: clamp(42px, 6vw, 72px);
+
+            font-size: clamp(35px, 5vw, 58px);
+
             font-weight: 500;
 
-            margin: 15px 0 25px;
+            margin-bottom: 25px;
+
         }
 
-        .experiencia-final p {
-            color: #ccc;
+
+        .intro p {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            color: var(--gris);
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =====================================================
+           NUESTRAS EXPERIENCIAS
+        ====================================================== */
+
+        .experiencias {
+
+            padding: 60px 7% 120px;
+
+            background: #0d0d0d;
+
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .section-title h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            font-weight: 500;
+
+        }
+
+
+        .section-title p {
+
+            color: var(--gris);
+
+            margin-top: 15px;
+
+        }
+
+
+        .experiencias-grid {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* =====================================================
+           TARJETAS
+        ====================================================== */
+
+        .experiencia-card {
+
+            position: relative;
+
+            min-height: 560px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            background: #111;
+
+        }
+
+
+        .experiencia-card img {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.8s ease,
+                filter 0.8s ease;
+
+        }
+
+
+        .experiencia-card:hover img {
+
+            transform: scale(1.08);
+
+            filter: brightness(0.85);
+
+        }
+
+
+        .card-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.95) 5%,
+                    rgba(0, 0, 0, 0.45) 55%,
+                    rgba(0, 0, 0, 0.18)
+                );
+
+        }
+
+
+        .card-content {
+
+            position: absolute;
+
+            left: 35px;
+
+            right: 35px;
+
+            bottom: 35px;
+
+            z-index: 2;
+
+        }
+
+
+        .card-number {
+
+            color: var(--dorado);
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .card-content h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .card-content p {
+
+            color: #d4d4d4;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .descubrir-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px 20px;
+
+            background: transparent;
+
+            border:
+                1px solid
+                var(--dorado);
+
+            color: var(--dorado);
+
+            cursor: pointer;
+
+            transition: var(--transicion);
+
+        }
+
+
+        .descubrir-btn span {
+
+            transition:
+                transform var(--transicion);
+
+        }
+
+
+        .descubrir-btn:hover {
+
+            background: var(--dorado);
+
+            color: #111;
+
+        }
+
+
+        .descubrir-btn:hover span {
+
+            transform:
+                translateX(5px);
+
+        }
+
+
+        /* =====================================================
+           DETALLE DE EXPERIENCIAS
+
+           IMPORTANTE:
+           El fondo ya NO cambia directamente mediante
+           background-image.
+
+           Ahora usamos ::after para poder animar:
+           - opacidad
+           - zoom
+           - desenfoque
+           - brillo
+        ====================================================== */
+
+        .detalle-experiencia {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            padding: 130px 7% 110px;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            isolation: isolate;
+
+            background: #080808;
+
+            scroll-margin-top: 20px;
+
+        }
+
+
+        /* =====================================================
+           FOTOGRAFÍA DE FONDO
+        ====================================================== */
+
+        .detalle-experiencia::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -20px;
+
+            z-index: -2;
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            transform: scale(1.04);
+
+            animation:
+                fondoEntrada
+                1.4s
+                cubic-bezier(.22, .61, .36, 1)
+                both;
+
+            will-change:
+                opacity,
+                transform,
+                filter;
+
+        }
+
+
+        /* =====================================================
+           CAPA OSCURA
+        ====================================================== */
+
+        .detalle-experiencia::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -1;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.90) 0%,
+                    rgba(0, 0, 0, 0.70) 45%,
+                    rgba(0, 0, 0, 0.48) 100%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        /* =====================================================
+           IMÁGENES
+        ====================================================== */
+
+        .detalle-maridaje::after {
+
+            background-image:
+                url("img/vino.jpg");
+
+        }
+
+
+        .detalle-cocina::after {
+
+            background-image:
+                url("img/galeria1.jpg");
+
+        }
+
+
+        .detalle-ambiente::after {
+
+            background-image:
+                url("img/galeria2.jpg");
+
+        }
+
+
+        /* =====================================================
+           ENTRADA NORMAL DEL FONDO
+        ====================================================== */
+
+        @keyframes fondoEntrada {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(1.10);
+
+                filter:
+                    brightness(0.55)
+                    blur(7px);
+
+            }
+
+            35% {
+
+                opacity: 0.35;
+
+            }
+
+            65% {
+
+                opacity: 0.75;
+
+                filter:
+                    brightness(0.80)
+                    blur(3px);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.04);
+
+                filter:
+                    brightness(1)
+                    blur(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           TRANSICIÓN CUANDO SE SELECCIONA EXPERIENCIA
+        ====================================================== */
+
+        .detalle-experiencia.transicionando::after {
+
+            animation:
+
+                cambioFondo
+                1.35s
+                cubic-bezier(.22, .61, .36, 1)
+                both;
+
+        }
+
+
+        @keyframes cambioFondo {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    scale(1.10);
+
+                filter:
+                    blur(9px)
+                    brightness(0.50);
+
+            }
+
+            25% {
+
+                opacity: 0.18;
+
+                transform:
+                    scale(1.085);
+
+            }
+
+            50% {
+
+                opacity: 0.48;
+
+                transform:
+                    scale(1.065);
+
+                filter:
+                    blur(5px)
+                    brightness(0.68);
+
+            }
+
+            75% {
+
+                opacity: 0.82;
+
+                transform:
+                    scale(1.045);
+
+                filter:
+                    blur(2px)
+                    brightness(0.88);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.04);
+
+                filter:
+                    blur(0)
+                    brightness(1);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CONTENIDO
+        ====================================================== */
+
+        .detalle-contenido {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+        }
+
+
+        .detalle-encabezado {
+
+            max-width: 760px;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .detalle-encabezado .numero {
+
+            color: var(--dorado);
+
+            letter-spacing: 5px;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .detalle-encabezado h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(42px, 6vw, 72px);
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .detalle-encabezado p {
+
+            color: #dddddd;
+
+            line-height: 1.9;
+
+            max-width: 760px;
+
+        }
+
+
+        /* =====================================================
+           PANEL TRANSPARENTE
+        ====================================================== */
+
+        .glass-panel {
+
+            width: 100%;
+
+            padding: 35px;
+
+            background:
+                rgba(12, 12, 12, 0.65);
+
+            border:
+                1px solid
+                rgba(200, 169, 106, 0.28);
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+
+            box-shadow:
+                0 25px 80px
+                rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        /* =====================================================
+           MARIDAJE
+        ====================================================== */
+
+        .maridaje-intro {
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr 0.9fr;
+
+            gap: 35px;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .maridaje-info h3,
+        .selector-vinos h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .maridaje-info p {
+
+            color: #cccccc;
+
             line-height: 1.8;
-            margin-bottom: 35px;
+
+            font-size: 14px;
+
         }
 
-        /* =========================================================
+
+        .maridaje-pasos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .paso {
+
+            padding: 20px;
+
+            border:
+                1px solid
+                rgba(200, 169, 106, 0.2);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+        }
+
+
+        .paso strong {
+
+            display: block;
+
+            color: var(--dorado);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 23px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .paso span {
+
+            color: #bcbcbc;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================================
+           FILTROS DE VINOS
+        ====================================================== */
+
+        .vino-filtros {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin: 25px 0 30px;
+
+        }
+
+
+        .filtro-vino {
+
+            padding: 10px 17px;
+
+            border:
+                1px solid
+                rgba(200, 169, 106, 0.35);
+
+            background: transparent;
+
+            color: #ddd;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            transition: var(--transicion);
+
+        }
+
+
+        .filtro-vino:hover,
+        .filtro-vino.activo {
+
+            background: var(--dorado);
+
+            border-color: var(--dorado);
+
+            color: #111;
+
+        }
+
+
+        /* =====================================================
+           CATÁLOGO DE VINOS
+        ====================================================== */
+
+        .vinos-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            max-height: 570px;
+
+            overflow-y: auto;
+
+            overflow-x: hidden;
+
+            padding-right: 8px;
+
+        }
+
+
+        .vinos-grid::-webkit-scrollbar {
+
+            width: 5px;
+
+        }
+
+
+        .vinos-grid::-webkit-scrollbar-track {
+
+            background:
+                rgba(255, 255, 255, 0.04);
+
+        }
+
+
+        .vinos-grid::-webkit-scrollbar-thumb {
+
+            background: var(--dorado);
+
+        }
+
+
+        .vino-card {
+
+            padding: 23px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            background:
+                rgba(0, 0, 0, 0.28);
+
+            cursor: pointer;
+
+            transition: var(--transicion);
+
+        }
+
+
+        .vino-card:hover,
+        .vino-card.seleccionado {
+
+            border-color: var(--dorado);
+
+            background:
+                rgba(200, 169, 106, 0.09);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .vino-tipo {
+
+            display: inline-block;
+
+            color: var(--dorado);
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .vino-card h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            font-weight: 500;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .vino-card p {
+
+            color: #aaa;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .vino-detalle {
+
+            margin-top: 20px;
+
+            padding: 22px;
+
+            border-left:
+                2px solid
+                var(--dorado);
+
+            background:
+                rgba(0, 0, 0, 0.3);
+
+            transition:
+                opacity 0.3s ease;
+
+        }
+
+
+        .vino-detalle h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .vino-detalle p {
+
+            color: #c9c9c9;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           ALTA COCINA
+        ====================================================== */
+
+        .platos-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .plato {
+
+            position: relative;
+
+            min-height: 280px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.1);
+
+            cursor: pointer;
+
+        }
+
+
+        .plato img {
+
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 280px;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease;
+
+        }
+
+
+        .plato:hover img {
+
+            transform:
+                scale(1.08);
+
+        }
+
+
+        .plato-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            padding: 22px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 0, 0, 0.95)
+                );
+
+        }
+
+
+        .plato-overlay h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .plato-overlay p {
+
+            color: #ccc;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .cocina-info {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-top:
+                1px solid
+                rgba(200, 169, 106, 0.3);
+
+            color: #ccc;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =====================================================
+           AMBIENTE
+        ====================================================== */
+
+        .ambiente-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .ambiente-item {
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.09);
+
+            background:
+                rgba(0, 0, 0, 0.25);
+
+            transition:
+                var(--transicion);
+
+        }
+
+
+        .ambiente-item:hover {
+
+            border-color:
+                var(--dorado);
+
+            transform:
+                translateY(-5px);
+
+        }
+
+
+        .ambiente-icon {
+
+            font-size: 28px;
+
+            color:
+                var(--dorado);
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .ambiente-item h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .ambiente-item p {
+
+            color: #bcbcbc;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .ambiente-extra {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .extra-box {
+
+            padding: 28px;
+
+            border:
+                1px solid
+                rgba(200, 169, 106, 0.22);
+
+            background:
+                rgba(0, 0, 0, 0.28);
+
+        }
+
+
+        .extra-box h4 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            color: var(--dorado);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .extra-box p {
+
+            color: #ccc;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           BOTÓN RESERVAR
+        ====================================================== */
+
+        .reserva-experiencia {
+
+            margin-top: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+
+        .reserva-btn {
+
+            display: inline-flex;
+
+            padding: 15px 30px;
+
+            background: var(--dorado);
+
+            color: #111;
+
+            border:
+                1px solid
+                var(--dorado);
+
+            transition:
+                var(--transicion);
+
+        }
+
+
+        .reserva-btn:hover {
+
+            background: transparent;
+
+            color: var(--dorado);
+
+        }
+
+
+        /* =====================================================
+           SEPARADORES
+        ====================================================== */
+
+        .separador {
+
+            height: 1px;
+
+            width: 100%;
+
+            background:
+
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(200, 169, 106, 0.5),
+                    transparent
+                );
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding: 80px 7% 30px;
+
+            background: #080808;
+
+            border-top:
+                1px solid
+                rgba(200, 169, 106, 0.15);
+
+        }
+
+
+        .footer-contenido {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr 1fr;
+
+            gap: 45px;
+
+        }
+
+
+        footer h3 {
+
+            font-family: "Playfair Display", serif;
+
+            color: var(--dorado);
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        footer h4 {
+
+            font-family: "Playfair Display", serif;
+
+            color: var(--dorado);
+
+            margin-bottom: 15px;
+
+        }
+
+
+        footer p {
+
+            color: #929292;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+        }
+
+
+        footer a {
+
+            transition:
+                color 0.3s ease;
+
+        }
+
+
+        footer a:hover {
+
+            color: var(--dorado);
+
+        }
+
+
+        .footer-linea {
+
+            max-width: 1250px;
+
+            margin: 45px auto 25px;
+
+            height: 1px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+        }
+
+
+        .creditos {
+
+            text-align: center;
+
+        }
+
+
+        .creditos p {
+
+            margin: 5px 0;
+
+        }
+
+
+        /* =====================================================
+           ANIMACIONES DE CONTENIDO
+        ====================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+
+                opacity 0.8s ease,
+
+                transform 0.8s ease;
+
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =====================================================
            RESPONSIVE
-           ========================================================= */
+        ====================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1050px) {
 
-            .experiencia-panel.activo {
-                grid-template-columns: 1fr;
+            .navbar {
+
+                padding: 0 35px;
+
             }
 
-            .panel-imagen,
-            .panel-imagen img {
-                min-height: 400px;
+
+            .menu {
+
+                gap: 16px;
+
             }
 
-            .panel-contenido {
-                padding: 45px 35px;
+
+            .experiencias-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
             }
 
-            .recorrido-grid {
-                grid-template-columns: 1fr 1fr;
+
+            .vinos-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
             }
 
-            .paso:not(:last-child)::after {
-                display: none;
+
+            .ambiente-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
             }
 
-            .galeria-experiencia-grid {
-                grid-template-columns: 1fr 1fr;
-                grid-auto-rows: 230px;
+
+            .footer-contenido {
+
+                grid-template-columns:
+                    1fr 1fr;
+
             }
 
-            .foto-experiencia:nth-child(1),
-            .foto-experiencia:nth-child(2),
-            .foto-experiencia:nth-child(3),
-            .foto-experiencia:nth-child(4) {
-                grid-column: span 1;
-                grid-row: span 1;
-            }
-
-            .foto-experiencia:nth-child(1) {
-                grid-column: span 2;
-            }
-
-            .chef-experiencia-contenedor {
-                grid-template-columns: 1fr;
-            }
-
-            .chef-experiencia-texto {
-                border-left: 1px solid rgba(200,169,106,.25);
-                border-top: none;
-            }
         }
 
-        @media (max-width: 600px) {
 
-            .hero-experiencia-contenido {
-                padding-top: 60px;
-            }
+        @media (max-width: 760px) {
 
-            .hero-experiencia-contenido h1 {
-                font-size: 50px;
-            }
+            .navbar {
 
-            .experiencia-intro,
-            .experiencia-selector,
-            .recorrido,
-            .galeria-experiencia,
-            .experiencia-chef {
-                padding-top: 85px;
-                padding-bottom: 85px;
-            }
+                height: auto;
 
-            .selector-botones {
+                min-height: 75px;
+
+                padding: 18px 20px;
+
                 flex-direction: column;
-                align-items: stretch;
+
+                gap: 15px;
+
             }
 
-            .selector-btn {
+
+            .logo {
+
+                font-size: 25px;
+
+            }
+
+
+            .menu {
+
                 width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                padding-bottom: 5px;
+
+                scrollbar-width: none;
+
             }
 
-            .recorrido-grid {
-                grid-template-columns: 1fr;
+
+            .menu::-webkit-scrollbar {
+
+                display: none;
+
             }
 
-            .galeria-experiencia-grid {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 260px;
+
+            .menu a {
+
+                font-size: 11px;
+
             }
 
-            .foto-experiencia:nth-child(1) {
-                grid-column: span 1;
+
+            .hero {
+
+                padding-top: 170px;
+
             }
 
-            .chef-experiencia-texto {
-                padding: 45px 30px;
+
+            .experiencias {
+
+                padding-left: 20px;
+
+                padding-right: 20px;
+
             }
 
-            .chef-experiencia-texto h2 {
-                font-size: 38px;
+
+            .experiencias-grid {
+
+                grid-template-columns:
+                    1fr;
+
             }
 
-            .hero-botones {
-                flex-direction: column;
-                align-items: center;
+
+            .experiencia-card {
+
+                min-height: 500px;
+
             }
 
-            .btn-experiencia {
-                width: 85%;
+
+            .detalle-experiencia {
+
+                padding:
+                    120px 20px 80px;
+
             }
+
+
+            .glass-panel {
+
+                padding: 22px;
+
+            }
+
+
+            .maridaje-intro {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .maridaje-pasos {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .vinos-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                max-height:
+                    none;
+
+            }
+
+
+            .platos-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .ambiente-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .ambiente-extra {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .footer-contenido {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
         }
+
+
+        @media (max-width: 480px) {
+
+            .ambiente-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 45px;
+
+            }
+
+
+            .detalle-encabezado h2 {
+
+                font-size: 40px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+        }
+
     </style>
+
 </head>
 
-<body class="experiencia-page">
 
-    <!-- =========================================================
+<body>
+
+
+    <!-- =====================================================
          NAVBAR
-         ========================================================= -->
+    ====================================================== -->
 
-    <header class="navbar">
+    <nav class="navbar">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
             Le Château
         </a>
 
-        <nav class="menu">
 
-            <a href="index.html">Inicio</a>
+        <ul class="menu">
 
-            <a href="carta.html">Carta</a>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
 
-            <a href="experiencia.html" class="activo">
-                Experiencia
+            <li>
+                <a href="carta.html">
+                    Carta
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="experiencia.html"
+                    class="activo"
+                >
+                    Experiencia
+                </a>
+            </li>
+
+            <li>
+                <a href="cheff.html">
+                    Chef
+                </a>
+            </li>
+
+            <li>
+                <a href="reservas.html">
+                    Reservas
+                </a>
+            </li>
+
+            <li>
+                <a href="contacto.html">
+                    Contacto
+                </a>
+            </li>
+
+            <li>
+                <a href="eventos.html">
+                    Eventos
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-subtitle">
+                Le Château Gourmet
+            </span>
+
+
+            <h1>
+                Una experiencia
+                para recordar
+            </h1>
+
+
+            <p>
+                Más que una cena, una composición de sabores,
+                aromas, espacios y momentos diseñada para
+                despertar todos los sentidos.
+            </p>
+
+
+            <a
+                href="#nuestras-experiencias"
+                class="hero-button"
+            >
+                Descubrir nuestras experiencias
             </a>
 
-            <a href="index.html#chef">
-                Chef
-            </a>
-
-            <a href="reservas.html">
-                Reservas
-            </a>
-
-            <a href="contacto.html">
-                Contacto
-            </a>
-
-            <a href="eventos.html">
-                Eventos
-            </a>
-
-        </nav>
+        </div>
 
     </header>
 
 
-    <!-- =========================================================
-         HERO
-         ========================================================= -->
 
-    <section class="experiencia-hero">
+    <!-- =====================================================
+         INTRODUCCIÓN
+    ====================================================== -->
 
-        <div class="hero-experiencia-contenido">
+    <section class="intro">
 
-            <span class="hero-etiqueta">
-                La experiencia Le Château
-            </span>
-
-            <h1>
-                Más que una <span>cena</span>
-            </h1>
-
-            <p>
-                Descubre una experiencia donde la gastronomía,
-                el ambiente y el servicio se encuentran para
-                convertir cada visita en un recuerdo especial.
-            </p>
-
-            <div class="hero-botones">
-
-                <a href="#descubrir" class="btn-experiencia principal">
-                    Descubrir
-                </a>
-
-                <a href="reservas.html" class="btn-experiencia secundario">
-                    Reservar una mesa
-                </a>
-
-            </div>
-
+        <div class="eyebrow">
+            El arte de recibir
         </div>
 
-        <div class="scroll-indicator">
-            Explorar
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         INTRO
-         ========================================================= -->
-
-    <section class="experiencia-intro" id="descubrir">
-
-        <span class="etiqueta-dorada">
-            Una noche diferente
-        </span>
 
         <h2>
-            Cada detalle está pensado para disfrutarse
+            Cada visita cuenta una historia
         </h2>
 
+
         <p>
-            En Le Château Gourmet no buscamos simplemente servir
-            una mesa. Creamos una experiencia completa: desde el
-            momento en que llegas hasta el último detalle de la
-            noche.
+            En Le Château Gourmet hemos creado diferentes
+            experiencias para que cada visita tenga una
+            personalidad propia. Desde el vino que acompaña
+            un plato hasta la iluminación de una mesa,
+            cada elemento está pensado para formar parte
+            del recuerdo.
         </p>
 
     </section>
 
 
-    <!-- =========================================================
-         SELECTOR INTERACTIVO
-         ========================================================= -->
 
-    <section class="experiencia-selector">
+    <!-- =====================================================
+         NUESTRAS EXPERIENCIAS
+    ====================================================== -->
 
-        <div class="titulo-seccion">
+    <section
+        class="experiencias"
+        id="nuestras-experiencias"
+    >
 
-            <span class="etiqueta-dorada">
-                Explora
-            </span>
+        <div class="section-title">
+
+            <div class="eyebrow">
+                Descubre
+            </div>
+
 
             <h2>
-                Elige cómo quieres vivirla
+                Nuestras Experiencias
             </h2>
 
+
             <p>
-                Selecciona cada elemento y descubre lo que forma
-                parte de la experiencia Le Château.
+                Selecciona una experiencia para descubrirla.
             </p>
 
         </div>
 
 
-        <div class="selector-botones">
-
-            <button
-                class="selector-btn activo"
-                data-panel="gastronomia">
-                Gastronomía
-            </button>
-
-            <button
-                class="selector-btn"
-                data-panel="ambiente">
-                Ambiente
-            </button>
-
-            <button
-                class="selector-btn"
-                data-panel="servicio">
-                Servicio
-            </button>
-
-        </div>
+        <div class="experiencias-grid">
 
 
-        <!-- GASTRONOMÍA -->
+            <!-- MARIDAJE -->
 
-        <div class="experiencia-panel activo" id="gastronomia">
-
-            <div class="panel-imagen">
+            <article class="experiencia-card">
 
                 <img
-                    src="img/experiencia-plato.jpg"
-                    alt="Plato de alta gastronomía de Le Château Gourmet">
-
-            </div>
-
-            <div class="panel-contenido">
-
-                <span class="numero-panel">
-                    01
-                </span>
-
-                <h3>
-                    Gastronomía
-                </h3>
-
-                <p>
-                    Una propuesta culinaria donde cada plato busca
-                    equilibrar sabor, textura y presentación.
-                </p>
-
-                <ul class="panel-lista">
-
-                    <li>
-                        Ingredientes cuidadosamente seleccionados
-                    </li>
-
-                    <li>
-                        Presentaciones elaboradas al detalle
-                    </li>
-
-                    <li>
-                        Sabores pensados para sorprender
-                    </li>
-
-                    <li>
-                        Una carta creada para disfrutar sin prisa
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
+                    src="img/vino.jpg"
+                    alt="Maridaje y selección de vinos"
+                >
 
 
-        <!-- AMBIENTE -->
+                <div class="card-overlay"></div>
 
-        <div class="experiencia-panel" id="ambiente">
 
-            <div class="panel-imagen">
+                <div class="card-content">
+
+                    <div class="card-number">
+                        01 — MARIDAJE
+                    </div>
+
+
+                    <h3>
+                        Maridaje
+                    </h3>
+
+
+                    <p>
+                        Una selección de vinos cuidadosamente
+                        elegidos para acompañar nuestra cocina
+                        y transformar cada plato.
+                    </p>
+
+
+                    <a
+                        href="#maridaje"
+                        class="descubrir-btn"
+                    >
+                        Descubrir experiencia
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ALTA COCINA -->
+
+            <article class="experiencia-card">
 
                 <img
-                    src="img/experiencia-salon.jpg"
-                    alt="Salón elegante de Le Château Gourmet">
-
-            </div>
-
-            <div class="panel-contenido">
-
-                <span class="numero-panel">
-                    02
-                </span>
-
-                <h3>
-                    Ambiente
-                </h3>
-
-                <p>
-                    Un espacio diseñado para crear una atmósfera
-                    elegante, íntima y acogedora.
-                </p>
-
-                <ul class="panel-lista">
-
-                    <li>
-                        Iluminación cálida
-                    </li>
-
-                    <li>
-                        Diseño elegante y sofisticado
-                    </li>
-
-                    <li>
-                        Espacios pensados para conversar
-                    </li>
-
-                    <li>
-                        Una atmósfera que acompaña cada plato
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
+                    src="img/galeria1.jpg"
+                    alt="Alta cocina de Le Château Gourmet"
+                >
 
 
-        <!-- SERVICIO -->
+                <div class="card-overlay"></div>
 
-        <div class="experiencia-panel" id="servicio">
 
-            <div class="panel-imagen">
+                <div class="card-content">
+
+                    <div class="card-number">
+                        02 — GASTRONOMÍA
+                    </div>
+
+
+                    <h3>
+                        Alta Cocina
+                    </h3>
+
+
+                    <p>
+                        Técnica, creatividad e ingredientes
+                        seleccionados para convertir cada plato
+                        en una pieza gastronómica.
+                    </p>
+
+
+                    <a
+                        href="#alta-cocina"
+                        class="descubrir-btn"
+                    >
+                        Descubrir experiencia
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- AMBIENTE -->
+
+            <article class="experiencia-card">
 
                 <img
-                    src="img/experiencia-detalle.jpg"
-                    alt="Detalles del servicio de mesa">
+                    src="img/galeria2.jpg"
+                    alt="Ambiente elegante del restaurante"
+                >
 
-            </div>
 
-            <div class="panel-contenido">
+                <div class="card-overlay"></div>
 
-                <span class="numero-panel">
-                    03
-                </span>
 
-                <h3>
-                    Servicio
-                </h3>
+                <div class="card-content">
 
-                <p>
-                    La atención completa la experiencia. Cada
-                    detalle está pensado para que puedas disfrutar
-                    de la noche con tranquilidad.
-                </p>
+                    <div class="card-number">
+                        03 — ATMÓSFERA
+                    </div>
 
-                <ul class="panel-lista">
 
-                    <li>
-                        Atención personalizada
-                    </li>
+                    <h3>
+                        Ambiente Exclusivo
+                    </h3>
 
-                    <li>
-                        Presentación cuidada
-                    </li>
 
-                    <li>
-                        Acompañamiento durante la velada
-                    </li>
+                    <p>
+                        Un espacio sofisticado donde iluminación,
+                        música y detalles se combinan para crear
+                        una noche especial.
+                    </p>
 
-                    <li>
-                        Atención a los pequeños detalles
-                    </li>
 
-                </ul>
+                    <a
+                        href="#ambiente"
+                        class="descubrir-btn"
+                    >
+                        Descubrir experiencia
 
-            </div>
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
 
         </div>
 
     </section>
 
 
-    <!-- =========================================================
-         RECORRIDO
-         ========================================================= -->
 
-    <section class="recorrido">
+    <!-- =====================================================
+         MARIDAJE
+    ====================================================== -->
 
-        <div class="titulo-seccion">
+    <section
+        class="detalle-experiencia detalle-maridaje"
+        id="maridaje"
+    >
 
-            <span class="etiqueta-dorada">
-                El recorrido
-            </span>
-
-            <h2>
-                Así comienza la noche
-            </h2>
-
-            <p>
-                Cuatro momentos que construyen una experiencia completa.
-            </p>
-
-        </div>
+        <div class="detalle-contenido">
 
 
-        <div class="recorrido-grid">
+            <div class="detalle-encabezado reveal">
 
-            <article class="paso">
-
-                <span class="paso-numero">
-                    01
-                </span>
-
-                <h3>
-                    Bienvenida
-                </h3>
-
-                <p>
-                    El primer contacto con nuestro espacio y
-                    el comienzo de una noche especial.
-                </p>
-
-            </article>
-
-
-            <article class="paso">
-
-                <span class="paso-numero">
-                    02
-                </span>
-
-                <h3>
-                    Descubrimiento
-                </h3>
-
-                <p>
-                    Déjate llevar por nuestra carta y descubre
-                    nuevos sabores y combinaciones.
-                </p>
-
-            </article>
-
-
-            <article class="paso">
-
-                <span class="paso-numero">
-                    03
-                </span>
-
-                <h3>
-                    Degustación
-                </h3>
-
-                <p>
-                    Cada plato llega a la mesa como parte de
-                    una experiencia gastronómica.
-                </p>
-
-            </article>
-
-
-            <article class="paso">
-
-                <span class="paso-numero">
-                    04
-                </span>
-
-                <h3>
-                    Recuerdo
-                </h3>
-
-                <p>
-                    Una última copa, una conversación y un
-                    recuerdo que permanece después de la cena.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         GALERÍA
-         ========================================================= -->
-
-    <section class="galeria-experiencia">
-
-        <div class="titulo-seccion">
-
-            <span class="etiqueta-dorada">
-                Le Château Gourmet
-            </span>
-
-            <h2>
-                Una experiencia para recordar
-            </h2>
-
-            <p>
-                Descubre algunos de los detalles que hacen especial
-                nuestra propuesta.
-            </p>
-
-        </div>
-
-
-        <div class="galeria-experiencia-grid">
-
-
-            <!-- SALÓN -->
-
-            <article class="foto-experiencia">
-
-                <img
-                    src="img/experiencia-salon.jpg"
-                    alt="Salón de Le Château Gourmet">
-
-                <div class="foto-texto">
-
-                    <span>
-                        Espacio
-                    </span>
-
-                    <h3>
-                        El salón
-                    </h3>
-
+                <div class="numero">
+                    Experiencia 01
                 </div>
 
-            </article>
-
-
-            <!-- PLATO -->
-
-            <article class="foto-experiencia">
-
-                <img
-                    src="img/experiencia-plato.jpg"
-                    alt="Plato gourmet">
-
-                <div class="foto-texto">
-
-                    <span>
-                        Gastronomía
-                    </span>
-
-                    <h3>
-                        Alta cocina
-                    </h3>
-
-                </div>
-
-            </article>
-
-
-            <!-- CENA -->
-
-            <article class="foto-experiencia">
-
-                <img
-                    src="img/experiencia-cena.jpg"
-                    alt="Cena elegante">
-
-                <div class="foto-texto">
-
-                    <span>
-                        Momento
-                    </span>
-
-                    <h3>
-                        La velada
-                    </h3>
-
-                </div>
-
-            </article>
-
-
-            <!-- DETALLE -->
-
-            <article class="foto-experiencia">
-
-                <img
-                    src="img/experiencia-detalle.jpg"
-                    alt="Detalle de mesa y servicio">
-
-                <div class="foto-texto">
-
-                    <span>
-                        Detalles
-                    </span>
-
-                    <h3>
-                        Todo importa
-                    </h3>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         CHEF
-         ========================================================= -->
-
-    <section class="experiencia-chef">
-
-        <div class="chef-experiencia-contenedor">
-
-            <div class="chef-experiencia-imagen">
-
-                <img
-                    src="img/chef.jpg"
-                    alt="Chef de Le Château Gourmet">
-
-            </div>
-
-            <div class="chef-experiencia-texto">
-
-                <span class="etiqueta-dorada">
-                    La cocina
-                </span>
 
                 <h2>
-                    El detalle detrás de cada plato
+                    El arte del Maridaje
                 </h2>
 
-                <p>
-                    Nuestra cocina nace de la búsqueda constante
-                    por crear platos que combinen técnica,
-                    presentación y sabor.
-                </p>
 
                 <p>
-                    Cada preparación forma parte de una propuesta
-                    pensada para que la gastronomía sea uno de los
-                    grandes protagonistas de la noche.
+                    El vino no acompaña simplemente una comida:
+                    puede transformar la manera en que percibimos
+                    sus aromas, texturas y sabores. Por eso nuestra
+                    selección está organizada para encontrar el
+                    equilibrio adecuado entre cada copa y cada
+                    creación de nuestra cocina.
                 </p>
 
-                <span class="firma-chef">
-                    Le Château Gourmet
-                </span>
+            </div>
+
+
+
+            <div class="glass-panel reveal">
+
+
+                <div class="maridaje-intro">
+
+
+                    <div class="maridaje-info">
+
+                        <h3>
+                            Una colección para descubrir
+                        </h3>
+
+
+                        <p>
+                            Explora nuestra carta de vinos por
+                            categorías. Selecciona una botella
+                            para conocer su perfil, intensidad y
+                            el tipo de preparación con la que
+                            puede acompañarse.
+                        </p>
+
+
+                        <div class="maridaje-pasos">
+
+                            <div class="paso">
+
+                                <strong>
+                                    01
+                                </strong>
+
+                                <span>
+                                    Elegimos el perfil
+                                    del vino.
+                                </span>
+
+                            </div>
+
+
+                            <div class="paso">
+
+                                <strong>
+                                    02
+                                </strong>
+
+                                <span>
+                                    Encontramos el
+                                    plato adecuado.
+                                </span>
+
+                            </div>
+
+
+                            <div class="paso">
+
+                                <strong>
+                                    03
+                                </strong>
+
+                                <span>
+                                    Disfrutamos el
+                                    equilibrio.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="selector-vinos">
+
+                        <h3>
+                            ¿Qué deseas descubrir?
+                        </h3>
+
+
+                        <p>
+                            Filtra nuestra selección por estilo.
+                        </p>
+
+
+                        <div class="vino-filtros">
+
+                            <button
+                                class="filtro-vino activo"
+                                data-filtro="todos"
+                            >
+                                Todos
+                            </button>
+
+                            <button
+                                class="filtro-vino"
+                                data-filtro="tinto"
+                            >
+                                Tintos
+                            </button>
+
+                            <button
+                                class="filtro-vino"
+                                data-filtro="blanco"
+                            >
+                                Blancos
+                            </button>
+
+                            <button
+                                class="filtro-vino"
+                                data-filtro="rosado"
+                            >
+                                Rosados
+                            </button>
+
+                            <button
+                                class="filtro-vino"
+                                data-filtro="espumoso"
+                            >
+                                Espumosos
+                            </button>
+
+                            <button
+                                class="filtro-vino"
+                                data-filtro="dulce"
+                            >
+                                Dulces
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CATÁLOGO DE VINOS -->
+
+                <div class="vinos-grid">
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Cabernet Sauvignon Reserva"
+                        data-descripcion="Vino de cuerpo estructurado, notas de frutos negros, especias y un final persistente. Ideal para carnes rojas, cortes madurados y preparaciones intensas."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Cabernet Sauvignon Reserva
+                        </h4>
+
+                        <p>
+                            Frutos negros · Especias · Roble
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Malbec Gran Selección"
+                        data-descripcion="Perfil frutal y envolvente con notas de ciruela, mora y cacao. Su estructura combina especialmente bien con carnes a la parrilla y platos de cocción lenta."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Malbec Gran Selección
+                        </h4>
+
+                        <p>
+                            Ciruela · Mora · Cacao
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Merlot Reserva"
+                        data-descripcion="Un vino suave y redondo con notas de frutos rojos maduros y especias dulces. Adecuado para carnes suaves, pastas y quesos semicurados."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Merlot Reserva
+                        </h4>
+
+                        <p>
+                            Frutos rojos · Vainilla · Suave
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Pinot Noir"
+                        data-descripcion="Elegante y delicado, con notas de cereza, frambuesa y tierra húmeda. Excelente alternativa para aves, hongos y platos de sabores delicados."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Pinot Noir
+                        </h4>
+
+                        <p>
+                            Cereza · Frambuesa · Tierra
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Syrah Reserva"
+                        data-descripcion="Intenso y especiado, con recuerdos de mora, pimienta negra y chocolate. Funciona muy bien con carnes especiadas y preparaciones de sabor profundo."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Syrah Reserva
+                        </h4>
+
+                        <p>
+                            Mora · Pimienta · Chocolate
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="tinto"
+                        data-nombre="Tempranillo Selección"
+                        data-descripcion="Vino de carácter equilibrado con frutos rojos, especias y ligeras notas de madera. Pensado para acompañar carnes, embutidos y quesos curados."
+                    >
+
+                        <span class="vino-tipo">
+                            Tinto
+                        </span>
+
+                        <h4>
+                            Tempranillo Selección
+                        </h4>
+
+                        <p>
+                            Frutos rojos · Especias · Roble
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="blanco"
+                        data-nombre="Chardonnay Reserva"
+                        data-descripcion="Blanco elegante con notas de manzana, pera y ligeros recuerdos de mantequilla. Ideal para pescados, mariscos, aves y preparaciones cremosas."
+                    >
+
+                        <span class="vino-tipo">
+                            Blanco
+                        </span>
+
+                        <h4>
+                            Chardonnay Reserva
+                        </h4>
+
+                        <p>
+                            Manzana · Pera · Mantequilla
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="blanco"
+                        data-nombre="Sauvignon Blanc"
+                        data-descripcion="Fresco y aromático, con notas cítricas y herbales. Excelente compañero para pescados, ceviches, ensaladas y mariscos."
+                    >
+
+                        <span class="vino-tipo">
+                            Blanco
+                        </span>
+
+                        <h4>
+                            Sauvignon Blanc
+                        </h4>
+
+                        <p>
+                            Cítricos · Hierbas · Frescura
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="blanco"
+                        data-nombre="Riesling"
+                        data-descripcion="Aromático y refrescante, con notas de manzana, flores y cítricos. Su equilibrio permite acompañar platos especiados y propuestas de cocina asiática."
+                    >
+
+                        <span class="vino-tipo">
+                            Blanco
+                        </span>
+
+                        <h4>
+                            Riesling
+                        </h4>
+
+                        <p>
+                            Manzana · Flores · Cítricos
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="blanco"
+                        data-nombre="Chenin Blanc"
+                        data-descripcion="Perfil fresco con frutas blancas y una acidez elegante. Ideal para pescados, mariscos y platos ligeros."
+                    >
+
+                        <span class="vino-tipo">
+                            Blanco
+                        </span>
+
+                        <h4>
+                            Chenin Blanc
+                        </h4>
+
+                        <p>
+                            Pera · Melón · Acidez
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="rosado"
+                        data-nombre="Rosé Provenzal"
+                        data-descripcion="Rosado delicado y fresco con notas de fresa, frambuesa y flores. Ideal para entradas, ensaladas, pescados y tardes de terraza."
+                    >
+
+                        <span class="vino-tipo">
+                            Rosado
+                        </span>
+
+                        <h4>
+                            Rosé Provenzal
+                        </h4>
+
+                        <p>
+                            Fresa · Frambuesa · Floral
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="rosado"
+                        data-nombre="Rosé Cuvée"
+                        data-descripcion="Rosado elegante con fruta roja fresca y final limpio. Una opción versátil para entradas y platos de mar."
+                    >
+
+                        <span class="vino-tipo">
+                            Rosado
+                        </span>
+
+                        <h4>
+                            Rosé Cuvée
+                        </h4>
+
+                        <p>
+                            Fruta roja · Floral · Fresco
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="espumoso"
+                        data-nombre="Brut Cuvée"
+                        data-descripcion="Espumoso seco y elegante con burbuja fina y notas de manzana y pan tostado. Perfecto para comenzar la experiencia o acompañar mariscos."
+                    >
+
+                        <span class="vino-tipo">
+                            Espumoso
+                        </span>
+
+                        <h4>
+                            Brut Cuvée
+                        </h4>
+
+                        <p>
+                            Manzana · Pan · Burbuja fina
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="espumoso"
+                        data-nombre="Champagne Brut"
+                        data-descripcion="Una opción refinada para celebraciones y aperitivos. Presenta notas cítricas, frutas blancas y una textura elegante."
+                    >
+
+                        <span class="vino-tipo">
+                            Espumoso
+                        </span>
+
+                        <h4>
+                            Champagne Brut
+                        </h4>
+
+                        <p>
+                            Cítricos · Fruta blanca · Elegancia
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="espumoso"
+                        data-nombre="Prosecco Extra Dry"
+                        data-descripcion="Fresco y aromático, con notas de pera, manzana y flores blancas. Ideal como aperitivo y para acompañar entradas."
+                    >
+
+                        <span class="vino-tipo">
+                            Espumoso
+                        </span>
+
+                        <h4>
+                            Prosecco Extra Dry
+                        </h4>
+
+                        <p>
+                            Pera · Manzana · Floral
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="dulce"
+                        data-nombre="Moscato Dolce"
+                        data-descripcion="Vino dulce y aromático con notas de uva fresca, melocotón y flores. Especialmente indicado para postres y frutas."
+                    >
+
+                        <span class="vino-tipo">
+                            Dulce
+                        </span>
+
+                        <h4>
+                            Moscato Dolce
+                        </h4>
+
+                        <p>
+                            Melocotón · Flores · Dulce
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="dulce"
+                        data-nombre="Sauternes"
+                        data-descripcion="Vino dulce de gran complejidad aromática, con recuerdos de miel, frutas maduras y flores. Una combinación natural para postres y quesos azules."
+                    >
+
+                        <span class="vino-tipo">
+                            Dulce
+                        </span>
+
+                        <h4>
+                            Sauternes
+                        </h4>
+
+                        <p>
+                            Miel · Fruta madura · Floral
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="vino-card"
+                        data-tipo="dulce"
+                        data-nombre="Oporto Tawny"
+                        data-descripcion="Vino fortificado de carácter cálido con notas de frutos secos, caramelo y especias. Ideal para finalizar la experiencia gastronómica."
+                    >
+
+                        <span class="vino-tipo">
+                            Dulce
+                        </span>
+
+                        <h4>
+                            Oporto Tawny
+                        </h4>
+
+                        <p>
+                            Frutos secos · Caramelo · Especias
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+
+                <!-- INFORMACIÓN DEL VINO -->
+
+                <div
+                    class="vino-detalle"
+                    id="vino-detalle"
+                >
+
+                    <h4>
+                        Selecciona un vino
+                    </h4>
+
+
+                    <p>
+                        Haz clic sobre cualquiera de nuestras
+                        opciones para conocer su perfil y
+                        recomendación de maridaje.
+                    </p>
+
+                </div>
+
+
+                <div class="reserva-experiencia">
+
+                    <a
+                        href="reservas.html"
+                        class="reserva-btn"
+                    >
+                        Reservar experiencia de maridaje
+                    </a>
+
+                </div>
+
 
             </div>
 
@@ -1392,130 +3018,463 @@
     </section>
 
 
-    <!-- =========================================================
-         CTA FINAL
-         ========================================================= -->
 
-    <section class="experiencia-final">
+    <div class="separador"></div>
 
-        <div class="experiencia-final-contenido">
 
-            <span class="etiqueta-dorada">
-                Tu próxima noche
-            </span>
 
-            <h2>
-                Vive Le Château
-            </h2>
+    <!-- =====================================================
+         ALTA COCINA
+    ====================================================== -->
 
-            <p>
-                Reserva tu mesa y descubre una experiencia
-                gastronómica creada para disfrutarse sin prisa.
-            </p>
+    <section
+        class="detalle-experiencia detalle-cocina"
+        id="alta-cocina"
+    >
 
-            <a
-                href="reservas.html"
-                class="btn-experiencia principal">
-                Reservar una mesa
-            </a>
+        <div class="detalle-contenido">
+
+
+            <div class="detalle-encabezado reveal">
+
+                <div class="numero">
+                    Experiencia 02
+                </div>
+
+
+                <h2>
+                    Alta Cocina
+                </h2>
+
+
+                <p>
+                    Nuestra cocina busca convertir ingredientes
+                    cuidadosamente seleccionados en composiciones
+                    donde la técnica y la presentación trabajan
+                    juntas. Cada plato se presenta como una parte
+                    de la historia de la noche.
+                </p>
+
+            </div>
+
+
+
+            <div class="glass-panel reveal">
+
+
+                <div class="platos-grid">
+
+
+                    <article
+                        class="plato"
+                        data-plato="Carnes Premium"
+                    >
+
+                        <img
+                            src="img/galeria1.jpg"
+                            alt="Carnes premium"
+                        >
+
+
+                        <div class="plato-overlay">
+
+                            <h4>
+                                Carnes Premium
+                            </h4>
+
+                            <p>
+                                Cortes seleccionados,
+                                cocciones precisas y salsas
+                                de autor.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="plato"
+                        data-plato="Cocina de Mar"
+                    >
+
+                        <img
+                            src="img/galeria3.jpg"
+                            alt="Cocina de mar"
+                        >
+
+
+                        <div class="plato-overlay">
+
+                            <h4>
+                                Cocina de Mar
+                            </h4>
+
+                            <p>
+                                Sabores frescos y preparaciones
+                                inspiradas en productos del mar.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="plato"
+                        data-plato="Creaciones Gourmet"
+                    >
+
+                        <img
+                            src="img/galeria4.jpg"
+                            alt="Creación gourmet"
+                        >
+
+
+                        <div class="plato-overlay">
+
+                            <h4>
+                                Creaciones Gourmet
+                            </h4>
+
+                            <p>
+                                Composiciones pensadas para
+                                sorprender desde el primer bocado.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <div
+                    class="cocina-info"
+                    id="cocina-info"
+                >
+
+                    Selecciona una de las propuestas para
+                    descubrir más sobre nuestra filosofía culinaria.
+
+                </div>
+
+
+                <div class="reserva-experiencia">
+
+                    <a
+                        href="carta.html"
+                        class="reserva-btn"
+                    >
+                        Explorar nuestra carta
+                    </a>
+
+                </div>
+
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- =========================================================
-         FOOTER
-         ========================================================= -->
 
-    <footer class="footer">
+    <div class="separador"></div>
+
+
+
+    <!-- =====================================================
+         AMBIENTE EXCLUSIVO
+    ====================================================== -->
+
+    <section
+        class="detalle-experiencia detalle-ambiente"
+        id="ambiente"
+    >
+
+        <div class="detalle-contenido">
+
+
+            <div class="detalle-encabezado reveal">
+
+                <div class="numero">
+                    Experiencia 03
+                </div>
+
+
+                <h2>
+                    Ambiente Exclusivo
+                </h2>
+
+
+                <p>
+                    La experiencia comienza antes del primer plato.
+                    La iluminación, la música, la distribución de
+                    las mesas y la atención forman parte de una
+                    atmósfera pensada para disfrutar sin prisa.
+                </p>
+
+            </div>
+
+
+
+            <div class="glass-panel reveal">
+
+
+                <div class="ambiente-grid">
+
+
+                    <div class="ambiente-item">
+
+                        <div class="ambiente-icon">
+                            ◇
+                        </div>
+
+                        <h4>
+                            Iluminación
+                        </h4>
+
+                        <p>
+                            Una iluminación cálida y cuidadosamente
+                            distribuida para crear intimidad.
+                        </p>
+
+                    </div>
+
+
+                    <div class="ambiente-item">
+
+                        <div class="ambiente-icon">
+                            ♫
+                        </div>
+
+                        <h4>
+                            Música
+                        </h4>
+
+                        <p>
+                            Una selección sonora elegante que
+                            acompaña el ritmo de la velada.
+                        </p>
+
+                    </div>
+
+
+                    <div class="ambiente-item">
+
+                        <div class="ambiente-icon">
+                            ◇
+                        </div>
+
+                        <h4>
+                            Mesa
+                        </h4>
+
+                        <p>
+                            Vajilla, cristalería y detalles preparados
+                            para cada momento.
+                        </p>
+
+                    </div>
+
+
+                    <div class="ambiente-item">
+
+                        <div class="ambiente-icon">
+                            ✦
+                        </div>
+
+                        <h4>
+                            Atención
+                        </h4>
+
+                        <p>
+                            Un servicio atento y discreto para que
+                            cada visita sea especial.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="ambiente-extra">
+
+
+                    <div class="extra-box">
+
+                        <h4>
+                            Cena privada
+                        </h4>
+
+                        <p>
+                            Espacios pensados para celebraciones,
+                            cenas románticas, aniversarios y
+                            encuentros especiales donde la privacidad
+                            se convierte en parte de la experiencia.
+                        </p>
+
+                    </div>
+
+
+                    <div class="extra-box">
+
+                        <h4>
+                            Una noche diferente
+                        </h4>
+
+                        <p>
+                            Desde la llegada hasta el último detalle,
+                            nuestro objetivo es crear una atmósfera
+                            donde la gastronomía y el ambiente formen
+                            una sola experiencia.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="reserva-experiencia">
+
+                    <a
+                        href="reservas.html"
+                        class="reserva-btn"
+                    >
+                        Reservar una mesa
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
 
         <div class="footer-contenido">
 
-            <div class="footer-columna">
+
+            <div>
 
                 <h3>
-                    Le Château
+                    Le Château Gourmet
                 </h3>
 
                 <p>
-                    Alta gastronomía, elegancia y experiencias
-                    para recordar.
+                    Alta cocina y experiencias inolvidables
+                    en un ambiente de elegancia y sofisticación.
                 </p>
 
             </div>
 
 
-            <div class="footer-columna">
+            <div>
 
                 <h4>
                     Navegación
                 </h4>
 
-                <a href="index.html">
-                    Inicio
-                </a>
-
-                <a href="carta.html">
-                    Carta
-                </a>
-
-                <a href="experiencia.html">
-                    Experiencia
-                </a>
-
-                <a href="reservas.html">
-                    Reservas
-                </a>
-
-            </div>
-
-
-            <div class="footer-columna">
-
-                <h4>
-                    Información
-                </h4>
-
-                <a href="contacto.html">
-                    Contacto
-                </a>
-
-                <a href="eventos.html">
-                    Eventos
-                </a>
-
-                <a href="index.html#chef">
-                    Chef
-                </a>
-
-            </div>
-
-
-            <div class="footer-columna">
-
-                <h4>
-                    Le Château Gourmet
-                </h4>
+                <p>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </p>
 
                 <p>
-                    Una experiencia que comienza en la mesa
-                    y permanece en la memoria.
+                    <a href="carta.html">
+                        Carta
+                    </a>
+                </p>
+
+                <p>
+                    <a href="reservas.html">
+                        Reservas
+                    </a>
                 </p>
 
             </div>
 
+
+            <div>
+
+                <h4>
+                    Experiencias
+                </h4>
+
+                <p>
+                    Maridaje
+                </p>
+
+                <p>
+                    Alta Cocina
+                </p>
+
+                <p>
+                    Ambiente Exclusivo
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contacto
+                </h4>
+
+                <p>
+                    Carrera 10 # 25-40
+                </p>
+
+                <p>
+                    Bogotá, Colombia
+                </p>
+
+                <p>
+                    +57 300 000 0000
+                </p>
+
+            </div>
+
+
         </div>
 
 
-        <div class="footer-bottom">
+        <div class="footer-linea"></div>
+
+
+        <div class="creditos">
 
             <p>
-                Proyecto académico de desarrollo web
+                © 2026 Le Château Gourmet.
+                Todos los derechos reservados.
             </p>
 
             <p>
-                Juan Melo & Johan Velandia
+                Proyecto desarrollado por
+                <strong>
+                    Juan Melo
+                </strong>
+                y
+                <strong>
+                    Johan Velandia
+                </strong>.
             </p>
 
         </div>
@@ -1523,213 +3482,401 @@
     </footer>
 
 
-    <!-- =========================================================
-         JAVASCRIPT INTERACTIVO
-         ========================================================= -->
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script>
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       SELECTOR INTERACTIVO
-       ===================================================== */
+        /* =====================================================
+           TRANSICIÓN SUAVE ENTRE EXPERIENCIAS
+        ====================================================== */
 
-    const botones =
-        document.querySelectorAll(".selector-btn");
-
-    const paneles =
-        document.querySelectorAll(".experiencia-panel");
+        const botonesExperiencia =
+            document.querySelectorAll(".descubrir-btn");
 
 
-    botones.forEach(boton => {
+        botonesExperiencia.forEach(boton => {
 
-        boton.addEventListener("click", () => {
+            boton.addEventListener("click", function(event) {
 
-            const panelId =
-                boton.dataset.panel;
-
-
-            /* Desactivar botones */
-
-            botones.forEach(btn => {
-                btn.classList.remove("activo");
-            });
+                event.preventDefault();
 
 
-            /* Desactivar paneles */
-
-            paneles.forEach(panel => {
-                panel.classList.remove("activo");
-            });
+                const selector =
+                    this.getAttribute("href");
 
 
-            /* Activar botón */
-
-            boton.classList.add("activo");
-
-
-            /* Activar panel */
-
-            const panel =
-                document.getElementById(panelId);
-
-            if (panel) {
-                panel.classList.add("activo");
-            }
-
-        });
-
-    });
+                const destino =
+                    document.querySelector(selector);
 
 
+                if (!destino) {
 
-    /* =====================================================
-       ANIMACIONES AL HACER SCROLL
-       ===================================================== */
+                    return;
 
-    const elementos =
-        document.querySelectorAll(
-            ".paso, .foto-experiencia, .chef-experiencia-contenedor"
-        );
+                }
 
 
-    const observer =
-        new IntersectionObserver(
-            (entries, observer) => {
+                /*
+                   Reiniciamos la animación para que
+                   se reproduzca cada vez que se pulsa.
+                */
 
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-
-                    entry.target.classList.add("mostrar");
+                destino.classList.remove(
+                    "transicionando"
+                );
 
 
-                    observer.unobserve(entry.target);
+                /*
+                   Esta línea obliga al navegador
+                   a recalcular el elemento y permite
+                   reiniciar correctamente la animación.
+                */
+
+                void destino.offsetWidth;
+
+
+                destino.classList.add(
+                    "transicionando"
+                );
+
+
+                /*
+                   Desplazamiento vertical suave.
+                */
+
+                destino.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
 
                 });
 
-            },
-            {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            }
-        );
 
+                /*
+                   Retiramos la clase después de
+                   finalizar la animación.
+                */
 
-    elementos.forEach(elemento => {
+                setTimeout(() => {
 
-        elemento.classList.add("animar");
+                    destino.classList.remove(
+                        "transicionando"
+                    );
 
-        observer.observe(elemento);
-
-    });
-
-
-
-    /* =====================================================
-       MOVIMIENTO MUY SUAVE DEL HERO
-       ===================================================== */
-
-    const hero =
-        document.querySelector(".experiencia-hero");
-
-
-    if (hero && window.innerWidth > 900) {
-
-        let movimientoActivo = false;
-
-
-        hero.addEventListener("mousemove", evento => {
-
-            if (movimientoActivo) {
-                return;
-            }
-
-
-            movimientoActivo = true;
-
-
-            requestAnimationFrame(() => {
-
-                const x =
-                    (evento.clientX / window.innerWidth - 0.5) * 2;
-
-                const y =
-                    (evento.clientY / window.innerHeight - 0.5) * 2;
-
-
-                hero.style.backgroundPosition =
-                    `calc(50% + ${x}px) calc(50% + ${y}px)`;
-
-
-                movimientoActivo = false;
+                }, 1400);
 
             });
 
         });
 
 
-        hero.addEventListener("mouseleave", () => {
 
-            hero.style.backgroundPosition =
-                "center center";
+        /* =====================================================
+           FILTROS DE VINOS
+        ====================================================== */
 
-        });
-
-    }
-
+        const filtrosVino =
+            document.querySelectorAll(".filtro-vino");
 
 
-    /* =====================================================
-       SCROLL SUAVE PARA ENLACES INTERNOS
-       ===================================================== */
-
-    document.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach(enlace => {
-
-        enlace.addEventListener("click", evento => {
-
-            const destino =
-                enlace.getAttribute("href");
+        const vinos =
+            document.querySelectorAll(".vino-card");
 
 
-            if (
-                !destino ||
-                destino === "#"
-            ) {
-                return;
-            }
+        filtrosVino.forEach(filtro => {
+
+            filtro.addEventListener("click", () => {
 
 
-            const elemento =
-                document.querySelector(destino);
+                filtrosVino.forEach(item => {
+
+                    item.classList.remove(
+                        "activo"
+                    );
+
+                });
 
 
-            if (!elemento) {
-                return;
-            }
+                filtro.classList.add(
+                    "activo"
+                );
 
 
-            evento.preventDefault();
+                const categoria =
+                    filtro.dataset.filtro;
 
 
-            elemento.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+                vinos.forEach(vino => {
+
+
+                    const tipo =
+                        vino.dataset.tipo;
+
+
+                    if (
+                        categoria === "todos" ||
+                        tipo === categoria
+                    ) {
+
+                        vino.style.display =
+                            "block";
+
+                    } else {
+
+                        vino.style.display =
+                            "none";
+
+                    }
+
+                });
+
             });
 
         });
 
-    });
 
-});
 
-</script>
+        /* =====================================================
+           SELECCIÓN DE VINO
+        ====================================================== */
+
+        const vinoDetalle =
+            document.getElementById(
+                "vino-detalle"
+            );
+
+
+        vinos.forEach(vino => {
+
+            vino.addEventListener(
+                "click",
+                () => {
+
+
+                    vinos.forEach(item => {
+
+                        item.classList.remove(
+                            "seleccionado"
+                        );
+
+                    });
+
+
+                    vino.classList.add(
+                        "seleccionado"
+                    );
+
+
+                    const nombre =
+                        vino.dataset.nombre;
+
+
+                    const descripcion =
+                        vino.dataset.descripcion;
+
+
+                    vinoDetalle.style.opacity =
+                        "0";
+
+
+                    setTimeout(() => {
+
+
+                        vinoDetalle.innerHTML = `
+
+                            <h4>
+                                ${nombre}
+                            </h4>
+
+                            <p>
+                                ${descripcion}
+                            </p>
+
+                        `;
+
+
+                        vinoDetalle.style.opacity =
+                            "1";
+
+
+                    }, 180);
+
+
+                }
+            );
+
+        });
+
+
+
+        /* =====================================================
+           ALTA COCINA
+        ====================================================== */
+
+        const platos =
+            document.querySelectorAll(".plato");
+
+
+        const cocinaInfo =
+            document.getElementById(
+                "cocina-info"
+            );
+
+
+        const informacionPlatos = {
+
+            "Carnes Premium":
+
+                "Nuestra propuesta de carnes busca resaltar el producto mediante cocciones precisas, acompañamientos equilibrados y salsas que complementan sin ocultar su sabor.",
+
+
+            "Cocina de Mar":
+
+                "Los productos del mar se trabajan buscando frescura, textura y equilibrio. Las preparaciones pueden combinar elementos cítricos, hierbas y salsas ligeras.",
+
+
+            "Creaciones Gourmet":
+
+                "Las creaciones gourmet representan el lado más creativo de la cocina: diferentes texturas, temperaturas, aromas y presentaciones reunidos en un solo plato."
+
+        };
+
+
+        platos.forEach(plato => {
+
+            plato.addEventListener(
+                "click",
+                () => {
+
+
+                    const nombre =
+                        plato.dataset.plato;
+
+
+                    cocinaInfo.style.opacity =
+                        "0";
+
+
+                    setTimeout(() => {
+
+
+                        cocinaInfo.innerHTML = `
+
+                            <strong
+                                style="
+                                    color:#c8a96a;
+                                "
+                            >
+                                ${nombre}
+                            </strong>
+
+                            <br><br>
+
+                            ${informacionPlatos[nombre]}
+
+                        `;
+
+
+                        cocinaInfo.style.opacity =
+                            "1";
+
+
+                    }, 180);
+
+                }
+            );
+
+        });
+
+
+
+        /* =====================================================
+           REVEAL AL HACER SCROLL
+        ====================================================== */
+
+        const elementosReveal =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                (entradas) => {
+
+
+                    entradas.forEach(
+                        entrada => {
+
+
+                            if (
+                                entrada.isIntersecting
+                            ) {
+
+
+                                entrada.target.classList.add(
+                                    "visible"
+                                );
+
+
+                            }
+
+                        }
+                    );
+
+
+                },
+
+                {
+
+                    threshold: 0.12
+
+                }
+
+            );
+
+
+        elementosReveal.forEach(elemento => {
+
+            observer.observe(
+                elemento
+            );
+
+        });
+
+
+
+        /* =====================================================
+           PREVENIR ARRASTRE DE IMÁGENES
+        ====================================================== */
+
+        document
+            .querySelectorAll("img")
+            .forEach(imagen => {
+
+
+                imagen.addEventListener(
+                    "dragstart",
+                    evento => {
+
+                        evento.preventDefault();
+
+                    }
+                );
+
+
+            });
+
+
+    </script>
+
 
 </body>
+
 </html>
