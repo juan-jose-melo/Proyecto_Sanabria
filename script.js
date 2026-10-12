@@ -640,3 +640,204 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// =========================================================
+// LÓGICA DE DOMICILIOS & CARRITO DE COMPRAS INTERACTIVO
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ESTADO DEL CARRITO DE COMPRAS
+    let carrito = [];
+
+    // ELEMENTOS DEL DOM
+    const drawerCarrito = document.getElementById("drawer-carrito");
+    const overlayCarrito = document.getElementById("overlay-carrito");
+    const btnAbrirCarrito = document.getElementById("btn-abrir-carrito");
+    const btnCerrarCarrito = document.getElementById("btn-cerrar-carrito");
+    const contenedorItems = document.getElementById("carrito-items");
+    const contadorCarrito = document.getElementById("contador-carrito");
+    const subtotalTxt = document.getElementById("subtotal-carrito");
+    const totalTxt = document.getElementById("total-carrito");
+    const formCheckout = document.getElementById("form-checkout");
+    const modalConfirmacion = document.getElementById("modal-confirmacion");
+    const btnEntendido = document.getElementById("btn-entendido");
+
+    const COSTO_ENVIO = 12000;
+
+    // 1. ABRIR / CERRAR CARRITO
+    function abrirCarrito() {
+        if (drawerCarrito && overlayCarrito) {
+            drawerCarrito.classList.add("activo");
+            overlayCarrito.classList.add("activo");
+        }
+    }
+
+    function cerrarCarrito() {
+        if (drawerCarrito && overlayCarrito) {
+            drawerCarrito.classList.remove("activo");
+            overlayCarrito.classList.remove("activo");
+        }
+    }
+
+    if (btnAbrirCarrito) btnAbrirCarrito.addEventListener("click", abrirCarrito);
+    if (btnCerrarCarrito) btnCerrarCarrito.addEventListener("click", cerrarCarrito);
+    if (overlayCarrito) overlayCarrito.addEventListener("click", cerrarCarrito);
+
+    // 2. AGREGAR PRODUCTOS AL CARRITO
+    const botonesAgregar = document.querySelectorAll(".btn-agregar");
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const id = boton.getAttribute("data-id");
+            const nombre = boton.getAttribute("data-nombre");
+            const precio = parseInt(boton.getAttribute("data-precio"));
+            const img = boton.getAttribute("data-img");
+
+            const existe = carrito.find(item => item.id === id);
+
+            if (existe) {
+                existe.cantidad++;
+            } else {
+                carrito.push({ id, nombre, precio, img, cantidad: 1 });
+            }
+
+            actualizarCarrito();
+            abrirCarrito();
+        });
+    });
+
+    // 3. ACTUALIZAR VISTA DEL CARRITO
+    function actualizarCarrito() {
+        if (!contenedorItems) return;
+
+        contenedorItems.innerHTML = "";
+
+        if (carrito.length === 0) {
+            contenedorItems.innerHTML = '<p class="carrito-vacio">Su carrito está vacío</p>';
+            contadorCarrito.innerText = "0";
+            subtotalTxt.innerText = "$0";
+            totalTxt.innerText = "$0";
+            return;
+        }
+
+        let subtotal = 0;
+        let totalItems = 0;
+
+        carrito.forEach(item => {
+            subtotal += item.precio * item.cantidad;
+            totalItems += item.cantidad;
+
+            const itemElement = document.createElement("div");
+            itemElement.classList.add("item-carrito");
+            itemElement.innerHTML = `
+                <img src="${item.img}" alt="${item.nombre}">
+                <div class="item-detalles">
+                    <h4>${item.nombre}</h4>
+                    <p>$${(item.precio * item.cantidad).toLocaleString("es-CO")}</p>
+                    <div class="item-controles">
+                        <button class="btn-cant btn-menos" data-id="${item.id}">-</button>
+                        <span class="cant-val">${item.cantidad}</span>
+                        <button class="btn-cant btn-mas" data-id="${item.id}">+</button>
+                    </div>
+                </div>
+                <button class="btn-eliminar" data-id="${item.id}">&times;</button>
+            `;
+            contenedorItems.appendChild(itemElement);
+        });
+
+        const total = subtotal + COSTO_ENVIO;
+
+        contadorCarrito.innerText = totalItems;
+        subtotalTxt.innerText = `$${subtotal.toLocaleString("es-CO")}`;
+        totalTxt.innerText = `$${total.toLocaleString("es-CO")}`;
+
+        asignarEventosControles();
+    }
+
+    // 4. EVENTOS DE INCREMENTAR / DECREMENTAR / ELIMINAR
+    function asignarEventosControles() {
+        document.querySelectorAll(".btn-mas").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const id = btn.getAttribute("data-id");
+                const item = carrito.find(i => i.id === id);
+                if (item) {
+                    item.cantidad++;
+                    actualizarCarrito();
+                }
+            });
+        });
+
+        document.querySelectorAll(".btn-menos").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const id = btn.getAttribute("data-id");
+                const item = carrito.find(i => i.id === id);
+                if (item) {
+                    item.cantidad--;
+                    if (item.cantidad === 0) {
+                        carrito = carrito.filter(i => i.id !== id);
+                    }
+                    actualizarCarrito();
+                }
+            });
+        });
+
+        document.querySelectorAll(".btn-eliminar").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const id = btn.getAttribute("data-id");
+                carrito = carrito.filter(i => i.id !== id);
+                actualizarCarrito();
+            });
+        });
+    }
+
+    // 5. CHECKOUT Y CONFIRMACIÓN DE COMPRA
+    if (formCheckout) {
+        formCheckout.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (carrito.length === 0) {
+                alert("Por favor agregue al menos un producto al carrito.");
+                return;
+            }
+
+            cerrarCarrito();
+            carrito = [];
+            actualizarCarrito();
+            formCheckout.reset();
+
+            if (modalConfirmacion) {
+                modalConfirmacion.style.display = "flex";
+            }
+        });
+    }
+
+    if (btnEntendido) {
+        btnEntendido.addEventListener("click", () => {
+            if (modalConfirmacion) {
+                modalConfirmacion.style.display = "none";
+            }
+        });
+    }
+
+    // 6. FILTRADO DE PLATOS POR CATEGORÍA
+    const botonesFiltroDom = document.querySelectorAll(".domicilios-filtros .filtro-btn");
+    const productosCard = document.querySelectorAll(".producto-card");
+
+    if (botonesFiltroDom.length > 0) {
+        botonesFiltroDom.forEach(btn => {
+            btn.addEventListener("click", () => {
+                botonesFiltroDom.forEach(b => b.classList.remove("activo"));
+                btn.classList.add("activo");
+
+                const cat = btn.getAttribute("data-categoria");
+
+                productosCard.forEach(card => {
+                    if (cat === "todos" || card.getAttribute("data-categoria") === cat) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    }
+});

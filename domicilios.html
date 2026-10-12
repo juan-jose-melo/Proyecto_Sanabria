@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domicilios Gourmet - Le Château Gourmet</title>
+
+    <!-- FUENTES -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            Le Château
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carta.html">Carta</a></li>
+            <li><a href="experiencia.html">Experiencia</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="cheff.html">Chef</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="domicilios.html" class="activo">Domicilios</a></li>
+        </ul>
+
+        <!-- BOTÓN FLOTANTE DEL CARRITO -->
+        <button id="btn-abrir-carrito" class="btn-carrito-nav" aria-label="Ver Carrito de Compras">
+            🛒 <span id="contador-carrito">0</span>
+        </button>
+    </nav>
+
+    <!-- SECCIÓN PRINCIPAL DE DOMICILIOS -->
+    <main class="domicilios-seccion">
+        
+        <header class="domicilios-header">
+            <span class="decoracion">✦</span>
+            <h1>Domicilios Haute Cuisine</h1>
+            <p>Disfrute de la carta completa de Le Château en la comodidad de su hogar con empaques térmicos de alta gama</p>
+            <div class="linea-titulo"></div>
+        </header>
+
+        <!-- FILTROS DE MENÚ -->
+        <div class="domicilios-filtros">
+            <button class="filtro-btn activo" data-categoria="todos">Todos</button>
+            <button class="filtro-btn" data-categoria="entradas">Entradas</button>
+            <button class="filtro-btn" data-categoria="ensaladas">Ensaladas</button>
+            <button class="filtro-btn" data-categoria="pastas">Pastas</button>
+            <button class="filtro-btn" data-categoria="principales">Platos Principales</button>
+            <button class="filtro-btn" data-categoria="mariscos">Pescados & Mariscos</button>
+            <button class="filtro-btn" data-categoria="postres">Postres</button>
+        </div>
+
+        <!-- CATÁLOGO DE PLATOS DE LA CARTA -->
+        <div class="domicilios-grid">
+
+            <!-- ================= ENTRADAS ================= -->
+            <div class="producto-card" data-categoria="entradas">
+                <div class="producto-img">
+                    <img src="img/entrada.jpg" alt="Carpaccio de Res">
+                    <span class="badge-gourmet">Entrada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Carpaccio de Res</h3>
+                    <p>Finas láminas de res, parmesano, aceite de oliva y hierbas frescas.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$35.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="e1" data-nombre="Carpaccio de Res" data-precio="35000" data-img="img/entrada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="entradas">
+                <div class="producto-img">
+                    <img src="img/burrata-italiana.jpg" alt="Burrata Italiana">
+                    <span class="badge-gourmet">Entrada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Burrata Italiana</h3>
+                    <p>Burrata cremosa, tomates cherry, albahaca y reducción balsámica.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$28.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="e2" data-nombre="Burrata Italiana" data-precio="28000" data-img="img/entrada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="entradas">
+                <div class="producto-img">
+                    <img src="img/TARTAR-SALMON.png" alt="Tartar de Salmón">
+                    <span class="badge-gourmet">Entrada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Tartar de Salmón</h3>
+                    <p>Salmón fresco, aguacate, cítricos y aceite de sésamo.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$32.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="e3" data-nombre="Tartar de Salmón" data-precio="32000" data-img="img/entrada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= ENSALADAS ================= -->
+            <div class="producto-card" data-categoria="ensaladas">
+                <div class="producto-img">
+                    <img src="img/ensalada.jpg" alt="Ensalada Mediterránea">
+                    <span class="badge-gourmet">Ensalada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Ensalada Mediterránea</h3>
+                    <p>Mezcla de hojas verdes, tomate, aceitunas, queso feta y vinagreta.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$24.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="s1" data-nombre="Ensalada Mediterránea" data-precio="24000" data-img="img/ensalada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="ensaladas">
+                <div class="producto-img">
+                    <img src="img/ensalada-cesar.avif" alt="Ensalada César Gourmet">
+                    <span class="badge-gourmet">Ensalada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Ensalada César Gourmet</h3>
+                    <p>Lechuga romana, parmesano, crutones artesanales y salsa César.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$26.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="s2" data-nombre="Ensalada César Gourmet" data-precio="26000" data-img="img/ensalada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="ensaladas">
+                <div class="producto-img">
+                    <img src="img/ensalada-burrata.jpg" alt="Ensalada de Burrata">
+                    <span class="badge-gourmet">Ensalada</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Ensalada de Burrata</h3>
+                    <p>Burrata, rúcula, tomates confitados y pesto de albahaca.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$29.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="s3" data-nombre="Ensalada de Burrata" data-precio="29000" data-img="img/ensalada.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PASTAS ================= -->
+            <div class="producto-card" data-categoria="pastas">
+                <div class="producto-img">
+                    <img src="img/pasta-gourmet.jpg" alt="Fettuccine Trufado">
+                    <span class="badge-gourmet">Pasta</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Fettuccine Trufado</h3>
+                    <p>Pasta fresca, crema de parmesano y aceite de trufa blanca.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$42.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="p1" data-nombre="Fettuccine Trufado" data-precio="42000" data-img="img/pasta-gourmet.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="pastas">
+                <div class="producto-img">
+                    <img src="img/ravioli.avif" alt="Ravioli de Ricotta">
+                    <span class="badge-gourmet">Pasta</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Ravioli de Ricotta</h3>
+                    <p>Ravioli artesanal relleno de ricotta y espinaca con salsa de mantequilla.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$38.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="p2" data-nombre="Ravioli de Ricotta" data-precio="38000" data-img="img/pasta-gourmet.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="pastas">
+                <div class="producto-img">
+                    <img src="img/Linguine Frutti di Mare.jpg" alt="Linguine Frutti di Mare">
+                    <span class="badge-gourmet">Pasta</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Linguine Frutti di Mare</h3>
+                    <p>Pasta fresca con camarones, calamar, mejillones y salsa de tomate.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$48.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="p3" data-nombre="Linguine Frutti di Mare" data-precio="48000" data-img="img/pasta.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PLATOS PRINCIPALES ================= -->
+            <div class="producto-card" data-categoria="principales">
+                <div class="producto-img">
+                    <img src="img/wagyu.jpg" alt="Filete Wagyu Premium">
+                    <span class="badge-gourmet">Chef's Choice</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Filete Wagyu Premium</h3>
+                    <p>Corte premium acompañado de reducción de vino tinto y vegetales grillados.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$80.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="m1" data-nombre="Filete Wagyu Premium" data-precio="80000" data-img="img/wagyu.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="principales">
+                <div class="producto-img">
+                    <img src="img/pollo.avif" alt="Pollo Supremo">
+                    <span class="badge-gourmet">Principal</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Pollo Supremo</h3>
+                    <p>Pechuga de pollo rellena de hierbas, puré de papa y salsa de champiñones.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$48.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="m2" data-nombre="Pollo Supremo" data-precio="48000" data-img="img/principal.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="principales">
+                <div class="producto-img">
+                    <img src="img/rack.jpg" alt="Rack de Cordero">
+                    <span class="badge-gourmet">Exclusivo</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Rack de Cordero</h3>
+                    <p>Cordero francés, puré de ajo, vegetales y reducción de vino.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$72.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="m3" data-nombre="Rack de Cordero" data-precio="72000" data-img="img/principal.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PESCADOS Y MARISCOS ================= -->
+            <div class="producto-card" data-categoria="mariscos">
+                <div class="producto-img">
+                    <img src="img/salmon.jpg" alt="Salmón Noruego">
+                    <span class="badge-gourmet">Marisco</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Salmón Noruego</h3>
+                    <p>Salmón fresco, mantequilla cítrica, espárragos y hierbas aromáticas.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$55.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="f1" data-nombre="Salmón Noruego" data-precio="55000" data-img="img/salmon.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="mariscos">
+                <div class="producto-img">
+                    <img src="img/langosta.jpg" alt="Langosta Imperial">
+                    <span class="badge-gourmet">Especialidad</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Langosta Imperial</h3>
+                    <p>Langosta preparada con mantequilla, limón y sabores mediterráneos.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$75.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="f2" data-nombre="Langosta Imperial" data-precio="75000" data-img="img/langosta.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="mariscos">
+                <div class="producto-img">
+                    <img src="img/pulpo.jpg" alt="Pulpo a la Parrilla">
+                    <span class="badge-gourmet">Marisco</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Pulpo a la Parrilla</h3>
+                    <p>Pulpo tierno, papas confitadas, pimentón y aceite de oliva.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$52.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="f3" data-nombre="Pulpo a la Parrilla" data-precio="52000" data-img="img/mariscos.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= POSTRES ================= -->
+            <div class="producto-card" data-categoria="postres">
+                <div class="producto-img">
+                    <img src="img/postre.jpg" alt="Soufflé de Chocolate">
+                    <span class="badge-gourmet">Postre</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Soufflé de Chocolate</h3>
+                    <p>Chocolate belga acompañado de frutos rojos y crema ligera.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$25.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="d1" data-nombre="Soufflé de Chocolate" data-precio="25000" data-img="img/postre.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="postres">
+                <div class="producto-img">
+                    <img src="img/tarte.jpg" alt="Tarte Tatin">
+                    <span class="badge-gourmet">Postre</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Tarte Tatin</h3>
+                    <p>Manzana caramelizada, hojaldre artesanal y helado de vainilla.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$23.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="d2" data-nombre="Tarte Tatin" data-precio="23000" data-img="img/postre.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto-card" data-categoria="postres">
+                <div class="producto-img">
+                    <img src="img/cheesecake.jpg" alt="Cheesecake de Frutos Rojos">
+                    <span class="badge-gourmet">Postre</span>
+                </div>
+                <div class="producto-info">
+                    <h3>Cheesecake de Frutos Rojos</h3>
+                    <p>Cheesecake cremoso con frutos rojos frescos y coulis de frambuesa.</p>
+                    <div class="producto-footer">
+                        <span class="precio-tag">$24.000</span>
+                        <button class="btn btn2 btn-agregar" data-id="d3" data-nombre="Cheesecake de Frutos Rojos" data-precio="24000" data-img="img/postre.jpg">
+                            Agregar +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="volver-inicio">
+            <a href="index.html">← Volver al Inicio</a>
+        </div>
+
+    </main>
+
+    <!-- SIDEBAR / DRAWER DEL CARRITO DE COMPRAS -->
+    <div id="overlay-carrito" class="overlay-carrito"></div>
+    
+    <aside id="drawer-carrito" class="drawer-carrito">
+        
+        <div class="drawer-header">
+            <h2>Su Pedido Gourmet</h2>
+            <button id="btn-cerrar-carrito" class="btn-cerrar">&times;</button>
+        </div>
+
+        <div id="carrito-items" class="drawer-body">
+            <!-- Los items del carrito se renderizarán dinámicamente con JavaScript -->
+        </div>
+
+        <div class="drawer-footer">
+            <div class="resumen-precio">
+                <span>Subtotal:</span>
+                <strong id="subtotal-carrito">$0</strong>
+            </div>
+            <div class="resumen-precio">
+                <span>Envío Especial Gourmet:</span>
+                <strong>$12.000</strong>
+            </div>
+            <div class="resumen-precio total">
+                <span>Total:</span>
+                <strong id="total-carrito">$0</strong>
+            </div>
+
+            <!-- FORMULARIO DE DESPACHO -->
+            <form id="form-checkout" class="form-checkout">
+                <div class="form-grupo">
+                    <label for="dir-direccion">Dirección de Entrega</label>
+                    <input type="text" id="dir-direccion" placeholder="Ej. Calle 93 # 14-20 Apt 502" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="dir-telefono">Teléfono de Contacto</label>
+                    <input type="tel" id="dir-telefono" placeholder="+57 300 000 0000" required>
+                </div>
+                <button type="submit" class="btn btn2 btn-enviar btn-checkout">Confirmar Pedido</button>
+            </form>
+        </div>
+
+    </aside>
+
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div id="modal-confirmacion" class="lightbox">
+        <div class="modal-card">
+            <span class="decoracion">✦</span>
+            <h2>¡Pedido Recibido!</h2>
+            <p>Gracias por su compra. Un sommelier y chef prepararán su pedido con el estándar de elegancia de Le Château Gourmet.</p>
+            <p>Tiempo estimado de entrega: <strong>45 - 60 minutos</strong>.</p>
+            <button id="btn-entendido" class="btn btn2">Entendido</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <h3>Le Château Gourmet</h3>
+                <p>Alta cocina y experiencias inolvidables en un ambiente de elegancia y sofisticación.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Información</h4>
+                <p>Carrera 10 # 25-40</p>
+                <p>Bogotá, Colombia</p>
+                <p>+57 300 000 0000</p>
+                <p>contacto@lechateau.com</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Horarios Domicilio</h4>
+                <p>Lunes a Domingo</p>
+                <p>12:00 PM - 10:00 PM</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Garantía Gourmet</h4>
+                <p>Entregas en empaques térmicos sellados que conservan el punto de cocción y la temperatura ideal.</p>
+            </div>
+        </div>
+
+        <div class="footer-linea"></div>
+
+        <div class="creditos">
+            <p>© 2026 Le Château Gourmet. Todos los derechos reservados.</p>
+            <p>Proyecto desarrollado por <strong>Juan Melo</strong> y <strong>Johan Velandia</strong>.</p>
+            <p>Diseño y desarrollo web académico.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERACTIVIDAD Y CARRITO -->
+    <script src="script.js"></script>
+
+</body>
+</html>
