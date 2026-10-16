@@ -1,995 +1,1178 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <title>Nuestra Carta | Le Château Gourmet</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
 
-    <title>Carta | Le Château Gourmet</title>
+    <style>
+        /* ==================================================
+           CARTA GOURMET - ESTILOS EXCLUSIVOS DE ESTA PÁGINA
+           ================================================== */
 
+        .carta-page {
+            --oro: #C8A96A;
+            --texto: #f5f1e9;
+            --texto-suave: #c5beb2;
 
-    <!-- ==========================
-         FUENTES
-    =========================== -->
+            min-height: 100vh;
+            padding: 135px 0 85px;
+            color: var(--texto);
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(200,169,106,.10), transparent 40%),
+                #111;
+            overflow: hidden;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
-        rel="stylesheet"
-    >
+        .carta-page * {
+            box-sizing: border-box;
+        }
 
+        .carta-wrap {
+            width: min(1440px, calc(100% - 64px));
+            margin: 0 auto;
+        }
 
-    <!-- ==========================
-         CSS
-    =========================== -->
+        /* ENCABEZADO */
 
-    <link
-        rel="stylesheet"
-        href="estilos.css"
-    >
+        .carta-intro {
+            max-width: 900px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
 
+        .carta-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 15px;
+            color: var(--oro);
+            font-size: .72rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .carta-kicker::before,
+        .carta-kicker::after {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: var(--oro);
+        }
+
+        .carta-intro h1 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.6rem, 5vw, 5rem);
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+        .carta-intro h1 em {
+            color: var(--oro);
+            font-weight: 400;
+        }
+
+        .carta-intro p {
+            max-width: 700px;
+            margin: 22px auto 0;
+            color: var(--texto-suave);
+            font-size: .95rem;
+            line-height: 1.9;
+        }
+
+        .carta-ornamento {
+            width: 105px;
+            height: 1px;
+            margin: 25px auto 0;
+            background: linear-gradient(90deg, transparent, var(--oro), transparent);
+        }
+
+        .carta-nota {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 24px;
+            margin: 30px 0 44px;
+            color: #d4c9b5;
+            font-size: .78rem;
+            letter-spacing: .5px;
+        }
+
+        .carta-nota span::before {
+            content: "✦";
+            margin-right: 9px;
+            color: var(--oro);
+        }
+
+        /* NAVEGACIÓN ENTRE CATEGORÍAS */
+
+        .carta-nav-categorias {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 auto 58px;
+        }
+
+        .carta-nav-categorias a {
+            padding: 11px 17px;
+            border: 1px solid rgba(200,169,106,.35);
+            color: #ddd4c5;
+            font-size: .76rem;
+            text-decoration: none;
+            transition: background .25s, color .25s, border-color .25s;
+        }
+
+        .carta-nav-categorias a:hover,
+        .carta-nav-categorias a:focus-visible {
+            border-color: var(--oro);
+            background: var(--oro);
+            color: #111;
+            outline: none;
+        }
+
+        /* CATEGORÍAS */
+
+        .carta-categoria {
+            margin-bottom: 76px;
+            scroll-margin-top: 115px;
+        }
+
+        .carta-categoria-cabecera {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 19px;
+            border-bottom: 1px solid rgba(200,169,106,.36);
+        }
+
+        .carta-categoria-titulo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .carta-numero {
+            padding-right: 16px;
+            border-right: 1px solid rgba(200,169,106,.45);
+            color: var(--oro);
+            font-size: .78rem;
+            letter-spacing: 2px;
+        }
+
+        .carta-categoria h2 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.75rem, 3vw, 2.7rem);
+            font-weight: 500;
+        }
+
+        .carta-categoria-cabecera p {
+            max-width: 360px;
+            margin: 0;
+            color: #aaa195;
+            font-size: .78rem;
+            line-height: 1.7;
+            text-align: right;
+        }
+
+        /* SLIDERS */
+
+        .carta-slider {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% - 48px) / 3);
+            gap: 24px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 3px 2px 18px;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--oro) #242220;
+        }
+
+        .carta-slider::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .carta-slider::-webkit-scrollbar-track {
+            background: #242220;
+        }
+
+        .carta-slider::-webkit-scrollbar-thumb {
+            background: var(--oro);
+        }
+
+        /* TARJETAS DE LOS PLATOS */
+
+        .plato-card {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(200,169,106,.22);
+            border-radius: 3px;
+            background: linear-gradient(145deg, #1d1c1a, #151413);
+            scroll-snap-align: start;
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        .plato-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(200,169,106,.72);
+            box-shadow: 0 18px 38px rgba(0,0,0,.25);
+        }
+
+        .plato-card-imagen {
+            position: relative;
+            height: 290px;
+            overflow: hidden;
+            background: #25221d;
+        }
+
+        .plato-card-imagen::after {
+            position: absolute;
+            inset: 35% 0 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.42));
+            content: "";
+            pointer-events: none;
+        }
+
+        .plato-card-imagen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .65s ease;
+        }
+
+        .plato-card:hover .plato-card-imagen img {
+            transform: scale(1.045);
+        }
+
+        .plato-etiqueta {
+            position: absolute;
+            z-index: 1;
+            top: 15px;
+            left: 15px;
+            padding: 7px 10px;
+            border: 1px solid rgba(200,169,106,.7);
+            background: rgba(12,12,11,.82);
+            color: #e6d1a4;
+            font-size: .64rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .plato-card-cuerpo {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 22px 23px 21px;
+        }
+
+        .plato-card-titulo-linea {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .plato-card h3 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .plato-precio {
+            padding-top: 3px;
+            color: var(--oro);
+            font-size: 1rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .plato-card p {
+            margin: 13px 0 20px;
+            color: #bcb5aa;
+            font-size: .82rem;
+            line-height: 1.8;
+        }
+
+        .plato-detalle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        .plato-detalle span {
+            padding: 6px 8px;
+            border: 1px solid rgba(200,169,106,.2);
+            color: #c9b991;
+            font-size: .66rem;
+        }
+
+        /* CONTROLES DEL SLIDER */
+
+        .carta-slider-controles {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 13px;
+        }
+
+        .carta-flecha {
+            display: grid;
+            width: 43px;
+            height: 43px;
+            place-items: center;
+            border: 1px solid rgba(200,169,106,.55);
+            background: transparent;
+            color: var(--oro);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background .25s, color .25s;
+        }
+
+        .carta-flecha:hover:not(:disabled),
+        .carta-flecha:focus-visible {
+            background: var(--oro);
+            color: #111;
+            outline: none;
+        }
+
+        .carta-flecha:disabled {
+            opacity: .3;
+            cursor: not-allowed;
+        }
+
+        /* LLAMADO A LA ACCIÓN */
+
+        .carta-cierre {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            padding: 45px 25px;
+            border: 1px solid rgba(200,169,106,.4);
+            background: linear-gradient(135deg, rgba(200,169,106,.08), transparent 60%);
+            text-align: center;
+        }
+
+        .carta-cierre .cierre-simbolo {
+            color: var(--oro);
+            font-size: 1.3rem;
+        }
+
+        .carta-cierre h2 {
+            margin: 12px 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            font-weight: 500;
+        }
+
+        .carta-cierre p {
+            max-width: 700px;
+            margin: 0 auto 22px;
+            color: #c4bcaf;
+            font-size: .88rem;
+            line-height: 1.8;
+        }
+
+        .carta-cta {
+            display: inline-block;
+            margin: 5px;
+            padding: 13px 23px;
+            border: 1px solid var(--oro);
+            background: var(--oro);
+            color: #111;
+            font-size: .72rem;
+            letter-spacing: 1.2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background .25s, color .25s;
+        }
+
+        .carta-cta:hover {
+            background: transparent;
+            color: var(--oro);
+        }
+
+        .carta-volver {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .carta-volver a {
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(200,169,106,.5);
+            color: #c9b991;
+            font-size: .8rem;
+            text-decoration: none;
+        }
+
+        .carta-volver a:hover {
+            color: #fff;
+        }
+
+        /* TABLETAS */
+
+        @media (max-width: 1050px) {
+            .carta-slider {
+                grid-auto-columns: calc((100% - 24px) / 2);
+            }
+
+            .plato-card-imagen {
+                height: 260px;
+            }
+
+            .carta-categoria-cabecera p {
+                max-width: 280px;
+            }
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 700px) {
+            .carta-page {
+                padding-top: 115px;
+            }
+
+            .carta-wrap {
+                width: calc(100% - 30px);
+                max-width: 560px;
+            }
+
+            .carta-intro {
+                margin-bottom: 30px;
+            }
+
+            .carta-intro p {
+                font-size: .86rem;
+            }
+
+            .carta-kicker {
+                gap: 8px;
+                font-size: .61rem;
+                letter-spacing: 2px;
+            }
+
+            .carta-kicker::before,
+            .carta-kicker::after {
+                width: 20px;
+            }
+
+            .carta-nav-categorias {
+                gap: 7px;
+                margin-bottom: 42px;
+            }
+
+            .carta-nav-categorias a {
+                padding: 9px 11px;
+                font-size: .68rem;
+            }
+
+            .carta-categoria {
+                margin-bottom: 52px;
+            }
+
+            .carta-categoria-cabecera {
+                align-items: flex-start;
+                flex-direction: column;
+                margin-bottom: 18px;
+            }
+
+            .carta-categoria-cabecera p {
+                max-width: none;
+                text-align: left;
+            }
+
+            .carta-slider {
+                grid-auto-columns: 88%;
+                gap: 14px;
+            }
+
+            .plato-card-imagen {
+                height: 250px;
+            }
+
+            .plato-card-cuerpo {
+                padding: 18px;
+            }
+
+            .plato-card h3 {
+                font-size: 1.28rem;
+            }
+
+            .carta-nota {
+                gap: 10px 15px;
+                font-size: .7rem;
+            }
+
+            .carta-cierre {
+                padding: 35px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .carta-page *,
+            .carta-page *::before,
+            .carta-page *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-
-    <!-- ==========================
-         BARRA DE NAVEGACIÓN
-    =========================== -->
-
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <header>
-
         <nav class="navbar">
-
-
-            <div class="logo">
-                Le Château
-            </div>
-
+            <div class="logo">Le Château</div>
 
             <ul class="menu">
-
-
-                <li>
-                    <a href="index.html">
-                        Inicio
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        href="carta.html"
-                        class="activo"
-                    >
-                        Carta
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="experiencia.html">
-                        Experiencia
-                    </a>
-                </li>
-                <li>
-                    <a href="galeria.html">
-                        Galeria
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="cheff.html">
-                        Chef
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="reservas.html">
-                        Reservas
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="contacto.html">
-                        Contacto
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="eventos.html">
-                        Eventos
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="domicilios.html">
-                        Domicilios
-                    </a>
-                </li>
-
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carta.html" class="activo" aria-current="page">Carta</a></li>
+                <li><a href="experiencia.html">Experiencia</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="cheff.html">Chef</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="domicilios.html">Domicilios</a></li>
             </ul>
-
         </nav>
-
     </header>
 
+    <!-- CONTENIDO DE LA CARTA -->
+    <main class="carta-page">
+        <div class="carta-wrap">
 
-
-    <!-- ==========================
-         CONTENIDO PRINCIPAL
-    =========================== -->
-
-    <main>
-
-
-        <section class="carta">
-
-
-            <div class="carta-header">
-
-
-                <span class="decoracion">
-                    ✦
-                </span>
-
-
-                <h1>
-                    Nuestra Carta
-                </h1>
-
+            <header class="carta-intro">
+                <span class="carta-kicker">Le Château Gourmet · Alta cocina</span>
+                <h1>Nuestra <em>Carta</em></h1>
 
                 <p>
-                    Una selección creada para despertar los sentidos.
+                    Una selección de sabores, texturas y productos cuidadosamente elegidos.
+                    Explore cada familia de nuestra cocina y descubra platos elaborados
+                    para convertir cada visita en una experiencia memorable.
                 </p>
 
+                <div class="carta-ornamento"></div>
 
-                <div class="linea-titulo"></div>
+                <div class="carta-nota">
+                    <span>Ingredientes seleccionados</span>
+                    <span>Preparación artesanal</span>
+                    <span>Inspiración internacional</span>
+                </div>
+            </header>
 
+            <!-- ACCESOS RÁPIDOS -->
+            <nav class="carta-nav-categorias" aria-label="Categorías de la carta">
+                <a href="#entradas">Entradas</a>
+                <a href="#ensaladas">Ensaladas</a>
+                <a href="#pastas">Pastas</a>
+                <a href="#principales">Platos principales</a>
+                <a href="#mariscos">Pescados y mariscos</a>
+                <a href="#postres">Postres</a>
+            </nav>
 
-            </div>
-
-
-
-            <div class="carta-box">
-
-
-                <!-- ENTRADAS -->
-
-                <section class="categoria-menu">
-
-
-                    <div class="categoria-imagen">
-
-                        <img
-                            src="img/entrada.jpg"
-                            alt="Entradas gourmet"
-                        >
-
+            <!-- =================================================
+                 01. ENTRADAS
+                 ================================================= -->
+            <section class="carta-categoria" id="entradas">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">01</span>
+                        <h2>Entradas</h2>
                     </div>
+                    <p>Primeros bocados delicados para abrir el apetito y anticipar la experiencia.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-entradas" aria-label="Entradas">
 
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Entradas
-                            </h2>
-
-                            <span>✦</span>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/entrada.jpg" alt="Carpaccio de res con parmesano" loading="lazy">
+                            <span class="plato-etiqueta">Clásico de la casa</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Carpaccio de Res
-                                </h3>
-
-                                <p>
-                                    Finas láminas de res, parmesano,
-                                    aceite de oliva y hierbas frescas.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Carpaccio de Res</h3>
+                                <span class="plato-precio">$35.000</span>
                             </div>
-
-                            <div class="precio">
-                                $35
+                            <p>Finas láminas de res, parmesano madurado, aceite de oliva extra virgen y hierbas frescas.</p>
+                            <div class="plato-detalle">
+                                <span>Fresco</span>
+                                <span>Suave y aromático</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Burrata Italiana
-                                </h3>
-
-                                <p>
-                                    Burrata cremosa, tomates cherry,
-                                    albahaca y reducción balsámica.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $28
-                            </div>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/burrata-italiana.jpg" alt="Burrata italiana con tomates cherry" loading="lazy">
+                            <span class="plato-etiqueta">Inspiración italiana</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Tartar de Salmón
-                                </h3>
-
-                                <p>
-                                    Salmón fresco, aguacate, cítricos
-                                    y aceite de sésamo.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Burrata Italiana</h3>
+                                <span class="plato-precio">$28.000</span>
                             </div>
-
-                            <div class="precio">
-                                $32
+                            <p>Burrata cremosa acompañada de tomates cherry, albahaca fresca y reducción balsámica.</p>
+                            <div class="plato-detalle">
+                                <span>Cremosa</span>
+                                <span>Vegetariano</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                    </div>
-
-
-                </section>
-
-
-
-                <div class="separador">
-
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/TARTAR-SALMON.png" alt="Tartar de salmón con aguacate" loading="lazy">
+                            <span class="plato-etiqueta">Selección fresca</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Tartar de Salmón</h3>
+                                <span class="plato-precio">$32.000</span>
+                            </div>
+                            <p>Salmón fresco, aguacate, notas cítricas y aceite de sésamo para un final delicado.</p>
+                            <div class="plato-detalle">
+                                <span>Cítrico</span>
+                                <span>Fresco</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-entradas" data-dir="-1" aria-label="Ver entradas anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-entradas" data-dir="1" aria-label="Ver más entradas">›</button>
+                </div>
+            </section>
 
-
-                <!-- ENSALADAS -->
-
-                <section class="categoria-menu categoria-invertida">
-
-
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Ensaladas
-                            </h2>
-
-                            <span>✦</span>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Ensalada Mediterránea
-                                </h3>
-
-                                <p>
-                                    Mezcla de hojas verdes, tomate,
-                                    aceitunas, queso feta y vinagreta.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $24
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Ensalada César Gourmet
-                                </h3>
-
-                                <p>
-                                    Lechuga romana, parmesano,
-                                    crutones artesanales y salsa César.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $26
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Ensalada de Burrata
-                                </h3>
-
-                                <p>
-                                    Burrata, rúcula, tomates confitados
-                                    y pesto de albahaca.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $29
-                            </div>
-
-                        </div>
-
-
+            <!-- =================================================
+                 02. ENSALADAS
+                 ================================================= -->
+            <section class="carta-categoria" id="ensaladas">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">02</span>
+                        <h2>Ensaladas</h2>
                     </div>
+                    <p>Combinaciones frescas, vegetales de temporada y aderezos equilibrados.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-ensaladas" aria-label="Ensaladas">
 
-                    <div class="categoria-imagen">
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/ensalada.jpg" alt="Ensalada mediterránea" loading="lazy">
+                            <span class="plato-etiqueta">Mediterránea</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Ensalada Mediterránea</h3>
+                                <span class="plato-precio">$24.000</span>
+                            </div>
+                            <p>Hojas verdes, tomate fresco, aceitunas, queso feta y vinagreta de la casa.</p>
+                            <div class="plato-detalle">
+                                <span>Fresca</span>
+                                <span>Vegetariano</span>
+                            </div>
+                        </div>
+                    </article>
 
-                        <img
-                            src="img/ensalada.jpg"
-                            alt="Ensalada gourmet"
-                        >
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/ensalada-cesar.avif" alt="Ensalada César gourmet" loading="lazy">
+                            <span class="plato-etiqueta">Favorita</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Ensalada César Gourmet</h3>
+                                <span class="plato-precio">$26.000</span>
+                            </div>
+                            <p>Lechuga romana crujiente, parmesano, crutones artesanales y salsa César cremosa.</p>
+                            <div class="plato-detalle">
+                                <span>Crujiente</span>
+                                <span>Clásica</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    </div>
-
-
-                </section>
-
-
-
-                <div class="separador">
-
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/ensalada-burrata.jpg" alt="Ensalada de burrata con rúcula y tomates" loading="lazy">
+                            <span class="plato-etiqueta">De temporada</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Ensalada de Burrata</h3>
+                                <span class="plato-precio">$29.000</span>
+                            </div>
+                            <p>Burrata fresca, rúcula, tomates confitados y pesto de albahaca recién preparado.</p>
+                            <div class="plato-detalle">
+                                <span>Cremosa</span>
+                                <span>Aromática</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-ensaladas" data-dir="-1" aria-label="Ver ensaladas anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-ensaladas" data-dir="1" aria-label="Ver más ensaladas">›</button>
+                </div>
+            </section>
 
-
-                <!-- PASTAS -->
-
-                <section class="categoria-menu">
-
-
-                    <div class="categoria-imagen">
-
-                        <img
-                            src="img/pasta-gourmet.jpg"
-                            alt="Pasta gourmet"
-                        >
-
+            <!-- =================================================
+                 03. PASTAS
+                 ================================================= -->
+            <section class="carta-categoria" id="pastas">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">03</span>
+                        <h2>Pastas</h2>
                     </div>
+                    <p>Pastas y salsas de inspiración italiana, con acabados ricos y elegantes.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-pastas" aria-label="Pastas">
 
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Pastas
-                            </h2>
-
-                            <span>✦</span>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/pasta-gourmet.jpg" alt="Fettuccine trufado" loading="lazy">
+                            <span class="plato-etiqueta">Especialidad</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Fettuccine Trufado
-                                </h3>
-
-                                <p>
-                                    Pasta fresca, crema de parmesano
-                                    y aceite de trufa blanca.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Fettuccine Trufado</h3>
+                                <span class="plato-precio">$42.000</span>
                             </div>
-
-                            <div class="precio">
-                                $42
+                            <p>Pasta fresca bañada en crema de parmesano, con el perfume elegante de la trufa blanca.</p>
+                            <div class="plato-detalle">
+                                <span>Parmesano</span>
+                                <span>Trufa</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Ravioli de Ricotta
-                                </h3>
-
-                                <p>
-                                    Ravioli artesanal relleno de ricotta
-                                    y espinaca con salsa de mantequilla.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $38
-                            </div>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/ravioli.avif" alt="Ravioli artesanal de ricotta y espinaca" loading="lazy">
+                            <span class="plato-etiqueta">Hecho a mano</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Linguine Frutti di Mare
-                                </h3>
-
-                                <p>
-                                    Pasta fresca con camarones, calamar,
-                                    mejillones y salsa de tomate.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Ravioli de Ricotta</h3>
+                                <span class="plato-precio">$38.000</span>
                             </div>
-
-                            <div class="precio">
-                                $48
+                            <p>Ravioli artesanal relleno de ricotta y espinaca, terminado con salsa de mantequilla.</p>
+                            <div class="plato-detalle">
+                                <span>Artesanal</span>
+                                <span>Suave</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                    </div>
-
-
-                </section>
-
-
-
-                <div class="separador">
-
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/Linguine Frutti di Mare.jpg" alt="Linguine frutti di mare con mariscos" loading="lazy">
+                            <span class="plato-etiqueta">Del mar</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Linguine Frutti di Mare</h3>
+                                <span class="plato-precio">$48.000</span>
+                            </div>
+                            <p>Linguine con camarones, calamar, mejillones y una salsa de tomate llena de sabor.</p>
+                            <div class="plato-detalle">
+                                <span>Mariscos</span>
+                                <span>Tomate</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-pastas" data-dir="-1" aria-label="Ver pastas anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-pastas" data-dir="1" aria-label="Ver más pastas">›</button>
+                </div>
+            </section>
 
-
-                <!-- PLATOS PRINCIPALES -->
-
-                <section class="categoria-menu categoria-invertida">
-
-
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Platos Principales
-                            </h2>
-
-                            <span>✦</span>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Filete Wagyu Premium
-                                </h3>
-
-                                <p>
-                                    Corte premium acompañado de reducción
-                                    de vino tinto y vegetales grillados.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $80
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Pollo Supremo
-                                </h3>
-
-                                <p>
-                                    Pechuga de pollo rellena de hierbas,
-                                    puré de papa y salsa de champiñones.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $48
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Rack de Cordero
-                                </h3>
-
-                                <p>
-                                    Cordero francés, puré de ajo,
-                                    vegetales y reducción de vino.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $72
-                            </div>
-
-                        </div>
-
-
+            <!-- =================================================
+                 04. PLATOS PRINCIPALES
+                 ================================================= -->
+            <section class="carta-categoria" id="principales">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">04</span>
+                        <h2>Platos principales</h2>
                     </div>
+                    <p>Creaciones de carácter, cortes seleccionados y guarniciones preparadas al detalle.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-principales" aria-label="Platos principales">
 
-                    <div class="categoria-imagen">
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/wagyu.jpg" alt="Filete Wagyu premium" loading="lazy">
+                            <span class="plato-etiqueta">Elección del chef</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Filete Wagyu Premium</h3>
+                                <span class="plato-precio">$80.000</span>
+                            </div>
+                            <p>Corte premium acompañado de reducción de vino tinto y vegetales grillados.</p>
+                            <div class="plato-detalle">
+                                <span>Corte premium</span>
+                                <span>Intenso</span>
+                            </div>
+                        </div>
+                    </article>
 
-                        <img
-                            src="img/principal.jpg"
-                            alt="Plato principal gourmet"
-                        >
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/pollo.avif" alt="Pollo supremo con puré y champiñones" loading="lazy">
+                            <span class="plato-etiqueta">De la casa</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Pollo Supremo</h3>
+                                <span class="plato-precio">$48.000</span>
+                            </div>
+                            <p>Pechuga rellena de hierbas, puré de papa sedoso y salsa de champiñones.</p>
+                            <div class="plato-detalle">
+                                <span>Hierbas frescas</span>
+                                <span>Cremoso</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    </div>
-
-
-                </section>
-
-
-
-                <div class="separador">
-
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/rack.jpg" alt="Rack de cordero con vegetales" loading="lazy">
+                            <span class="plato-etiqueta">Selección especial</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Rack de Cordero</h3>
+                                <span class="plato-precio">$72.000</span>
+                            </div>
+                            <p>Cordero de inspiración francesa, puré de ajo, vegetales y reducción de vino.</p>
+                            <div class="plato-detalle">
+                                <span>Sabores profundos</span>
+                                <span>Elegante</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-principales" data-dir="-1" aria-label="Ver platos principales anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-principales" data-dir="1" aria-label="Ver más platos principales">›</button>
+                </div>
+            </section>
 
-
-                <!-- PESCADOS Y MARISCOS -->
-
-                <section class="categoria-menu">
-
-
-                    <div class="categoria-imagen">
-
-                        <img
-                            src="img/mariscos.jpg"
-                            alt="Pescados y mariscos gourmet"
-                        >
-
+            <!-- =================================================
+                 05. PESCADOS Y MARISCOS
+                 ================================================= -->
+            <section class="carta-categoria" id="mariscos">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">05</span>
+                        <h2>Pescados y mariscos</h2>
                     </div>
+                    <p>Delicadeza marina, cocciones cuidadas y acompañamientos que realzan cada ingrediente.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-mariscos" aria-label="Pescados y mariscos">
 
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Pescados y Mariscos
-                            </h2>
-
-                            <span>✦</span>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/salmon.jpg" alt="Salmón noruego con espárragos" loading="lazy">
+                            <span class="plato-etiqueta">Del mar</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Salmón Noruego
-                                </h3>
-
-                                <p>
-                                    Salmón fresco, mantequilla cítrica,
-                                    espárragos y hierbas aromáticas.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Salmón Noruego</h3>
+                                <span class="plato-precio">$55.000</span>
                             </div>
-
-                            <div class="precio">
-                                $55
+                            <p>Salmón fresco con mantequilla cítrica, espárragos y hierbas aromáticas.</p>
+                            <div class="plato-detalle">
+                                <span>Cítrico</span>
+                                <span>Hierbas</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Langosta Imperial
-                                </h3>
-
-                                <p>
-                                    Langosta preparada con mantequilla,
-                                    limón y sabores mediterráneos.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $75
-                            </div>
-
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/langosta.jpg" alt="Langosta imperial con mantequilla y limón" loading="lazy">
+                            <span class="plato-etiqueta">Especialidad</span>
                         </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Pulpo a la Parrilla
-                                </h3>
-
-                                <p>
-                                    Pulpo tierno, papas confitadas,
-                                    pimentón y aceite de oliva.
-                                </p>
-
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Langosta Imperial</h3>
+                                <span class="plato-precio">$75.000</span>
                             </div>
-
-                            <div class="precio">
-                                $52
+                            <p>Langosta preparada con mantequilla, limón y matices mediterráneos.</p>
+                            <div class="plato-detalle">
+                                <span>Premium</span>
+                                <span>Mediterráneo</span>
                             </div>
-
                         </div>
+                    </article>
 
-
-                    </div>
-
-
-                </section>
-
-
-
-                <div class="separador">
-
-                    <span></span>
-                    <i>✦</i>
-                    <span></span>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/pulpo.jpg" alt="Pulpo a la parrilla con papas confitadas" loading="lazy">
+                            <span class="plato-etiqueta">A la parrilla</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Pulpo a la Parrilla</h3>
+                                <span class="plato-precio">$52.000</span>
+                            </div>
+                            <p>Pulpo tierno, papas confitadas, pimentón y aceite de oliva extra virgen.</p>
+                            <div class="plato-detalle">
+                                <span>Textura tierna</span>
+                                <span>Ahumado</span>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
 
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-mariscos" data-dir="-1" aria-label="Ver pescados y mariscos anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-mariscos" data-dir="1" aria-label="Ver más pescados y mariscos">›</button>
+                </div>
+            </section>
 
-
-                <!-- POSTRES -->
-
-                <section class="categoria-menu categoria-invertida">
-
-
-                    <div class="categoria-contenido">
-
-
-                        <div class="categoria-titulo">
-
-                            <span>✦</span>
-
-                            <h2>
-                                Postres
-                            </h2>
-
-                            <span>✦</span>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Soufflé de Chocolate
-                                </h3>
-
-                                <p>
-                                    Chocolate belga acompañado
-                                    de frutos rojos y crema ligera.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $25
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Tarte Tatin
-                                </h3>
-
-                                <p>
-                                    Manzana caramelizada, hojaldre
-                                    artesanal y helado de vainilla.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $23
-                            </div>
-
-                        </div>
-
-
-                        <div class="plato">
-
-                            <div class="plato-info">
-
-                                <h3>
-                                    Cheesecake de Frutos Rojos
-                                </h3>
-
-                                <p>
-                                    Cheesecake cremoso con frutos rojos
-                                    frescos y coulis de frambuesa.
-                                </p>
-
-                            </div>
-
-                            <div class="precio">
-                                $24
-                            </div>
-
-                        </div>
-
-
+            <!-- =================================================
+                 06. POSTRES
+                 ================================================= -->
+            <section class="carta-categoria" id="postres">
+                <div class="carta-categoria-cabecera">
+                    <div class="carta-categoria-titulo">
+                        <span class="carta-numero">06</span>
+                        <h2>Postres</h2>
                     </div>
+                    <p>Un final dulce y equilibrado para prolongar el placer de la mesa.</p>
+                </div>
 
+                <div class="carta-slider" id="slider-postres" aria-label="Postres">
 
-                    <div class="categoria-imagen">
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/postre.jpg" alt="Soufflé de chocolate con frutos rojos" loading="lazy">
+                            <span class="plato-etiqueta">Chocolate belga</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Soufflé de Chocolate</h3>
+                                <span class="plato-precio">$25.000</span>
+                            </div>
+                            <p>Chocolate belga con frutos rojos y crema ligera para equilibrar su intensidad.</p>
+                            <div class="plato-detalle">
+                                <span>Intenso</span>
+                                <span>Frutos rojos</span>
+                            </div>
+                        </div>
+                    </article>
 
-                        <img
-                            src="img/postre.jpg"
-                            alt="Postres gourmet"
-                        >
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/tarte.jpg" alt="Tarte Tatin de manzana caramelizada" loading="lazy">
+                            <span class="plato-etiqueta">Clásico francés</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Tarte Tatin</h3>
+                                <span class="plato-precio">$23.000</span>
+                            </div>
+                            <p>Manzana caramelizada, hojaldre artesanal y helado de vainilla.</p>
+                            <div class="plato-detalle">
+                                <span>Caramelizado</span>
+                                <span>Helado</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    </div>
+                    <article class="plato-card">
+                        <div class="plato-card-imagen">
+                            <img src="img/cheesecake.jpg" alt="Cheesecake de frutos rojos" loading="lazy">
+                            <span class="plato-etiqueta">Recomendado</span>
+                        </div>
+                        <div class="plato-card-cuerpo">
+                            <div class="plato-card-titulo-linea">
+                                <h3>Cheesecake de Frutos Rojos</h3>
+                                <span class="plato-precio">$24.000</span>
+                            </div>
+                            <p>Cheesecake cremoso, frutos rojos frescos y coulis de frambuesa.</p>
+                            <div class="plato-detalle">
+                                <span>Cremoso</span>
+                                <span>Frutal</span>
+                            </div>
+                        </div>
+                    </article>
 
+                </div>
 
-                </section>
+                <div class="carta-slider-controles">
+                    <button class="carta-flecha" type="button" data-slider="slider-postres" data-dir="-1" aria-label="Ver postres anteriores">‹</button>
+                    <button class="carta-flecha" type="button" data-slider="slider-postres" data-dir="1" aria-label="Ver más postres">›</button>
+                </div>
+            </section>
 
+            <!-- CIERRE DE LA CARTA -->
+            <section class="carta-cierre">
+                <span class="cierre-simbolo">✦</span>
+                <h2>Una mesa hecha para recordar</h2>
+                <p>
+                    Permita que nuestro equipo le acompañe en la elección de una experiencia
+                    a su medida. Reserve su mesa o explore nuestra selección para disfrutar
+                    Le Château Gourmet desde casa.
+                </p>
 
+                <a class="carta-cta" href="reservas.html">Reservar una mesa</a>
+                <a class="carta-cta" href="domicilios.html">Ver domicilios</a>
+            </section>
+
+            <div class="carta-volver">
+                <a href="index.html">← Volver al inicio</a>
             </div>
-
-
-
-            <!-- ==========================
-                 PIE DECORATIVO
-            =========================== -->
-
-            <div class="carta-footer">
-
-                <span>✦</span>
-
-                <p>
-                    Le Château Gourmet
-                </p>
-
-                <span>✦</span>
-
-            </div>
-
-
-
-            <!-- ==========================
-                 BOTÓN VOLVER
-            =========================== -->
-
-            <div class="volver-inicio">
-
-                <a href="index.html">
-                    Volver al inicio
-                </a>
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==========================
-         FOOTER
-    =========================== -->
-
-    <footer id="contacto">
-
-
-        <div class="footer-contenido">
-
-
-            <div class="footer-columna">
-
-
-                <h3>
-                    Le Château Gourmet
-                </h3>
-
-
-                <p>
-                    Alta cocina y experiencias inolvidables.
-                </p>
-
-
-            </div>
-
-
-            <div class="footer-columna">
-
-
-                <h4>
-                    Contacto
-                </h4>
-
-
-                <p>
-                    Bogotá, Colombia
-                </p>
-
-
-                <p>
-                    +57 300 000 0000
-                </p>
-
-
-                <p>
-                    contacto@lechateau.com
-                </p>
-
-
-            </div>
-
-
-            <div class="footer-columna">
-
-
-                <h4>
-                    Horarios
-                </h4>
-
-
-                <p>
-                    Lunes a Jueves: 12:00 PM - 10:00 PM
-                </p>
-
-
-                <p>
-                    Viernes y Sábado: 12:00 PM - 11:30 PM
-                </p>
-
-
-                <p>
-                    Domingo: 12:00 PM - 8:00 PM
-                </p>
-
-
-            </div>
-
 
         </div>
+    </main>
 
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto">
+        <div class="footer-contenido">
 
+            <div class="footer-columna">
+                <h3>Le Château Gourmet</h3>
+                <p>Alta cocina y experiencias inolvidables.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Contacto</h4>
+                <p>Bogotá, Colombia</p>
+                <p>+57 300 000 0000</p>
+                <p>contacto@lechateau.com</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Horarios</h4>
+                <p>Lunes a Jueves: 12:00 PM - 10:00 PM</p>
+                <p>Viernes y Sábado: 12:00 PM - 11:30 PM</p>
+                <p>Domingo: 12:00 PM - 8:00 PM</p>
+            </div>
+
+        </div>
 
         <div class="footer-linea"></div>
 
-
-
         <div class="creditos">
-
-
+            <p>© 2026 Le Château Gourmet. Todos los derechos reservados.</p>
             <p>
-                © 2026 Le Château Gourmet. Todos los derechos reservados.
+                Proyecto desarrollado por <strong>Juan Melo</strong>
+                y <strong>Johan Velandia</strong>.
             </p>
-
-
-            <p>
-                Proyecto desarrollado por
-                <strong>Juan Melo</strong>
-                y
-                <strong>Johan Velandia</strong>.
-            </p>
-
-
         </div>
-
-
     </footer>
 
+    <!-- FUNCIONAMIENTO DE LOS SLIDERS -->
+    <script>
+        (() => {
+            "use strict";
 
+            const botones = document.querySelectorAll(
+                ".carta-flecha[data-slider]"
+            );
+
+            function actualizarFlechas() {
+                document.querySelectorAll(".carta-slider").forEach(slider => {
+                    const controles = document.querySelectorAll(
+                        `.carta-flecha[data-slider="${slider.id}"]`
+                    );
+
+                    const maxScroll = Math.max(
+                        0,
+                        slider.scrollWidth - slider.clientWidth
+                    );
+
+                    controles.forEach(boton => {
+                        const izquierda = boton.dataset.dir === "-1";
+
+                        boton.disabled = izquierda
+                            ? slider.scrollLeft <= 2
+                            : slider.scrollLeft >= maxScroll - 2;
+                    });
+                });
+            }
+
+            botones.forEach(boton => {
+                boton.addEventListener("click", () => {
+                    const slider = document.getElementById(
+                        boton.dataset.slider
+                    );
+
+                    if (!slider) return;
+
+                    const tarjeta = slider.querySelector(".plato-card");
+                    const estilos = window.getComputedStyle(slider);
+                    const gap = parseFloat(estilos.columnGap) || 0;
+
+                    const distancia = tarjeta
+                        ? tarjeta.getBoundingClientRect().width + gap
+                        : slider.clientWidth * 0.85;
+
+                    slider.scrollBy({
+                        left: distancia * Number(boton.dataset.dir),
+                        behavior: "smooth"
+                    });
+                });
+            });
+
+            document.querySelectorAll(".carta-slider").forEach(slider => {
+                slider.addEventListener(
+                    "scroll",
+                    actualizarFlechas,
+                    { passive: true }
+                );
+            });
+
+            window.addEventListener("resize", actualizarFlechas);
+            window.addEventListener("load", actualizarFlechas);
+
+            actualizarFlechas();
+        })();
+    </script>
 
     <script src="script.js"></script>
 
-
 </body>
-
 </html>
